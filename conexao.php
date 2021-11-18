@@ -1,18 +1,9 @@
-<?php 
+<?php
 
+define('HOST', 'localhost');
+define('USER', 'root');
+define('PASS', '');
+define('PORT', '3312');
+define('DBNAME', 'agroven');
 
-try {
-	
-
-	$conectar = new PDO("mysql:host=localhost;dbname=agroven", 'root', ''); 
-
-
-} catch (PDOException $e){
-
-
-	echo ' Falha ao conectar com o banco de dados: ' . $e->getMessage();
-
-}
-
-
-?>
+$conectar = new PDO('mysql:host=' . ';port=' . PORT.  HOST . ';dbname=' . DBNAME . ';', USER, PASS);
