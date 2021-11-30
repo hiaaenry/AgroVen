@@ -36,13 +36,13 @@
 
 <div id="id01" class="modal">
 
-  <form class="modal-content animate" action="/action_page.php" method="POST">
+  <form class="modal-content animate" action="login.php" method="POST">
 
-    <div class="imgcontainer">
+  <!--   <div class="imgcontainer">
       <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
     </div>
 
-    <div class="container">
+    <div class="container"> --->
 
       <label for="uname"><b>E-mail</b></label>
       <input type="email" placeholder="Digite seu e-mail" name="email" required>
@@ -53,7 +53,7 @@
       <button name="cadastrar" class="entrar" type="submit">Entrar</button>
       <a href="registro.php">Não tem uma conta?</a>
 
-    </div>
+   <!--  </div> -->
   </form>
 </div>
 

@@ -8,6 +8,7 @@
   			</div>
 
   			<form action="cadastrar.php" method="POST">
+          <input type="text" placeholder="Digite seu nome" name="nome" required />
   				<input type="email" placeholder="Digite seu e-mail" name="email" required />
 
   					<input type="password" placeholder="Digite sua senha" name="senha" required />
@@ -123,7 +124,7 @@
   		padding: 5%;
   		text-align: center;
   	}
-
+    input[type="text"],
   	input[type="email"],
   	input[type="password"] {
   		width: 70%;
