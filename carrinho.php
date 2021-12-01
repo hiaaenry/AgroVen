@@ -1,12 +1,17 @@
 <?php
+
 include_once 'conexao.php';
+$id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
+
 ?>
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <title>Produtos</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho</title>
 </head>
 
 <body>
@@ -31,74 +36,77 @@ include_once 'conexao.php';
             </div>
 
             <div class="container" style="padding-top: 35px;">
-                <!-- <img src="#" alt="fotoperfil"> -->
+
+                <a href="carrinho.html">Carrinhos</a>
 
                 <button class="entrar" onclick='sair()'> Sair </button>
             </div>
         </form>
     </div>
-    <div class="tudo">
-        <div class="pesquisa">
-            <input type="text" placeholder="Pesquise aqui">
-        </div>
 
-        <div class="categorias">
-            <div class="cartao">
-                <img src="imagem.png" alt="animais">
-                <h2>Animais</h2>
-            </div>
-            <div class="cartao">
-                <img src="imagem.png" alt="frutas">
-                <h2>Frutas</h2>
-            </div>
-            <div class="cartao">
-                <img src="imagem.png" alt="verduras">
-                <h2>Verduras</h2>
-            </div>
-            <div class="cartao">
-                <img src="imagem.png" alt="animais">
-                <h2>Animais</h2>
-            </div>
-            <div class="cartao">
-                <img src="imagem.png" alt="animais">
-                <h2>Animais</h2>
-            </div>
-        </div>
+    <div class="tudo">
 
         <div class="listagem">
             <?php
 
 
-            $exibir_banco = "SELECT * FROM produto ORDER BY id ASC";
+            $selecionar = "SELECT * FROM produto WHERE id=$id";
 
-            $exibir = $conectar->prepare($exibir_banco);
-            $exibir->execute();
 
-            while ($row = $exibir->fetch(PDO::FETCH_ASSOC)) {
+            $compra = $conectar->prepare($selecionar);
+            $compra->execute();
+            $row = $compra->fetch(PDO::FETCH_ASSOC);
             ?>
 
-                <div class="produto">
-                    <div class="coluna">
-                        <img src="imagens/<?= $row['id'] ?>/<?= $row['imagem'] ?>" class="img">
-                    </div>
-                    <div class="coluna">
-                        <?php
-                        echo "Nome: " . $row['nome'] . "<br>";
-                        echo "Descrição: " . $row['descricao'] . "<br>";
-                        echo "Preço: " . $row['preco'] . "<br>";
-                        ?>
-                       <!--- <input type="submit" value="comprar"> -->
-                    </div>
-                <?php
-                echo "<a href='cadEditar.php?id=" . $row['id'] . "'>Editar</a><br>";
-                echo "<a href='apagar.php?id=" . $row['id'] . "'>Apagar</a><br>";
-                echo "<a href='carrinho.php?id=" . $row['id'] . "'>Comprar</a><br>";
-            }
-                ?>
+            <div class="produto">
+                <div class="coluna">
+                    <img src="imagens/<?= $row['id'] ?>/<?= $row['imagem'] ?>" class="img">
                 </div>
+                <div class="coluna">
+
+                    <?php
+                    echo "Nome: " . $row['nome'] . "<br>";
+                    echo "Descrição: " . $row['descricao'] . "<br>";
+                    echo "Preço: " . $row['preco'] . "<br>";
+                    ?>
+                    <p>Quantidade:</p>
+                    <input type="number" min="1">
+                    <p>Especifique a grandeza:</p>
+                    <input type="text">
+                    <input type="submit" value="comprar">
+                    <input type="text" id="input">
+                    <button class="button" id="botao">imprimir</button>
+                    </inpu>
+                </div>
+            </div>
+
         </div>
     </div>
+
+
 </body>
+
+<script>
+    //desabilita o botão no início
+    document.getElementById("botao").disabled = true;
+
+    //cria um event listener que escuta mudanças no input
+    document.getElementById("input").addEventListener("input", function(event) {
+
+        //busca conteúdo do input
+        var imprimir = document.getElementById("input").value;
+
+        //valida conteudo do input 
+        if (imprimir !== null && imprimir !== '') {
+            //habilita o botão
+            document.getElementById("botao").disabled = false;
+        } else {
+            //desabilita o botão se o conteúdo do input ficar em branco
+            document.getElementById("botao").disabled = true;
+        }
+    });
+</script>
+
 <style>
     a {
         text-decoration: none;
@@ -106,6 +114,10 @@ include_once 'conexao.php';
 
     body {
         background-color: #398646;
+    }
+
+    .tudo {
+        margin-left: 20%;
     }
 
     .topnav {
@@ -135,8 +147,9 @@ include_once 'conexao.php';
         border-radius: 25px;
     }
 
-    input[type="text"] {
-        width: 100%;
+    input[type="text"],
+    [type="number"] {
+        width: 80%;
         padding: 15px 20px;
         margin: 8px 0px;
         display: inline-block;
@@ -145,43 +158,11 @@ include_once 'conexao.php';
         border-radius: 5px;
     }
 
-    .tudo {
-        margin-left: 20%;
-    }
-    
-    .pesquisa {
-        width: 40%;
-        margin: 8px 0px;
-        display: inline-block;
-        box-sizing: border-box;
-        border-radius: 5px;
-    }
-
-    .categorias {
-        background-color: #1d5e28;
-        width: 50%;
-        height: 140px;
-        padding: 1%;
-        border-radius: 5px;
-        text-align: center;
-    }
-
-    .cartao {
-        float: left;
-        margin: 0px 1%;
-        padding: 1% 1%;
-    }
-
-    .cartao img {
-        border-radius: 50%;
-        width: 70px;
-    }
-
     .listagem {
         background-color: #1d5e28;
         width: 50%;
         margin-top: 2%;
-        height: 1000px;
+        height: 400px;
         padding: 1%;
         border-radius: 5px;
     }

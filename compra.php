@@ -2,8 +2,8 @@
 session_start();
 include_once 'conexao.php';
 
-$editar = filter_input(INPUT_POST, 'editar', FILTER_SANITIZE_STRING);
-if($editar){
+$compra = filter_input(INPUT_POST, 'compra', FILTER_SANITIZE_STRING);
+if($compra){
 
     $id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
     $nome = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_STRING);
