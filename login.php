@@ -20,16 +20,16 @@ if ($result == false) {
 
 session_start();
 $_SESSION['auth'] = true;
-$_SESSION['user_id'] = $result['id'];
+$_SESSION['id'] = $result['id'];
 //$_SESSION['user_name'] = $result['nome'];
 
 
 
-//if(!isset($_SESSION['auth']) || $_SESSION['auth'] !==true){
+if(!isset($_SESSION['auth']) || $_SESSION['auth'] !==true){
 
-	//echo "<script>window.location='index.php';alert('Usuario não está logado!');</script>";
+	echo "<script>window.location='index.php';alert('Usuario não está logado!');</script>";
 	
-//}
+}
 
 echo "<script>window.location='index.php';alert('Olá, Seja Bem Vindo!');</script>";
 

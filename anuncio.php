@@ -9,31 +9,35 @@ session_start();
 		echo $_SESSION['msg'];
 		unset($_SESSION['msg']);
 	}
+
+	if (!isset ($SESSION['auth']) || ($_SESSION['auth']) !==true){
+
+		echo "<script>window.location='index.php';alert('Você precisa está logado!');</script>";
+		exit;
+	} else {
+		header("Location: anuncio.php");
+	}
 	?>
 
 	<script src="https://use.fontawesome.com/c1a45d17ac.js"></script>
 	<div class="topnav">
 		<div class="links">
 			<a onclick="document.getElementById('id01').style.display='block'" style="cursor: pointer;" class="fa fa-user-circle" aria-hidden="true">
-
-				<a href="" class="fa fa-phone" aria-hidden="true">
 		</div>
 		<div class="logo">
-			<a href="bindex.php">
+			<a href="index.php">
 				<img src="imagem/logo.png" alt="AgroVen" width="100px" />
 			</a>
 		</div>
 	</div>
 
 	<div id="id01" class="modal">
-		<form class="modal-content animate" action="/action_page.php" method="post">
+		<form class="modal-content animate" action="login.php" method="post">
 			<div class="imgcontainer">
 				<span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
 			</div>
 
 			<div class="container" style="padding-top: 35px;">
-				<!-- <img src="#" alt="fotoperfil"> -->
-
 				<button class="entrar" onclick='sair()'> Sair </button>
 			</div>
 		</form>
@@ -42,7 +46,7 @@ session_start();
 	<h1 style="text-align: center;">Qual será seu Anúncio?</h1>
 
 	<div class="tabela">
-	<form method="POST" action="produto.php" enctype="multipart/form-data">
+		<form method="POST" action="produto.php" enctype="multipart/form-data">
 			<div class="coluna">
 				<h3>Sobre seu Produto</h3>
 				<input type="text" name="nome" placeholder="Nome do Produto" required><br><br>
@@ -61,9 +65,6 @@ session_start();
 			<div class="coluna">
 				<h3>Imagens da Produção</h3>
 				<input type="file" name="imagem" required>
-				<!-- <input type="file" name="imagem" required>
-				<input type="file" name="imagem" required>
-				<input type="file" name="imagem" required> -->
 
 				<!-- <h3>Informações Opcionais</h3>
 
@@ -227,30 +228,5 @@ session_start();
 	.close:focus {
 		color: #f5900c;
 		cursor: pointer;
-	}
-
-	.animate {
-		-webkit-animation: animatezoom 0.6s;
-		animation: animatezoom 0.6s;
-	}
-
-	@-webkit-keyframes animatezoom {
-		from {
-			-webkit-transform: scale(0);
-		}
-
-		to {
-			-webkit-transform: scale(1);
-		}
-	}
-
-	@keyframes animatezoom {
-		from {
-			transform: scale(0);
-		}
-
-		to {
-			transform: scale(1);
-		}
 	}
 </style>

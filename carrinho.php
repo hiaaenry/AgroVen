@@ -18,7 +18,8 @@ $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
     <script src="https://use.fontawesome.com/c1a45d17ac.js"></script>
     <div class="topnav">
         <div class="links">
-            <a onclick="document.getElementById('id01').style.display='block'" style="cursor: pointer;" class="fa fa-user-circle" aria-hidden="true">
+            <a onclick="document.getElementById('id01').style.display='block'" style="cursor: pointer;"
+                class="fa fa-user-circle" aria-hidden="true">
 
                 <a href="" class="fa fa-phone" aria-hidden="true">
         </div>
@@ -32,7 +33,8 @@ $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
     <div id="id01" class="modal">
         <form class="modal-content animate" action="/action_page.php" method="post">
             <div class="imgcontainer">
-                <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                <span onclick="document.getElementById('id01').style.display='none'" class="close"
+                    title="Close Modal">&times;</span>
             </div>
 
             <div class="container" style="padding-top: 35px;">
@@ -48,39 +50,39 @@ $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 
         <div class="listagem">
             <?php
+       
 
-
-            $selecionar = "SELECT * FROM produto WHERE id=$id";
-
-
-            $compra = $conectar->prepare($selecionar);
-            $compra->execute();
-            $row = $compra->fetch(PDO::FETCH_ASSOC);
-            ?>
+        $selecionar = "SELECT * FROM produto WHERE id=$id";
+        
+        
+        $compra = $conectar->prepare($selecionar);
+        $compra->execute();
+        $row = $compra->fetch(PDO::FETCH_ASSOC); 
+        ?>
 
             <div class="produto">
                 <div class="coluna">
-                    <img src="imagens/<?= $row['id'] ?>/<?= $row['imagem'] ?>" class="img">
+                    <img src="imagens/<?=$row['id']?>/<?=$row['imagem']?>" class= "img">
                 </div>
                 <div class="coluna">
 
                     <?php
                     echo "Nome: " . $row['nome'] . "<br>";
-                    echo "Descrição: " . $row['descricao'] . "<br>";
-                    echo "Preço: " . $row['preco'] . "<br>";
-                    ?>
-                    <p>Quantidade:</p>
-                    <input type="number" min="1">
-                    <p>Especifique a grandeza:</p>
-                    <input type="text">
-                    <input type="submit" value="comprar">
-                    <input type="text" id="input">
-                    <button class="button" id="botao">imprimir</button>
-                    </inpu>
-                </div>
-            </div>
-
+            echo "Descrição: " . $row['descricao'] . "<br>";
+            echo "Preço: " . $row['preco'] . "<br>";
+             ?>
+            <p>Quantidade:</p>
+            <input type="number" min="1">
+            <p>Especifique a grandeza:</p>
+            <input type="text">
+            <input type="submit" value="comprar">
+            <input type="text" id="input">
+            <button class="button" id="botao">imprimir</button>
+            </inpu>
         </div>
+    </div>
+
+    </div>
     </div>
 
 
@@ -91,7 +93,7 @@ $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
     document.getElementById("botao").disabled = true;
 
     //cria um event listener que escuta mudanças no input
-    document.getElementById("input").addEventListener("input", function(event) {
+    document.getElementById("input").addEventListener("input", function (event) {
 
         //busca conteúdo do input
         var imprimir = document.getElementById("input").value;

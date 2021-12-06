@@ -7,15 +7,13 @@ include_once 'conexao.php';
 <head>
     <meta charset="UTF-8">
     <title>Produtos</title>
+    <script src="https://use.fontawesome.com/c1a45d17ac.js"></script>
 </head>
 
 <body>
-    <script src="https://use.fontawesome.com/c1a45d17ac.js"></script>
     <div class="topnav">
         <div class="links">
-            <a onclick="document.getElementById('id01').style.display='block'" style="cursor: pointer;" class="fa fa-user-circle" aria-hidden="true">
-
-                <a href="" class="fa fa-phone" aria-hidden="true">
+            <p onclick="document.getElementById('id01').style.display='block'" style="cursor: pointer;" class="fa fa-user-circle" aria-hidden="true">
         </div>
         <div class="logo">
             <a href="index.php">
@@ -31,9 +29,7 @@ include_once 'conexao.php';
             </div>
 
             <div class="container" style="padding-top: 35px;">
-                <!-- <img src="#" alt="fotoperfil"> -->
-
-                <button class="entrar" onclick='sair()'> Sair </button>
+                <button class="entrar" onclick='sair()'> Entrar </button>
             </div>
         </form>
     </div>
@@ -83,16 +79,15 @@ include_once 'conexao.php';
                     </div>
                     <div class="coluna">
                         <?php
-                        echo "Nome: " . $row['nome'] . "<br>";
-                        echo "Descrição: " . $row['descricao'] . "<br>";
-                        echo "Preço: " . $row['preco'] . "<br>";
+                        echo "<p>Nome: " . $row['nome'] . "</p>";
+                        echo "<p>Descrição: " . $row['descricao'] . "</p>";
+                        echo "<p>Preço: " . $row['preco'] . "</p>";
+                        /* echo "<a href='cadEditar.php?id=" . $row['id'] . "'>Editar</a><br>";
+                        echo "<a href='apagar.php?id=" . $row['id'] . "'>Apagar</a><br>"; */
+                        echo "<a href='carrinho.php?id=" . $row['id'] . "'><button>Comprar</button></a><br>";
                         ?>
-                       <!--- <input type="submit" value="comprar"> -->
                     </div>
                 <?php
-                echo "<a href='cadEditar.php?id=" . $row['id'] . "'>Editar</a><br>";
-                echo "<a href='apagar.php?id=" . $row['id'] . "'>Apagar</a><br>";
-                echo "<a href='carrinho.php?id=" . $row['id'] . "'>Comprar</a><br>";
             }
                 ?>
                 </div>
@@ -105,11 +100,11 @@ include_once 'conexao.php';
     }
 
     body {
-        background-color: #398646;
+        background-color: white;
     }
 
     .topnav {
-        background-color: #1d5e28;
+        background-color: #5c913b;
         overflow: hidden;
         padding: 5px;
     }
@@ -120,7 +115,7 @@ include_once 'conexao.php';
         width: 6em;
     }
 
-    .links a {
+    .topnav p {
         float: right;
         color: white;
         text-align: center;
@@ -129,7 +124,7 @@ include_once 'conexao.php';
         font-size: 17px;
     }
 
-    .links :hover {
+    .topnav p:hover {
         background-color: #f5900c;
         color: #1d5e28;
         border-radius: 25px;
@@ -143,12 +138,13 @@ include_once 'conexao.php';
         border: 1px solid #ccc;
         box-sizing: border-box;
         border-radius: 5px;
+        background-color: whitesmoke;
     }
 
     .tudo {
         margin-left: 20%;
     }
-    
+
     .pesquisa {
         width: 40%;
         margin: 8px 0px;
@@ -158,11 +154,10 @@ include_once 'conexao.php';
     }
 
     .categorias {
-        background-color: #1d5e28;
+        background-color: #5c913b;
         width: 50%;
         height: 140px;
         padding: 1%;
-        border-radius: 5px;
         text-align: center;
     }
 
@@ -178,10 +173,7 @@ include_once 'conexao.php';
     }
 
     .listagem {
-        background-color: #1d5e28;
-        width: 50%;
         margin-top: 2%;
-        height: 1000px;
         padding: 1%;
         border-radius: 5px;
     }
@@ -189,18 +181,18 @@ include_once 'conexao.php';
     .produto {
         width: 100%;
         float: left;
-        margin: 0px 1%;
-        padding: 1% 1%;
     }
 
     .coluna {
         float: left;
-        width: 46%;
-        margin: 0px 2% 50px 2%;
+        background-color: #5c913b;
+        height: 150px;
+        padding: 30px;
     }
 
     .coluna img {
         width: 200px;
+        max-height: 200px;
     }
 
     .entrar {

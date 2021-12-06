@@ -2,17 +2,17 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://use.fontawesome.com/c1a45d17ac.js"></script>
-  <title>AgroVen</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://use.fontawesome.com/c1a45d17ac.js"></script>
+	<title>AgroVen</title>
 </head>
 
 <script>
 	var modal = document.getElementById("id01");
 
-	window.onclick = function (event) {
+	window.onclick = function(event) {
 		if (event.target == modal) {
 			modal.style.display = "none";
 		}
@@ -22,42 +22,39 @@
 <body>
 	<script src="https://use.fontawesome.com/c1a45d17ac.js"></script>
 
-  <div class="topnav">
+	<div class="topnav">
 
-<a onclick="document.getElementById('id01').style.display='block'" style="cursor: pointer;" class="fa fa-user-circle" aria-hidden="true"></a>
+		<p onclick="document.getElementById('id01').style.display='block'" style="cursor: pointer;" class="fa fa-user-circle" aria-hidden="true"></a>
 
-<a href="" class="fa fa-phone" aria-hidden="true"></a>
+		<div class="logo">
+			<img src="imagem/logo.png" alt="AgroVen" width="100px">
+		</div>
 
-<div class="logo">
-  <img src="imagem/logo.png" alt="AgroVen" width="100px">
-</div>
+	</div>
 
-</div>
+	<div id="id01" class="modal">
 
-<div id="id01" class="modal">
+		<form class="modal-content" action="login.php" method="POST">
 
-  <form class="modal-content animate" action="login.php" method="POST">
+			<div class="imgcontainer">
+				<span onclick="document.getElementById('id01').style.display='none'" class="fechar" title="Fechar">&times;</span>
+			</div>
 
-  <!--   <div class="imgcontainer">
-      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-    </div>
+			<div class="container">
 
-    <div class="container"> --->
+				<input type="email" placeholder="Digite seu e-mail" name="email" required>
 
-      <label for="uname"><b>E-mail</b></label>
-      <input type="email" placeholder="Digite seu e-mail" name="email" required>
+				<input type="password" placeholder="Digite sua senha" name="senha" required>
 
-      <label for="psw"><b>Senha</b></label>
-      <input type="password" placeholder="Digite sua senha" name="senha" required>
+				<button name="cadastrar" class="entrar" type="submit">Entrar</button>
+				<a href="registro.php">Não tem uma conta?</a>
 
-      <button name="cadastrar" class="entrar" type="submit">Entrar</button>
-      <a href="registro.php">Não tem uma conta?</a>
-
-   <!--  </div> -->
-  </form>
-</div>
-
-	<button class="btn buscar">Busque por produtos</button>
+			</div>
+		</form>
+	</div>
+	<a href="listarProdutos.php">
+		<button class="btn buscar">Busque por produtos</button>
+	</a>
 	<a href="anuncio.php">
 		<button class="btn anunciar">Anuncie seus produtos</button>
 	</a>
@@ -71,6 +68,11 @@
 		</div>
 	</div>
 </body>
+
+<footer>
+	<a class="fa fa-github"></a>
+	<a class="fa fa-instagram"></a>
+</footer>
 
 </html>
 
@@ -87,9 +89,22 @@
 	}
 
 	.topnav {
-		background-color: #1d5e28;
+		background-color: #5c913b;
 		overflow: hidden;
 		padding: 5px;
+	}
+
+	.topnav p {
+		float: right;
+		color: white;
+		padding: 14px 16px;
+		font-size: 17px;
+	}
+
+	.topnav p:hover {
+		background-color: #f5900c;
+		color: #1d5e28;
+		border-radius: 25px;
 	}
 
 	.logo {
@@ -98,33 +113,18 @@
 		width: 6em;
 	}
 
-	.topnav a {
-		float: right;
-		color: white;
-		text-align: center;
-		padding: 14px 16px;
-		text-decoration: none;
-		font-size: 17px;
-	}
-
-	.topnav a:hover {
-		background-color: #f5900c;
-		color: #1d5e28;
-		border-radius: 25px;
-	}
-
 	.btn {
 		border: 2px solid white;
 		border-radius: 5px;
 		background-color: white;
 		padding: 14px 28px;
 		font-size: 16px;
-		cursor: pointer;
 		float: left;
 		width: 30%;
 		margin: 20px 10% 20px 10%;
 		box-shadow: 5px 5px 15px black;
 		color: #662113;
+		cursor: pointer;
 	}
 
 	.btn:hover {
@@ -203,44 +203,34 @@
 		width: 40%;
 	}
 
-	.close {
+	.fechar {
 		position: absolute;
-		right: 25px;
+		right: 20px;
 		top: 0;
 		color: #000;
-		font-size: 35px;
+		font-size: 25px;
 		font-weight: bold;
 		cursor: pointer;
 	}
 
-	.close:hover,
-	.close:focus {
+	.fechar:hover,
+	.fechar:focus {
 		color: #f5900c;
 		cursor: pointer;
 	}
 
-	.animate {
-		-webkit-animation: animatezoom 0.6s;
-		animation: animatezoom 0.6s;
+	footer {
+		width: 100%;
+		background-color: #662113;
+		color: white;
+		font-size: 30px;
+		bottom: 0px;
+		right: 0px;
+		position: absolute;
+		text-align: center;
 	}
 
-	@-webkit-keyframes animatezoom {
-		from {
-			-webkit-transform: scale(0);
-		}
-
-		to {
-			-webkit-transform: scale(1);
-		}
-	}
-
-	@keyframes animatezoom {
-		from {
-			transform: scale(0);
-		}
-
-		to {
-			transform: scale(1);
-		}
+	footer a {
+		padding: 30px 0px 30px 0px;
 	}
 </style>

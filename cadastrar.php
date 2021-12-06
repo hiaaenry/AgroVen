@@ -17,7 +17,6 @@ $inserir = "INSERT INTO usuarios (nome, email, senha) VALUES('$nome', '$email', 
 
 $conectar->exec($inserir);
 
-echo "<script>window.location='registro.php';alert('Cadastro realizado com sucesso!');</script>";
-}
+echo "<script>window.location='registro.php';alert('Cadastro realizado com sucesso!');</script>";}
 ?>
 

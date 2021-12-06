@@ -3,7 +3,7 @@
   		<div class="coluna">
   			<div class="logo">
 			  <a href="/index.php">
-  				<img src="imagem/logo2.png" alt="AgroVen" width="100%" />
+  				<img src="imagem/logo.png" alt="AgroVen" width="100%" />
 			  </a>
   			</div>
 
@@ -37,7 +37,7 @@
 
   <style>
   	body {
-  		background-color: #398646;
+  		background-color: #5c913b;
   	}
 
   	.logo {
@@ -46,7 +46,7 @@
   	}
 
   	button {
-  		border: 2px solid #398646;
+  		border: 2px solid  #5c913b;
   		border-radius: 5px;
   		background-color: #f5900c;
   		padding: 14px 28px;
@@ -63,7 +63,8 @@
   	}
 
   	h3 {
-  		color: #1d5e28;
+  		color: white;
+		font-weight: 600;
   	}
 
   	.tabela:after {

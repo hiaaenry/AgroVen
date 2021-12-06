@@ -26,6 +26,7 @@ SET time_zone = "+00:00";
 --
 -- Estrutura da tabela `produto`
 --
+use agroven;
 
 CREATE TABLE `produto` (
   `id` int(11) NOT NULL,
