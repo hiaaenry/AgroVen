@@ -1,19 +1,29 @@
 <?php
+
 include_once 'conexao.php';
+
 ?>
+
+    
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
-    <title>Produtos</title>
-    <script src="https://use.fontawesome.com/c1a45d17ac.js"></script>
+    <title>Lista de Desejos </title>
 </head>
 
+
 <body>
+         
+    <script src="https://use.fontawesome.com/c1a45d17ac.js"></script>
     <div class="topnav">
         <div class="links">
-            <p onclick="document.getElementById('id01').style.display='block'" style="cursor: pointer;" class="fa fa-user-circle" aria-hidden="true">
+            <a onclick="document.getElementById('id01').style.display='block'" style="cursor: pointer;" class="fa fa-user-circle" aria-hidden="true">
+
+                <a href="" class="fa fa-phone" aria-hidden="true">
         </div>
         <div class="logo">
             <a href="index.php">
@@ -21,6 +31,7 @@ include_once 'conexao.php';
             </a>
         </div>
     </div>
+               
 
     <div id="id01" class="modal">
         <form class="modal-content animate" action="/action_page.php" method="post">
@@ -29,7 +40,9 @@ include_once 'conexao.php';
             </div>
 
             <div class="container" style="padding-top: 35px;">
-                <button class="entrar" onclick='sair()'> Entrar </button>
+                <!-- <img src="#" alt="fotoperfil"> -->
+
+<a  class="entrar" onclick='sair()'> Saa >
             </div>
         </form>
     </div>
@@ -65,39 +78,42 @@ include_once 'conexao.php';
             <?php
 
 
-            $exibir_banco = "SELECT * FROM produto ORDER BY id ASC";
-
+            $exibir_banco = "SELECT p.nome AS produto, p.preco AS preco, p.id AS id 
+                             FROM `lista_de_desejos` AS ld 
+                             LEFT JOIN `produto` AS p
+                             ON ld.id_produto = p.id
+                             ORDER BY id ASC";
             $exibir = $conectar->prepare($exibir_banco);
             $exibir->execute();
-
             while ($row = $exibir->fetch(PDO::FETCH_ASSOC)) {
             ?>
-                <!---  LISTA DE DESEJOS [BOTÃO]    -->
-                <div class="coluna">
-                    <a href="adicionarItemListaDesejos.php?idProduto=<?php echo $row['id']; ?>">
-                        <img src="imagens/Botao-favoritos/11.png">
-                        <!---Fim [BOTÃO]    -->
 
-                        <div class="produto">
-                            <div class="coluna">
-                                <img src="imagens/<?= $row['id'] ?>/<?= $row['imagem'] ?>" class="img">
-                            </div>
-                            <div class="coluna">
-                                <?php
-                                echo "<p>Nome: " . $row['nome'] . "</p>";
-                                echo "<p>Descrição: " . $row['descricao'] . "</p>";
-                                echo "<p>Preço: " . $row['preco'] . "</p>";
-                                /* echo "<a href='cadEditar.php?id=" . $row['id'] . "'>Editar</a><br>";
-                        echo "<a href='apagar.php?id=" . $row['id'] . "'>Apagar</a><br>"; */
-                                echo "<a href='carrinho.php?id=" . $row['id'] . "'><button>Comprar</button></a><br>";
-                                ?>
-                            </div>
+<div class="favoritos">
+</body> 
+
+ 
+</div>
+                <div class="produto">
+                    <div class="coluna">
+                         <!--- <img src="imagens/<?= $row['nome'] ?>/<?= $row['preco'] ?>" class="img"> -->
+                    </div>
+                    <div class="coluna">
                         <?php
-                    }
+                        echo "Nome: " . $row['produto'] . "<br>";
+                       
+                        echo "Preço: " . $row['preco'] . "<br>";
                         ?>
-                        </div>
+                       <!--- <input type="submit" value="comprar"> -->
+                    </div>
+                <?php
+                echo "<a href='cadEditar.php?id=" . $row['id'] . "'>Editar</a><br>";
+                echo "<a href='apagar.php?id=" . $row['id'] . "'>Apagar</a><br>";
+                echo "<a href='carrinho.php?id=" . $row['id'] . "'>Comprar</a><br>";
+            }
+                ?>
                 </div>
         </div>
+    </div>
 </body>
 <style>
     a {
@@ -105,11 +121,16 @@ include_once 'conexao.php';
     }
 
     body {
-        background-color: white;
+        background-color: #398646;
     }
+    .favoritos {
 
+      
+        width: 30%;
+                    white-space: normal;
+    }
     .topnav {
-        background-color: #5c913b;
+        background-color: #1d5e28;
         overflow: hidden;
         padding: 5px;
     }
@@ -120,7 +141,7 @@ include_once 'conexao.php';
         width: 6em;
     }
 
-    .topnav p {
+    .links a {
         float: right;
         color: white;
         text-align: center;
@@ -129,7 +150,7 @@ include_once 'conexao.php';
         font-size: 17px;
     }
 
-    .topnav p:hover {
+    .links :hover {
         background-color: #f5900c;
         color: #1d5e28;
         border-radius: 25px;
@@ -143,13 +164,12 @@ include_once 'conexao.php';
         border: 1px solid #ccc;
         box-sizing: border-box;
         border-radius: 5px;
-        background-color: whitesmoke;
     }
 
     .tudo {
         margin-left: 20%;
     }
-
+    
     .pesquisa {
         width: 40%;
         margin: 8px 0px;
@@ -159,10 +179,11 @@ include_once 'conexao.php';
     }
 
     .categorias {
-        background-color: #5c913b;
+        background-color: #1d5e28;
         width: 50%;
         height: 140px;
         padding: 1%;
+        border-radius: 5px;
         text-align: center;
     }
 
@@ -178,7 +199,10 @@ include_once 'conexao.php';
     }
 
     .listagem {
+        background-color: #1d5e28;
+        width: 50%;
         margin-top: 2%;
+        height: 1000px;
         padding: 1%;
         border-radius: 5px;
     }
@@ -186,18 +210,18 @@ include_once 'conexao.php';
     .produto {
         width: 100%;
         float: left;
+        margin: 0px 1%;
+        padding: 1% 1%;
     }
 
     .coluna {
         float: left;
-        background-color: #5c913b;
-        height: 150px;
-        padding: 30px;
+        width: 46%;
+        margin: 0px 2% 50px 2%;
     }
 
     .coluna img {
         width: 200px;
-        max-height: 200px;
     }
 
     .entrar {
@@ -266,3 +290,4 @@ include_once 'conexao.php';
 </style>
 
 </html>
+
