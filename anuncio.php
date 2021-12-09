@@ -1,28 +1,23 @@
 <?php
 session_start();
+require "verifica.php";
 ?>
 
 <body>
 
 	<?php
+
 	if (isset($_SESSION['msg'])) {
 		echo $_SESSION['msg'];
 		unset($_SESSION['msg']);
 	}
 
-	if (!isset ($SESSION['auth']) || ($_SESSION['auth']) !==true){
-
-		echo "<script>window.location='index.php';alert('Você precisa está logado!');</script>";
-		exit;
-	} else {
-		header("Location: anuncio.php");
-	}
 	?>
 
 	<script src="https://use.fontawesome.com/c1a45d17ac.js"></script>
 	<div class="topnav">
 		<div class="links">
-			<a onclick="document.getElementById('id01').style.display='block'" style="cursor: pointer;" class="fa fa-user-circle" aria-hidden="true">
+			<p onclick="document.getElementById('id01').style.display='block'" style="cursor: pointer;" class="fa fa-user-circle" aria-hidden="true">
 		</div>
 		<div class="logo">
 			<a href="index.php">
@@ -32,17 +27,17 @@ session_start();
 	</div>
 
 	<div id="id01" class="modal">
-		<form class="modal-content animate" action="login.php" method="post">
+		<div class="modal-content">
 			<div class="imgcontainer">
 				<span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
 			</div>
-
-			<div class="container" style="padding-top: 35px;">
-				<button class="entrar" onclick='sair()'> Sair </button>
-			</div>
-		</form>
+			<form action="sair.php" method="post">
+				<div class="container" style="padding-top: 35px;">
+					<button class="botao"><a href="sair.php">Sair</a></button>
+				</div>
+			</form>
+		</div>
 	</div>
-
 	<h1 style="text-align: center;">Qual será seu Anúncio?</h1>
 
 	<div class="tabela">
@@ -50,8 +45,8 @@ session_start();
 			<div class="coluna">
 				<h3>Sobre seu Produto</h3>
 				<input type="text" name="nome" placeholder="Nome do Produto" required><br><br>
-				<input type="text" name="descricao" placeholder="Descrição do Produto" required style="padding-bottom: 30%;"><br><br>
-				<input type="text" name="preco" placeholder="Preço do Produto" required><br><br>
+				<input type="text" name="descricao" placeholder="Descrição do Produto" required style="padding-bottom: 20%;"><br><br>
+				<h3>R$:</h3><input type="number" name="preco" placeholder="Preço do Produto R$:" required><br><br>
 				<!-- <h3>Tipo do Produto</h3>
 				<input type="radio" value="frutas" id="frutas" name="produto" />
 				<label for="frutas">Frutas</label><br />
@@ -78,24 +73,26 @@ session_start();
 				<label for="number">Compartilhar localização</label><br />
 				<br />
 				<br /> -->
-				<input type="submit" name="cadastrar" class="publicar" value="Anunciar Produto"><br>
-				<a href="listarProdutos.php">Todos os produtos</a>
+				<input type="submit" name="cadastrar" class="publicar" value="Anunciar Produto">
 			</div>
 		</form>
 	</div>
 </body>
-
+<footer>
+	<a class="fa fa-github"></a>
+	<a class="fa fa-instagram"></a>
+</footer>
 <style>
 	a {
 		text-decoration: none;
 	}
 
 	body {
-		background-color: #398646;
+		background-color: white;
 	}
 
 	.topnav {
-		background-color: #1d5e28;
+		background-color: #5c913b;
 		overflow: hidden;
 		padding: 5px;
 	}
@@ -106,7 +103,7 @@ session_start();
 		width: 6em;
 	}
 
-	.links a {
+	.topnav p {
 		float: right;
 		color: white;
 		text-align: center;
@@ -115,10 +112,22 @@ session_start();
 		font-size: 17px;
 	}
 
-	.links :hover {
+	.topnav p:hover {
 		background-color: #f5900c;
 		color: #1d5e28;
 		border-radius: 25px;
+	}
+
+	input[type="text"],
+	input[type="number"] {
+		width: 100%;
+		padding: 15px 20px;
+		margin: 8px 0px;
+		display: inline-block;
+		border: 1px solid #ccc;
+		box-sizing: border-box;
+		border-radius: 5px;
+		background-color: whitesmoke;
 	}
 
 	.coluna {
@@ -133,24 +142,17 @@ session_start();
 		clear: both;
 	}
 
-	input[type="text"] {
-		width: 100%;
-		padding: 15px 20px;
-		margin: 8px 0px;
-		display: inline-block;
+	input[type="file"] {
+		float: left;
+		padding: 10% 10% 10% 10%;
+		margin: 4px;
 		border: 1px solid #ccc;
 		box-sizing: border-box;
 		border-radius: 5px;
+		background-color: whitesmoke;
 	}
 
-	input[type="file"] {
-		padding: 10% 0% 10% 0%;
-		margin: 4px;
-		background-color: #ccc;
-		border-radius: 5px;
-	}
-
-	.entrar {
+	.botao {
 		background-color: #662113;
 		color: white;
 		padding: 14px 20px;
@@ -159,9 +161,10 @@ session_start();
 		cursor: pointer;
 		width: 100%;
 		border-radius: 5px;
+		text-decoration: none;
 	}
 
-	.entrar:hover {
+	.botao:hover {
 		opacity: 0.8;
 		cursor: pointer;
 	}
@@ -173,7 +176,7 @@ session_start();
 		margin: 8px 0px;
 		border: none;
 		cursor: pointer;
-		width: 40%;
+		width: 50%;
 		border-radius: 5px;
 	}
 
@@ -228,5 +231,19 @@ session_start();
 	.close:focus {
 		color: #f5900c;
 		cursor: pointer;
+	}
+
+	footer {
+		width: 100%;
+		background-color: #662113;
+		color: white;
+		font-size: 30px;
+		bottom: 0px;
+		right: 0px;
+		text-align: center;
+	}
+
+	footer a {
+		padding: 30px 0px 30px 0px;
 	}
 </style>

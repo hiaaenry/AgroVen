@@ -27,7 +27,7 @@ $_SESSION['id'] = $result['id'];
 
 if(!isset($_SESSION['auth']) || $_SESSION['auth'] !==true){
 
-	echo "<script>window.location='index.php';alert('Usuario não está logado!');</script>";
+	echo "<script>window.location='index.php';alert('Algo deu errado!');</script>";
 	
 }
 

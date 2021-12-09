@@ -67,12 +67,11 @@
 			<img src="imagem/agricultor.png" alt="AgroVen" width="100%" />
 		</div>
 	</div>
+	<footer>
+		<a href="https://github.com/Rayaninha/AgroVen.git" class="fa fa-github"></a>
+		<a href="" class="fa fa-instagram"></a>
+	</footer>
 </body>
-
-<footer>
-	<a class="fa fa-github"></a>
-	<a class="fa fa-instagram"></a>
-</footer>
 
 </html>
 
@@ -226,7 +225,6 @@
 		font-size: 30px;
 		bottom: 0px;
 		right: 0px;
-		position: absolute;
 		text-align: center;
 	}
 
