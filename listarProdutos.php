@@ -40,23 +40,23 @@ include_once 'conexao.php';
 
         <div class="categorias">
             <div class="cartao">
-                <img src="/imagem/animais.png" alt="animais">
+                <img src="imagem.png" alt="animais">
                 <h2>Animais</h2>
             </div>
             <div class="cartao">
-                <img src="/imagem/frutas.png" alt="frutas">
+                <img src="imagem.png" alt="frutas">
                 <h2>Frutas</h2>
             </div>
             <div class="cartao">
-                <img src="/imagem/verduras.png" alt="verduras">
+                <img src="imagem.png" alt="verduras">
                 <h2>Verduras</h2>
             </div>
             <div class="cartao">
-                <img src="/imagem/plantas.png" alt="plantas">
+                <img src="imagem.png" alt="animais">
                 <h2>Animais</h2>
             </div>
             <div class="cartao">
-                <img src="/imagem/derivados.png" alt="derivados">
+                <img src="imagem.png" alt="animais">
                 <h2>Animais</h2>
             </div>
         </div>
@@ -72,27 +72,32 @@ include_once 'conexao.php';
 
             while ($row = $exibir->fetch(PDO::FETCH_ASSOC)) {
             ?>
+                <!---  LISTA DE DESEJOS [BOTÃO]    -->
+                <div class="coluna">
+                    <a href="adicionarItemListaDesejos.php?idProduto=<?php echo $row['id']; ?>">
+                        <img src="imagens/Botao-favoritos/11.png">
+                        <!---Fim [BOTÃO]    -->
 
-                <div class="produto">
-                    <div class="coluna1">
-                        <img src="imagens/<?= $row['id'] ?>/<?= $row['imagem'] ?>" class="img">
-                    </div>
-                    <div class="coluna2">
+                        <div class="produto">
+                            <div class="coluna">
+                                <img src="imagens/<?= $row['id'] ?>/<?= $row['imagem'] ?>" class="img">
+                            </div>
+                            <div class="coluna">
+                                <?php
+                                echo "<p>Nome: " . $row['nome'] . "</p>";
+                                echo "<p>Descrição: " . $row['descricao'] . "</p>";
+                                echo "<p>Preço: " . $row['preco'] . "</p>";
+                                echo "<a href='cadEditar.php?id=" . $row['id'] . "'>Editar</a><br>";
+                        echo "<a href='apagarDaListaDeDesejos.php?id=" . $row['id'] . "'>Apagar</a><br>"; 
+                                echo "<a href='carrinho.php?id=" . $row['id'] . "'><button>Comprar</button></a><br>";
+                                ?>
+                            </div>
                         <?php
-                        echo "<p>Nome: " . $row['nome'] . "</p>";
-                        echo "<p>Descrição: " . $row['descricao'] . "</p>";
-                        echo "<p>Preço: R$ " . $row['preco'] . "</p>";
-                        /* echo "<a href='cadEditar.php?id=" . $row['id'] . "'>Editar</a><br>";
-                        echo "<a href='apagar.php?id=" . $row['id'] . "'>Apagar</a><br>"; */
-                        echo "<a href='carrinho.php?id=" . $row['id'] . "'><button>Comprar</button></a><br>";
+                    }
                         ?>
-                    </div>
-                <?php
-            }
-                ?>
+                        </div>
                 </div>
         </div>
-    </div>
 </body>
 <style>
     a {
@@ -147,50 +152,52 @@ include_once 'conexao.php';
 
     .pesquisa {
         width: 40%;
+        margin: 8px 0px;
         display: inline-block;
         box-sizing: border-box;
         border-radius: 5px;
     }
 
     .categorias {
-        width: auto;
+        background-color: #5c913b;
+        width: 50%;
+        height: 140px;
+        padding: 1%;
         text-align: center;
     }
 
     .cartao {
         float: left;
-        background-color: #5c913b;
-        margin-bottom: 1%;
-        padding: 1% 2%;
+        margin: 0px 1%;
+        padding: 1% 1%;
     }
 
     .cartao img {
         border-radius: 50%;
-        width: 80px;
+        width: 70px;
     }
 
     .listagem {
         margin-top: 2%;
+        padding: 1%;
+        border-radius: 5px;
     }
 
     .produto {
+        width: 100%;
         float: left;
     }
 
-    .coluna1 {
+    .coluna {
         float: left;
         background-color: #5c913b;
+        height: 150px;
         padding: 30px;
     }
 
-    .coluna2 {
-        background-color: #5c913b;
-        padding: 30px;
-    }
-
-    .coluna1 img {
+    .coluna img {
         width: 200px;
-        max-height: 150px;
+        max-height: 200px;
     }
 
     .entrar {

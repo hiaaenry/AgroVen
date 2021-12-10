@@ -80,7 +80,7 @@ include_once 'conexao.php';
 
             $exibir_banco = "SELECT p.nome AS produto, p.preco AS preco, p.id AS id 
                              FROM `lista_de_desejos` AS ld 
-                             LEFT JOIN `produto` AS p
+                             INNER JOIN `produto` AS p
                              ON ld.id_produto = p.id
                              ORDER BY id ASC";
             $exibir = $conectar->prepare($exibir_banco);
@@ -107,7 +107,7 @@ include_once 'conexao.php';
                     </div>
                 <?php
                 echo "<a href='cadEditar.php?id=" . $row['id'] . "'>Editar</a><br>";
-                echo "<a href='apagar.php?id=" . $row['id'] . "'>Apagar</a><br>";
+                echo "<a href='apagarDaListaDeDesejos.php?del=" . $row['id'] . "'>Apagar</a><br>";
                 echo "<a href='carrinho.php?id=" . $row['id'] . "'>Comprar</a><br>";
             }
                 ?>
