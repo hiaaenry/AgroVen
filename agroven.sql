@@ -50,10 +50,10 @@ INSERT INTO `produto` (`id`, `nome`, `descricao`, `preco`, `imagem`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `usuarios`
+-- Estrutura da tabela `vendedores`
 --
 
-CREATE TABLE `usuarios` (
+CREATE TABLE `vendedores` (
   `id` int(11) NOT NULL,
   `nome` varchar(100) NOT NULL,
   `email` varchar(40) NOT NULL,
@@ -61,25 +61,23 @@ CREATE TABLE `usuarios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Extraindo dados da tabela `usuarios`
+-- Extraindo dados da tabela `vendedores`
 --
 
-INSERT INTO `usuarios` (`id`, `nome`, `email`, `senha`) VALUES
+INSERT INTO `vendedores` (`id`, `nome`, `email`, `senha`) VALUES
 (10, 'Gustavo Gomez', 'ggomez@gmail.com', '123456'),
 (11, 'Chocolate Ruim', 'chocolateruim@gmail.com', '123456789');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `vendedor`
+-- Estrutura da tabela `clientes`
 --
 
-CREATE TABLE `vendedor` (
+CREATE TABLE `clientes` (
   `id` int(11) NOT NULL,
-  `nome` int(45) NOT NULL,
-  `endereco` varchar(50) NOT NULL,
+  `nome` varchar(100) NOT NULL,
   `email` varchar(45) NOT NULL,
-  `telefone` varchar(45) NOT NULL,
   `senha` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -94,9 +92,15 @@ ALTER TABLE `produto`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `usuarios`
+-- Índices para tabela `vendedores`
 --
-ALTER TABLE `usuarios`
+ALTER TABLE `vendedores`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices para tabela `vendedores`
+--
+ALTER TABLE `clientes`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -110,10 +114,16 @@ ALTER TABLE `produto`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT de tabela `usuarios`
+-- AUTO_INCREMENT de tabela `vendedores`
 --
-ALTER TABLE `usuarios`
+ALTER TABLE `vendedores`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT de tabela `clientes`
+--
+ALTER TABLE `clientes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

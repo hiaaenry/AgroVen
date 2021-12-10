@@ -7,7 +7,7 @@ Um sistema desenvolvido para estabelecer a venda online dos produtos de trabalha
 # Equipe 
 
 <ul>
-			<li> Joanna Victória </li>
+	  <li> Joanna Victória </li>
       <li> Luan Rafael </li>
       <li> Maria Eduarda </li>
       <li> Mizael Julio </li>
