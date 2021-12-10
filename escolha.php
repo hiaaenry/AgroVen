@@ -19,8 +19,8 @@
 
     <div class="container">
         <form>
-            <button type="submit"><h1>Instrutores</h1></button>
-            <button type="submit"><h1>Aluno</h1></button>
+            <button type="submit"><h1>Agricultor</h1></button>
+            <button type="submit"><h1>Cliente</h1></button>
         </form>
 
     </div>
