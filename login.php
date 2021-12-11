@@ -21,8 +21,6 @@ if ($result == false) {
 session_start();
 $_SESSION['auth'] = true;
 $_SESSION['id'] = $result['id'];
-//$_SESSION['user_name'] = $result['nome'];
-
 
 
 if(!isset($_SESSION['auth']) || $_SESSION['auth'] !==true){

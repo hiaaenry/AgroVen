@@ -13,33 +13,54 @@
 
     <div class="topnav">
 
-        <h1> Você é agricultor ou cliente? </h1>
+        <a href="index.php">
+            <div class="logo">
+                <img src="imagem/logo.png" alt="AgroVen" width="100px">
+            </div>
+        </a>
 
     </div>
 
     <div class="container">
-        <form>
-            <button type="submit"><h1>Agricultor</h1></button>
-            <button type="submit"><h1>Cliente</h1></button>
-        </form>
+            <a href="/registro.php">
+                <button>
+                    <h1>Agricultor</h1>
+                </button>
+            </a>
+            <a href="/registrocliente.php">
+                <button>
+                    <h1>Cliente</h1>
+                </button>
+            </a>
 
     </div>
 
     <footer>
-        <a href="" class="fa fa-github"></a>
+        <a href="https://github.com/Rayaninha/AgroVen.git" class="fa fa-github"></a>
+        <a href="" class="fa fa-instagram"></a>
     </footer>
 
 </body>
 
 </html>
 <style>
+    body {
+        background-image: url(imagem/fundo.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
     .topnav {
         background-color: #5c913b;
-        color: #f5900c;
         overflow: hidden;
-        padding: 1%;
-        text-align: center;
-        border: 2px solid black;
+        padding: 5px;
+    }
+
+    .logo {
+        margin-left: auto;
+        margin-right: auto;
+        width: 6em;
     }
 
     .container {
@@ -49,31 +70,37 @@
     }
 
     button {
-        background-color: #f5900c;
-        color: white;
-        padding: 1%;
-        margin: 6%;
-        border: 2px solid  #5c913b;
-        cursor: pointer;
-        width: 200px;
-        height: 200px;
-        border-radius: 50%;
+        border: 2px solid white;
+        border-radius: 5px;
+        background-color: white;
+        padding: 14px 28px;
+        font-size: 16px;
         float: left;
+        width: 40%;
+        margin: 10% 5% 0% 5%;
+        box-shadow: 5px 5px 15px black;
+        color: #662113;
+        cursor: pointer;
+    }
+
+    button:hover {
+        border: 2px solid #662113;
+        background-color: #662113;
+        color: white;
     }
 
     footer {
-        position: absolute;
         width: 100%;
-        background-color: whitesmoke;
+        background-color: #662113;
         color: white;
         font-size: 30px;
         bottom: 0px;
         right: 0px;
         text-align: center;
+        position: absolute;
     }
 
     footer a {
-        padding: 2% 0% 2% 0%;
-        color: #5c913b;
+        padding: 30px 0px 30px 0px;
     }
 </style>

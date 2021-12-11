@@ -26,7 +26,7 @@ SET time_zone = "+00:00";
 --
 -- Estrutura da tabela `produto`
 --
-use agroven;
+use agro;
 
 CREATE TABLE `produto` (
   `id` int(11) NOT NULL,
@@ -91,9 +91,31 @@ CREATE TABLE `finalizar_compra`(
   `pont_ref` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+
+CREATE TABLE `lista_de_desejos` (
+  `id_lista_desejos` int(11) NOT NULL,
+  `id_produto` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `lista_de_desejos`
+--
+
+INSERT INTO `lista_de_desejos` (`id_lista_desejos`, `id_produto`) VALUES
+(9, 5),
+(10, 6),
+(11, 6),
+(12, 10);
 --
 -- Índices para tabelas despejadas
 --
+
+
+--
+-- Índices para tabela `lista_de_desejos`
+--
+ALTER TABLE `lista_de_desejos`
+  ADD PRIMARY KEY (`id_lista_desejos`);
 
 --
 -- Índices para tabela `produto`
@@ -139,6 +161,13 @@ ALTER TABLE `vendedores`
 ALTER TABLE `clientes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 COMMIT;
+
+--
+-- AUTO_INCREMENT de tabela `lista_de_desejos`
+--
+ALTER TABLE `lista_de_desejos`
+  MODIFY `id_lista_desejos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -1,4 +1,4 @@
-  <body>
+<body>
   	<div class="tabela">
   		<div class="coluna">
   			<div class="logo">

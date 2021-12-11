@@ -47,7 +47,7 @@
 				<input type="password" placeholder="Digite sua senha" name="senha" required>
 
 				<button name="cadastrar" class="entrar" type="submit">Entrar</button>
-				<a href="registro.php">Não tem uma conta?</a>
+				<a href="escolha.php">Não tem uma conta?</a>
 
 			</div>
 		</form>
