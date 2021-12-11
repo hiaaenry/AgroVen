@@ -81,6 +81,16 @@ CREATE TABLE `clientes` (
   `senha` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+
+CREATE TABLE `finalizar_compra`(
+  `id` int(10) NOT NULL,
+  `rua` varchar(100) NOT NULL,
+  `numero` varchar(10) NOT NULL,
+  `complemento` varchar(100) NOT NULL,
+  `cidade` varchar(45) NOT NULL,
+  `pont_ref` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 --
 -- Índices para tabelas despejadas
 --
@@ -106,10 +116,14 @@ ALTER TABLE `clientes`
 --
 -- AUTO_INCREMENT de tabelas despejadas
 --
-
+ALTER TABLE `finalizar_compra`
+  ADD PRIMARY KEY (`id`);
 --
 -- AUTO_INCREMENT de tabela `produto`
 --
+ALTER TABLE `finalizar_compra`
+  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
 ALTER TABLE `produto`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
