@@ -52,7 +52,7 @@ $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
             <?php
        
 
-        $selecionar = "SELECT * FROM produto WHERE id=$id";
+        $selecionar = "SELECT * FROM AGR_PRODUTO WHERE PRO_ID=$id";
         
         
         $compra = $conectar->prepare($selecionar);
@@ -62,14 +62,14 @@ $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 
             <div class="produto">
                 <div class="coluna">
-                    <img src="imagens/<?=$row['id']?>/<?=$row['imagem']?>" class= "img">
+                    <img src="imagens/<?=$row['PRO_ID']?>/<?=$row['PRO_IMAGEM']?>" class= "img">
                 </div>
                 <div class="coluna">
 
                     <?php
-                    echo "Nome: " . $row['nome'] . "<br>";
-            echo "Descrição: " . $row['descricao'] . "<br>";
-            echo "Preço: " . $row['preco'] . "<br>";
+                    echo "Nome: " . $row['PRO_NOME'] . "<br>";
+            echo "Descrição: " . $row['PRO_DESCRICAO'] . "<br>";
+            echo "Preço: " . $row['PRO_PRECO'] . "<br>";
              ?>
             <p>Quantidade:</p>
             <input type="number" min="1">

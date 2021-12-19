@@ -6,7 +6,7 @@ $email = $_POST['email'];
 $senha = $_POST['senha'];
 
 
-$login = "SELECT * FROM vendedores WHERE email = '$email' AND senha = '$senha'";
+$login = "SELECT * FROM AGR_VENDEDORES WHERE VEN_EMAIL = '$email' AND VEN_SENHA = '$senha'";
 
 $stmt = $conectar->query($login);
 

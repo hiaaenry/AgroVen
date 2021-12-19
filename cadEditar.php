@@ -17,7 +17,7 @@ $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
             unset($_SESSION['msg']);
         }
 
-        $selecionar = "SELECT * FROM produto WHERE id=$id";
+        $selecionar = "SELECT * FROM AGR_PRODUTO WHERE PRO_ID=$id";
         
         
         $editar = $conectar->prepare($selecionar);

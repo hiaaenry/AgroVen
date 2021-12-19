@@ -22,12 +22,12 @@
     </div>
 
     <div class="container">
-            <a href="/registro.php">
+            <a href="registro.php">
                 <button>
                     <h1>Agricultor</h1>
                 </button>
             </a>
-            <a href="/registrocliente.php">
+            <a href="registrocliente.php">
                 <button>
                     <h1>Cliente</h1>
                 </button>

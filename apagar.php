@@ -9,13 +9,13 @@ if (empty($id)) {
     echo "<script>window.location='listarProdutos.php';alert('Produto Não encontrado.');</script>";
 
 }
-	$query_produto = "SELECT id FROM produto where id = $id LIMIT 1";
+	$query_produto = "SELECT PRO_ID FROM AGR_PRODUTO where PRO_ID = $id LIMIT 1";
 	$delete_produto = $conectar->prepare($query_produto);
 	$delete_produto->execute();
 
 	if (($delete_produto) AND ($delete_produto->rowCount() !=0)) {
 
-		$excluir = "DELETE FROM produto WHERE id = $id";
+		$excluir = "DELETE FROM AGR_PRODUTO WHERE PRO_ID = $id";
 		$apagar = $conectar->prepare($excluir);
 
 		if ($apagar->execute()) {

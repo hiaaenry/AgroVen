@@ -40,23 +40,23 @@ include_once 'conexao.php';
 
         <div class="categorias">
             <div class="cartao">
-                <img src="/imagem/animais.png" alt="animais">
+                <img src="imagem/animais.png" alt="animais">
                 <h2>Animais</h2>
             </div>
             <div class="cartao">
-                <img src="/imagem/frutas.png" alt="frutas">
+                <img src="imagem/frutas.png" alt="frutas">
                 <h2>Frutas</h2>
             </div>
             <div class="cartao">
-                <img src="/imagem/verduras.png" alt="verduras">
+                <img src="imagem/verduras.png" alt="verduras">
                 <h2>Verduras</h2>
             </div>
             <div class="cartao">
-                <img src="/imagem/plantas.png" alt="plantas">
+                <img src="imagem/plantas.png" alt="plantas">
                 <h2>Plantas</h2>
             </div>
             <div class="cartao">
-                <img src="/imagem/derivados.png" alt="derivados">
+                <img src="imagem/derivados.png" alt="derivados">
                 <h2>Derivados</h2>
             </div>
         </div>
@@ -65,7 +65,7 @@ include_once 'conexao.php';
             <?php
 
 
-            $exibir_banco = "SELECT * FROM produto ORDER BY id ASC";
+            $exibir_banco = "SELECT * FROM AGR_PRODUTO ORDER BY PRO_ID ASC";
 
             $exibir = $conectar->prepare($exibir_banco);
             $exibir->execute();
@@ -75,20 +75,20 @@ include_once 'conexao.php';
 
                 <div class="produto">
                     <div class="coluna1">
-                        <img src="imagens/<?= $row['id'] ?>/<?= $row['imagem'] ?>" class="img">
+                        <img src="imagens/<?= $row['PRO_ID'] ?>/<?= $row['PRO_IMAGEM'] ?>" class="img">
                     </div>
                     <div class="coluna2">
 
                         <!---  LISTA DE DESEJOS [BOTÃO]    -->
-                    <a href="adicionarItemListaDesejos.php?idProduto=<?php echo $row['id']; ?>" class="fa fa-heart"></a>
+                    <a href="adicionarItemListaDesejos.php?idProduto=<?php echo $row['PRO_ID']; ?>" class="fa fa-heart"></a>
                         <!---Fim [BOTÃO]    -->
                         <?php
-                        echo "<p>Nome: " . $row['nome'] . "</p>";
-                        echo "<p>Descrição: " . $row['descricao'] . "</p>";
-                        echo "<p>Preço: R$ " . $row['preco'] . "</p>";
+                        echo "<p>Nome: " . $row['PRO_NOME'] . "</p>";
+                        echo "<p>Descrição: " . $row['PRO_DESCRICAO'] . "</p>";
+                        echo "<p>Preço: R$ " . $row['PRO_PRECO'] . "</p>";
                         /* echo "<a href='cadEditar.php?id=" . $row['id'] . "'>Editar</a><br>";
                         echo "<a href='apagar.php?id=" . $row['id'] . "'>Apagar</a><br>"; */
-                        echo "<a href='compra.php?id=" . $row['id'] . "'><button>Comprar</button></a><br>";
+                        echo "<a href='compra.php?id=" . $row['PRO_ID'] . "'><button>Comprar</button></a><br>";
                         ?>
                     </div>
                 <?php

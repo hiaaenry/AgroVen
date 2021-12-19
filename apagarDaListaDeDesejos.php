@@ -5,7 +5,7 @@ include_once 'conexao.php';
 
 $id =$_GET ['del'];
 
-$sql = "DELETE FROM ListaDeDesejos WHERE id_produto='$id'";
+$sql = "DELETE FROM AGR_LISTA_DE_DESEJOS WHERE LIS_PRO_ID ='$id'";
   // Verifica se o comando foi executado com sucesso
   
 if (empty($id)) {
@@ -13,12 +13,12 @@ if (empty($id)) {
     
 }
 
-	$query_produto = "DELETE FROM lista_de_desejos WHERE id_produto =".$id;
+	$query_produto = "DELETE FROM AGR_LISTA_DE_DESEJOS WHERE LIS_PRO_ID =".$id;
 	$delete_produto = $conectar->prepare($query_produto);
 	$delete_produto->execute();
 
 	if (($delete_produto) AND ($delete_produto->rowCount() !=0)) {
-		$excluir = "DELETE FROM lista_de_desejos WHERE id_produto = $id";
+		$excluir = "DELETE FROM AGR_LISTA_DE_DESEJOS WHERE LIS_PRO_ID = $id";
 		$apagar = $conectar->prepare($excluir);
 
 		if ($apagar->execute()) {

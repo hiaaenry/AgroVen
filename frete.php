@@ -8,8 +8,8 @@ $complemento = $_POST['complemento'];
 $cidade = $_POST['cidade'];
 $pont_ref = $_POST['ponto'];
 
-$stmt = $conectar->prepare("INSERT INTO finalizar_compra(rua,numero,complemento,cidade,pont_ref) VALUES(?,?,?,?,?)");
-$stmt->execute([$rua,$numero,$complemento,$cidade,$pont_ref]);
+$stmt = $conectar->prepare("INSERT INTO AGR_FRETE(FRE_RUA, FRE_NUMERO, FRE_COMPLEMENTO, FRE_CIDADE, FRE_PONT_REF) VALUES('$rua','$numero','$complemento','$cidade','$pont_ref')");
+$stmt->execute();
 
 //header("Location:index.php");
 

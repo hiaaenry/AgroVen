@@ -12,7 +12,7 @@ if($editar){
     $imagem = filter_input(INPUT_POST, 'imagem', FILTER_SANITIZE_STRING);
     
 
-    $update_banco = "UPDATE produto SET nome=:nome, descricao=:descricao, preco=:preco, imagem=:imagem WHERE id=$id";
+    $update_banco = "UPDATE AGR_PRODUTO SET PRO_NOME=:nome, PRO_DESCRICAO=:descricao, PRO_PRECO=:preco, PRO_IMAGEM=:imagem WHERE PRO_ID=$id";
     
     $updateCad = $conectar->prepare($update_banco);
     $updateCad->bindParam(':nome', $nome);
