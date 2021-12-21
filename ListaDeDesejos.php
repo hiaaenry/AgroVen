@@ -47,29 +47,29 @@ include_once 'conexao.php';
             <?php
 
 
-            $exibir_banco = "SELECT p.nome AS produto, p.preco AS preco, p.id AS id 
-                             FROM `lista_de_desejos` AS ld 
-                             INNER JOIN `produto` AS p
-                             ON ld.id_produto = p.id
-                             ORDER BY id ASC";
+            $exibir_banco = "SELECT PRO_NOME, PRO_PRECO, PRO_ID
+                             FROM AGR_LISTA_DE_DESEJOS
+                             INNER JOIN AGR_PRODUTO
+                             ON AGR_LISTA_DE_DESEJOS.LIS_PRO_ID = AGR_PRODUTO.PRO_ID
+                             ORDER BY PRO_ID ASC";
             $exibir = $conectar->prepare($exibir_banco);
             $exibir->execute();
             while ($row = $exibir->fetch(PDO::FETCH_ASSOC)) {
             ?>
                 <div class="produto">
                     <div class="coluna">
-                        <img src="imagens/<?= $row['id'] ?>/<?= $row['imagem'] ?>" class="img">
+                        <img src="imagens/<?= $row['PRO_ID'] ?>/<?= $row['PRO_IMAGEM'] ?>" class="img">
                     </div>
                     <div class="coluna">
                         <?php
-                        echo "Nome: " . $row['produto'] . "<br>";
+                        echo "Nome: " . $row['PRO_NOME'] . "<br>";
 
-                        echo "Preço: " . $row['preco'] . "<br>";
+                        echo "Preço: " . $row['PRO_PRECO'] . "<br>";
                         ?>
                     </div>
                 <?php
                 echo "<a href='cadEditar.php?id=" . $row['id'] . "'>Editar</a><br>";
-                echo "<a href='apagarDaListaDeDesejos.php?del=" . $row['id'] . "'>Apagar</a><br>";
+                echo "<a href='apagarDaListaDeDesejos.php?del=" . $row['PRO_ID'] . "'>Apagar</a><br>";
                 echo "<a href='compra.php?id=" . $row['id'] . "'>Comprar</a><br>";
             }
                 ?>

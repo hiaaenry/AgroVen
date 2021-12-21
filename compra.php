@@ -50,28 +50,32 @@ $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
     <div class="tudo">
 
         <div class="listagem">
+        <?php
+
+
+$exibir_banco = "SELECT PRO_NOME, PRO_PRECO, PRO_ID
+                 FROM AGR_COMPRA
+                 INNER JOIN AGR_PRODUTO
+                 ON AGR_COMPRA.COM_PRO_ID = AGR_PRODUTO.PRO_ID
+                 ORDER BY PRO_ID ASC";
+$exibir = $conectar->prepare($exibir_banco);
+$exibir->execute();
+while ($row = $exibir->fetch(PDO::FETCH_ASSOC)) {
+?>
+    <div class="produto">
+        <div class="coluna">
+            <img src="imagens/<?= $row['PRO_ID'] ?>/<?= $row['PRO_IMAGEM'] ?>" class="img">
+        </div>
+        <div class="coluna">
             <?php
-       
+            echo "Nome: " . $row['PRO_NOME'] . "<br>";
 
-        $selecionar = "SELECT * FROM AGR_PRODUTO WHERE PRO_ID=$id";
-        
-        
-        $compra = $conectar->prepare($selecionar);
-        $compra->execute();
-        $row = $compra->fetch(PDO::FETCH_ASSOC); 
-        ?>
-
-            <div class="produto">
-                <div class="coluna">
-                    <img src="imagens/<?=$row['PRO_ID']?>/<?=$row['PRO_IMAGEM']?>" class= "img">
-                </div>
-                <div class="coluna">
-
-                    <?php
-                    echo "Nome: " . $row['PRO_NOME'] . "<br>";
-            echo "Descrição: " . $row['PRO_DESCRICAO'] . "<br>";
             echo "Preço: " . $row['PRO_PRECO'] . "<br>";
-             ?>
+            ?>
+        </div>
+    <?php
+}
+    ?>
             <p>Quantidade:</p>
             <input type="number" min="1">
             <select>
