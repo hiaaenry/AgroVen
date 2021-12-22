@@ -4,6 +4,18 @@ use agroven;
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `VENDEDORES`
+--
+CREATE TABLE AGR_VENDEDORES (
+  VEN_ID INT(11) NOT NULL AUTO_INCREMENT,
+  VEN_NOME VARCHAR(100) NOT NULL,
+  VEN_EMAIL VARCHAR(40) NOT NULL,
+  VEN_SENHA VARCHAR(40) NOT NULL,
+  CONSTRAINT VEN_PK PRIMARY KEY (VEN_ID));
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `PRODUTO`
 --
 CREATE TABLE AGR_PRODUTO (
@@ -12,7 +24,9 @@ CREATE TABLE AGR_PRODUTO (
   PRO_DESCRICAO VARCHAR(220) NOT NULL,
   PRO_PRECO VARCHAR(220) NOT NULL,
   PRO_IMAGEM VARCHAR(220) NOT NULL,
-  CONSTRAINT PRO_PK PRIMARY KEY (PRO_ID));
+  CONSTRAINT PRO_PK PRIMARY KEY (PRO_ID),
+  USER_ID INT,
+  FOREIGN KEY (USER_ID) REFERENCES AGR_VENDEDORES(VEN_ID));
 
 --
 -- Extraindo dados da tabela `PRODUTO`
@@ -24,18 +38,6 @@ INSERT INTO AGR_PRODUTO (PRO_ID, PRO_NOME, PRO_DESCRICAO, PRO_PRECO, PRO_IMAGEM)
 (6, 'Abacaxi', 'Abacaxi direto do pé', '6,60', 'abacaxi-1513012505452_v2_450x337.jpg'),
 (9, 'Morango', 'Morango é considerado, na linguagem vulgar, como o fruto vermelho do morangueiro, da família das rosáceas.', '6,50', 'download.jpg'),
 (10, 'Banana', 'A banana é uma fruta comestível alongada - botanicamente uma baga - produzida por vários tipos de grandes plantas com flores herbáceas do gênero Musa. ', '3,50', 'banana-cachos.png');
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `VENDEDORES`
---
-CREATE TABLE AGR_VENDEDORES (
-  VEN_ID INT(11) NOT NULL AUTO_INCREMENT,
-  VEN_NOME VARCHAR(100) NOT NULL,
-  VEN_EMAIL VARCHAR(40) NOT NULL,
-  VEN_SENHA VARCHAR(40) NOT NULL,
-  CONSTRAINT VEN_PK PRIMARY KEY (VEN_ID));
 
 -- --------------------------------------------------------
 
@@ -85,27 +87,27 @@ CREATE TABLE AGR_FRETE (
 -- Estrutura da tabela `LISTA DE DESEJOS`
 --
 
-CREATE TABLE AGR_LISTA_DE_DESEJOS (
+/* CREATE TABLE AGR_LISTA_DE_DESEJOS (
   LIS_ID INT(11) NOT NULL AUTO_INCREMENT,
-  LIS_PRO_ID INT(11),
+  LIS_PRO_ID INT(11) NOT NULL,
   CONSTRAINT LIS_PK PRIMARY KEY (LIS_ID),
-  CONSTRAINT LIS_PRO_FK FOREIGN KEY (LIS_PRO_ID) REFERENCES AGR_PRODUTO(PRO_ID);
+  CONSTRAINT LIS_PRO_FK FOREIGN KEY (LIS_PRO_ID) REFERENCES AGR_PRODUTO(PRO_ID); */
 
 --
 -- Extraindo dados da tabela `LISTA DE DESEJOS`
 --
 
-INSERT INTO AGR_LISTA_DE_DESEJOS (LIS_ID, LIS_PRO_ID) VALUES
+/* INSERT INTO AGR_LISTA_DE_DESEJOS (LIS_ID, LIS_PRO_ID) VALUES
 (9, 5),
 (10, 6),
-(11, 10);
+(11, 10); */
 
 -- --------------------------------------------------------
 
 --
 -- Estrutura da tabela `FINALIZAR COMPRA`
 --
-
+/* 
 CREATE TABLE AGR_FINALIZAR_COMPRA(
   FIN_COMPROVANTE_VENDA INT(11) NOT NULL AUTO_INCREMENT,
   FIN_PRO_ID INT(11) NOT NULL,
@@ -121,4 +123,4 @@ CREATE TABLE AGR_FINALIZAR_COMPRA(
     REFERENCES AGR_CLIENTES (CLI_ID),
   CONSTRAINT FIN_FRE_FK FOREIGN KEY (FIN_FRE_ID)
     REFERENCES AGR_FRETE (FRE_ID);
-);
+); */

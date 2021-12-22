@@ -1,6 +1,6 @@
 <?php
 session_start();
-require "verifica.php";
+require 'verifica.php';
 ?>
 
 <!DOCTYPE html>
@@ -49,8 +49,8 @@ require "verifica.php";
 
                 
 
-                <a href="sair.php">
-                    <button>Sair</button>
+                <a href="perfilAgricultor.php">
+                    <button>perfil</button>
                 </a>
             </div>
         </form>

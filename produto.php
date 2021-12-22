@@ -12,11 +12,12 @@ if ($cadastrar) {
     $nome_imagem = $_FILES['imagem']['name'];
 
    
-    $inserir_banco = "INSERT INTO AGR_PRODUTO (PRO_NOME, PRO_DESCRICAO, PRO_PRECO, PRO_IMAGEM) VALUES (:nome, :descricao, :preco, :imagem)";
+    $inserir_banco = "INSERT INTO AGR_PRODUTO (PRO_NOME, PRO_DESCRICAO, PRO_PRECO, PRO_IMAGEM, USER_ID) VALUES (:nome, :descricao, :preco, :imagem, :userid)";
     $inserir = $conectar->prepare($inserir_banco);
     $inserir->bindParam(':nome', $nome);
     $inserir->bindParam(':descricao', $descricao);
     $inserir->bindParam(':preco', $preco);
+    $inserir->bindParam(':userid', $_SESSION['USER_ID']);
 
     $inserir->bindParam(':imagem', $nome_imagem);
 

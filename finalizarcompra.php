@@ -1,5 +1,6 @@
 <?php
 session_start();
+require "verifica.php";
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
