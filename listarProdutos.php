@@ -88,8 +88,7 @@ include_once 'conexao.php';
                         echo "<p>Preço: R$ " . $row['PRO_PRECO'] . "</p>";
                         echo "<a href='cadEditar.php?id=" . $row['PRO_ID'] . "'>Editar</a><br>";
                         echo "<a href='apagar.php?id=" . $row['PRO_ID'] . "'>Apagar</a><br>";
-                        echo "<a href='compra.php?id=" . $row['PRO_ID'] . "'><button>Comprar</button></a><br>";
-                        ?>
+                        echo "<a href='compra.php?idProduto=" . $row['PRO_ID'] . "'>Comprar</a><br>";                        ?>
                     </div>
                 <?php
             }

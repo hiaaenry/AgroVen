@@ -47,7 +47,7 @@ include_once 'conexao.php';
             <?php
 
 
-            $exibir_banco = "SELECT PRO_NOME, PRO_PRECO, PRO_ID
+            $exibir_banco = "SELECT PRO_NOME, PRO_PRECO, PRO_ID, PRO_IMAGEM
                              FROM AGR_LISTA_DE_DESEJOS
                              INNER JOIN AGR_PRODUTO
                              ON AGR_LISTA_DE_DESEJOS.LIS_PRO_ID = AGR_PRODUTO.PRO_ID
@@ -68,9 +68,9 @@ include_once 'conexao.php';
                         ?>
                     </div>
                 <?php
-                echo "<a href='cadEditar.php?id=" . $row['id'] . "'>Editar</a><br>";
+                echo "<a href='cadEditar.php?id=" . $row['PRO_ID'] . "'>Editar</a><br>";
                 echo "<a href='apagarDaListaDeDesejos.php?del=" . $row['PRO_ID'] . "'>Apagar</a><br>";
-                echo "<a href='compra.php?id=" . $row['id'] . "'>Comprar</a><br>";
+                echo "<a href='adicionarCompra.php?idProduto=" . $row['PRO_ID'] . "'>Comprar</a><br>";
             }
                 ?>
                 </div>
