@@ -13,7 +13,7 @@ $stmt->execute();
 
 //header("Location:index.php");
 
-echo "<script>window.location='finalizarcompra.php';alert('Cadastro do envio do frete realizado com sucesso!');</script>"
+echo "<script>window.location='layout-chat.html';alert('Cadastro do envio do frete realizado com sucesso!');</script>"
 
 ?>
 
