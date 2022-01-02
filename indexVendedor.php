@@ -1,3 +1,7 @@
+<?php
+session_start();
+require 'verifica.php';
+?>
 <head>
 	<script src="https://use.fontawesome.com/c1a45d17ac.js"></script>
 	<link href="geral.css" rel="stylesheet">
@@ -11,12 +15,15 @@
 			<img src="imagem/logo.png" alt="AgroVen" width="100px">
 		</div>
 
-		<a href="formLogin.php">
-			<p class="fa fa-user"> Login</p>
+		<a href="perfilVendedor.php">
+			<p class="fa fa-user">
+				<?php
+				echo ($_SESSION["VEN_NOME"]);
+				?>
+			</p>
 		</a>
 
 	</div>
-
 
 	<a href="listarProdutos.php">
 		<button>Busque por produtos</button>
@@ -46,14 +53,11 @@
 </body>
 
 <style>
-
 	body {
 		background-image: url(imagem/fundo.png);
 		background-position: center;
 		background-repeat: no-repeat;
 		background-size: cover;
-		margin: 0px;
-		padding: 0px;
 	}
 
 	button {

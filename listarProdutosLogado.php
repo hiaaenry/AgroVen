@@ -1,5 +1,8 @@
 <?php
+session_start();
+
 include_once 'conexao.php';
+require 'verifica.php';
 ?>
 
 <head>
@@ -11,15 +14,25 @@ include_once 'conexao.php';
 <body>
     <div class="topnav">
 
-    <div class="logo">
-            <a href="index.php">
+        <div class="logo">
+            <a href="indexCliente.php">
                 <img src="imagem/logo.png" alt="AgroVen" width="100px">
             </a>
         </div>
 
-        <a href="formLogin.php">
-			<p class="fa fa-user"> Login</p>
-		</a>
+        <a href="perfilCliente.php">
+            <p class="fa fa-user">
+                <?php
+                echo ($_SESSION["CLI_NOME"]);
+                ?>
+            </p>
+        </a>
+
+        <a href="formCompra.php">
+            <p class="fa fa-shopping-cart">
+                Carrinho
+            </p>
+        </a>
 
     </div>
 
@@ -37,26 +50,24 @@ include_once 'conexao.php';
             while ($row = $exibir->fetch(PDO::FETCH_ASSOC)) {
             ?>
 
-                <div class="produto">
-                    <div class="coluna1">
-                        <img src="imagens/<?= $row['PRO_ID'] ?>/<?= $row['PRO_IMAGEM'] ?>" class="img">
-                    </div>
-                    <div class="coluna2">
-
-                        <a href="adicionarItemListaDesejos.php?idProduto=<?php echo $row['PRO_ID']; ?>" class="fa fa-heart"></a>
-
-                        <?php
-                        echo "<p>Nome: " . $row['PRO_NOME'] . "</p>";
-                        echo "<p>Descrição: " . $row['PRO_DESCRICAO'] . "</p>";
-                        echo "<p>Preço: R$ " . $row['PRO_PRECO'] . "</p>";
-                        echo "<a href='cadEditar.php?id=" . $row['PRO_ID'] . "'>Editar</a><br>";
-                        echo "<a href='apagar.php?id=" . $row['PRO_ID'] . "'>Apagar</a><br>";
-                        echo "<a href='compra.php?idProduto=" . $row['PRO_ID'] . "'>Comprar</a><br>";                      ?>
-                    </div>
-                <?php
-            }
-                ?>
+                <div class="coluna1">
+                    <img src="imagens/<?= $row['PRO_ID'] ?>/<?= $row['PRO_IMAGEM'] ?>" class="img">
                 </div>
+                <div class="coluna2">
+
+                    <a href="listaDeDesejos.php?idProduto=<?php echo $row['PRO_ID']; ?>" class="fa fa-heart"></a>
+
+                    <?php
+                    echo "<p>Nome: " . $row['PRO_NOME'] . "</p>";
+                    echo "<p>Descrição: " . $row['PRO_DESCRICAO'] . "</p>";
+                    echo "<p>Preço: R$ " . $row['PRO_PRECO'] . "</p>";
+                    echo "<a href='compra.php?idProduto=" . $row['PRO_ID'] . "'><button>Comprar</button></a><br>";
+                    ?>
+                </div>
+            <?php
+            }
+            ?>
+
         </div>
     </div>
 </body>

@@ -20,6 +20,8 @@ require 'verifica.php';
 
     <div class="topnav">
 
+        <p onclick="document.getElementById('id01').style.display='block'" style="cursor: pointer;" class="fa fa-user-circle" aria-hidden="true"></a>
+
         <div class="logo">
             <a href="index.php">
                 <img src="imagem/logo.png" alt="AgroVen" width="100px" />
@@ -29,18 +31,30 @@ require 'verifica.php';
     </div>
 
 
+    <div id="id01" class="modal">
+        <form class="modal-content animate" action="/action_page.php" method="post">
+            <div class="imgcontainer">
+                <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+            </div>
+
+            <div class="container" style="padding-top: 35px;">
+                <!-- <img src="#" alt="fotoperfil"> -->
+            </div>
+        </form>
+    </div>
     <div class="tudo">
 
         <div class="listagem">
             <?php
 
 
-            $exibir_banco = "SELECT * FROM AGR_PRODUTO WHERE USER_ID = " . $_SESSION['auth'];
-            "";
-
+            $exibir_banco = "SELECT PRO_NOME, PRO_PRECO, PRO_ID, PRO_IMAGEM
+                             FROM AGR_LISTA_DE_DESEJOS
+                             INNER JOIN AGR_PRODUTO
+                             ON AGR_LISTA_DE_DESEJOS.LIS_PRO_ID = AGR_PRODUTO.PRO_ID
+                             ORDER BY PRO_ID ASC";
             $exibir = $conectar->prepare($exibir_banco);
             $exibir->execute();
-
             while ($row = $exibir->fetch(PDO::FETCH_ASSOC)) {
             ?>
                 <div class="produto">
@@ -56,11 +70,10 @@ require 'verifica.php';
                     </div>
                 <?php
                 echo "<a href='cadEditar.php?id=" . $row['PRO_ID'] . "'>Editar</a><br>";
-                echo "<a href='sair.php?del=" . $row['PRO_ID'] . "'>Apagar</a><br>";
+                echo "<a href='apagarDaListaDeDesejos.php?del=" . $row['PRO_ID'] . "'>Apagar</a><br>";
+                echo "<a href='adicionarCompra.php?idProduto=" . $row['PRO_ID'] . "'>Comprar</a><br>";
             }
                 ?>
-
-                <?php echo "<a href='sair.php?idProduto=" . $row['PRO_ID'] . "'>Sair</a><br>"; ?>
                 </div>
         </div>
     </div>
