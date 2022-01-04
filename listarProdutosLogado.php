@@ -55,8 +55,6 @@ require 'verifica.php';
                 </div>
                 <div class="coluna2">
 
-                    <a href="listaDeDesejos.php?idProduto=<?php echo $row['PRO_ID']; ?>" class="fa fa-heart"></a>
-
                     <?php
                     echo "<p>Nome: " . $row['PRO_NOME'] . "</p>";
                     echo "<p>Descrição: " . $row['PRO_DESCRICAO'] . "</p>";

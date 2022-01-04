@@ -1,6 +1,7 @@
 <?php
 session_start();
 require "verifica.php";
+$id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 ?>
 
 <head>

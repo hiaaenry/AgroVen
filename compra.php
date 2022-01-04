@@ -1,6 +1,7 @@
 <?php
 session_start();
 include_once 'conexao.php';
+require 'verifica.php';
 
 $produto = $_GET['idProduto'];
 $cliente = $_SESSION['CLI_ID'];

@@ -43,14 +43,10 @@ include_once 'conexao.php';
                     </div>
                     <div class="coluna2">
 
-                        <a href="adicionarItemListaDesejos.php?idProduto=<?php echo $row['PRO_ID']; ?>" class="fa fa-heart"></a>
-
                         <?php
                         echo "<p>Nome: " . $row['PRO_NOME'] . "</p>";
                         echo "<p>Descrição: " . $row['PRO_DESCRICAO'] . "</p>";
                         echo "<p>Preço: R$ " . $row['PRO_PRECO'] . "</p>";
-                        echo "<a href='cadEditar.php?id=" . $row['PRO_ID'] . "'>Editar</a><br>";
-                        echo "<a href='apagar.php?id=" . $row['PRO_ID'] . "'>Apagar</a><br>";
                         echo "<a href='compra.php?idProduto=" . $row['PRO_ID'] . "'>Comprar</a><br>";                      ?>
                     </div>
                 <?php
