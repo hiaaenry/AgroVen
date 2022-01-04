@@ -2,6 +2,7 @@
 session_start();
 require 'verifica.php';
 ?>
+
 <head>
 	<script src="https://use.fontawesome.com/c1a45d17ac.js"></script>
 	<link href="geral.css" rel="stylesheet">
@@ -93,5 +94,4 @@ require 'verifica.php';
 	footer {
 		position: absolute;
 	}
-
 </style>

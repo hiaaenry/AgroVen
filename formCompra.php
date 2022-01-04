@@ -4,6 +4,7 @@ session_start();
 require 'verifica.php';
 include_once 'conexao.php';
 $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
+$idCliente = ($_SESSION["CLI_ID"]);
 
 ?>
 
@@ -38,50 +39,58 @@ $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
         <div class="listagem">
             <?php
 
+            $busca = "SELECT * FROM AGR_COMPRA WHERE COM_CLI_ID = '$idCliente'";
 
-            $exibir_banco = "SELECT PRO_NOME, PRO_PRECO, PRO_ID
+            $stmt = $conectar->query($busca);
+
+            $result = $stmt->fetch();
+            if ($result == true) {
+
+                $exibir_banco = "SELECT PRO_NOME, PRO_PRECO, PRO_ID
                  FROM AGR_COMPRA
                  INNER JOIN AGR_PRODUTO
                  ON AGR_COMPRA.COM_PRO_ID = AGR_PRODUTO.PRO_ID
                  ORDER BY PRO_ID ASC";
-            $exibir = $conectar->prepare($exibir_banco);
-            $exibir->execute();
-            while ($row = $exibir->fetch(PDO::FETCH_ASSOC)) {
+                $exibir = $conectar->prepare($exibir_banco);
+                $exibir->execute();
+                while ($row = $exibir->fetch(PDO::FETCH_ASSOC)) {
             ?>
-                <div class="produto">
-                <div class="coluna">
-                        <img src="imagens/<?= $row['PRO_ID'] ?>/<?= $row['PRO_IMAGEM'] ?>" class="img">
-                    </div>
-                    <div class="coluna">
-                        <?php
-                        echo "Nome: " . $row['PRO_NOME'] . "<br>";
-
-                        echo "Preço: " . $row['PRO_PRECO'] . "<br>";
-                        ?>
-                        <form action="quantidade.php" method="POST">
-                            <input type="number" min="1" placeholder="Quantidade" name="quantidade">
-                            <select>
-                                <option value="Kg">Kg</option>
-                                <option value="gramas">gramas</option>
-                                <option value="Unidade">Unidade</option>
-                                <option value="animal">Animal</option>
-                            </select>
-
+                    <div class="produto">
+                        <div class="coluna">
+                            <img src="imagens/<?= $row['PRO_ID'] ?>/<?= $row['PRO_IMAGEM'] ?>" class="img">
+                        </div>
+                        <div class="coluna">
                             <?php
-                            echo "<a href='quantidade.php?idProduto=" . $row['PRO_ID'] . "'><button>Compra</button></a>";
+                            echo "Nome: " . $row['PRO_NOME'] . "<br>";
+
+                            echo "Preço: " . $row['PRO_PRECO'] . "<br>";
                             ?>
-                            </input>
-                        </form>
+                            <form action="quantidade.php" method="POST">
+                                <input type="number" min="1" placeholder="Quantidade" name="quantidade">
+                                <select>
+                                    <option value="Kg">Kg</option>
+                                    <option value="gramas">gramas</option>
+                                    <option value="Unidade">Unidade</option>
+                                    <option value="animal">Animal</option>
+                                </select>
+
+                                <?php
+                                echo "<a href='quantidade.php?idProduto=" . $row['PRO_ID'] . "'><button>Compra</button></a>";
+                                ?>
+                                </input>
+                            </form>
+                        </div>
+                    <?php
+                }
+                    ?>
+
                     </div>
                 <?php
             }
                 ?>
-
-                </div>
         </div>
 
 
-    </div>
     </div>
 
 

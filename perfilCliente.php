@@ -26,9 +26,7 @@ require 'verifica.php';
 
     </div>
 
-    <div class="tabela">
-
-        <div class="coluna">
+        <div class="tudo">
             <h1>Olá,
                 <?php
                 echo ($_SESSION["CLI_NOME"]);
@@ -43,12 +41,6 @@ require 'verifica.php';
             </a>
         </div>
 
-        <div class="coluna">
-            boba
-        </div>
-
-    </div>
-
     <footer>
         <a href="https://github.com/Rayaninha/AgroVen.git" class="fa fa-github"></a>
         <a href="" class="fa fa-instagram"></a>
@@ -57,21 +49,14 @@ require 'verifica.php';
 </body>
 
 <style>
-
-    .coluna {
-		float: left;
-		width: 40%;
-		margin: 10% 5% 50px 5%;
-	}
-
-	.tabela:after {
-		content: "";
-		display: table;
-		clear: both;
-	}
+    .tudo {
+        float: left;
+        width: 40%;
+        margin: 10% 30% 50px 30%;
+        text-align: center;
+    }
 
     footer {
         position: absolute;
     }
-
 </style>

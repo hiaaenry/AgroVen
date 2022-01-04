@@ -21,9 +21,7 @@ $login = ($_SESSION["VEN_ID"]);
 
     </div>
 
-    <div class="tabela">
-
-        <div class="coluna">
+        <div class="tudo">
             <h1>Olá,
                 <?php
                 echo ($_SESSION["VEN_NOME"]);
@@ -32,48 +30,13 @@ $login = ($_SESSION["VEN_ID"]);
 
             <p>E-mail cadastrado: <?php echo ($_SESSION["VEN_EMAIL"]); ?> </p>
             <p>ID: <?php echo ($_SESSION["VEN_ID"]); ?> </p>
+            <a href="meusProdutos.php">
+                <p>Meus Produtos</p>
+            </a>
 
             <a href="sair.php">
                 <p>sair</p>
             </a>
-        </div>
-
-        <div class="coluna">
-            <div class="listagem">
-                <?php
-
-
-                $exibir_banco = "SELECT PRO_NOME, PRO_DESCRICAO, NOME_PRO, PRO_IMAGEM
-                                FROM AGR_PRODUTO 
-                                INNER JOIN AGR_VENDEDOR ON VENDEDOR.VEN_ID = AGR_PRODUTO.PRO_VEN_FK
-                                WHERE PRO_VEN_FK = " . $_SESSION["VEN_ID"];
-
-                $exibir = $conectar->prepare($exibir_banco);
-                $exibir->execute();
-
-                while ($row = $exibir->fetch(PDO::FETCH_ASSOC)) {
-                ?>
-
-                    <div class="produto">
-                        <div class="coluna1">
-                            <img src="imagens/<?= $row['PRO_ID'] ?>/<?= $row['PRO_IMAGEM'] ?>" class="img">
-                        </div>
-                        <div class="coluna2">
-
-                            <?php
-                            echo "<p>Nome: " . $row['PRO_NOME'] . "</p>";
-                            echo "<p>Descrição: " . $row['PRO_DESCRICAO'] . "</p>";
-                            echo "<p>Preço: R$ " . $row['PRO_PRECO'] . "</p>";
-                            echo "<a href='cadEditar.php?id=" . $row['PRO_ID'] . "'>Editar</a><br>";
-                            echo "<a href='apagar.php?id=" . $row['PRO_ID'] . "'>Apagar</a><br>";
-                            echo "<a href='compra.php?idProduto=" . $row['PRO_ID'] . "'>Comprar</a><br>";                        ?>
-                        </div>
-                    <?php
-                }
-                    ?>
-                    </div>
-            </div>
-
         </div>
 
         <footer>
@@ -84,16 +47,14 @@ $login = ($_SESSION["VEN_ID"]);
 </body>
 
 <style>
-    .coluna {
+    .tudo {
         float: left;
         width: 40%;
-        margin: 2% 5% 2% 5%;
-        height: 70%;
+        margin: 10% 30% 50px 30%;
+        text-align: center;
     }
 
-    .tabela:after {
-        content: "";
-        display: table;
-        clear: both;
+    footer {
+        position: absolute;
     }
 </style>
