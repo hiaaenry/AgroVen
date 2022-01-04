@@ -33,7 +33,9 @@ $login = ($_SESSION["VEN_ID"]);
             <a href="meusProdutos.php">
                 <p>Meus Produtos</p>
             </a>
-
+            <a href="indexChat.php">
+                <p> Caixa de Mensagens </p>
+            </a>
             <a href="sair.php">
                 <p>sair</p>
             </a>

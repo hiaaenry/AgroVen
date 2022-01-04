@@ -110,7 +110,26 @@ ADD
  (10, 6),
  (11, 10); */
 -- --------------------------------------------------------
---
+-- 
+/* -------------CHAT----------------*/
+/*  Estrutura da tabela `AGR_CHAT`   */
+
+CREATE TABLE  AGR_CHAT (
+  ID int(80) NOT NULL,
+  NOME varchar(40) NOT NULL,
+  MSG text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+/*  indices  da tabela `AGR_CHAT`   */
+ALTER TABLE AGR_CHAT
+  ADD PRIMARY KEY (ID);
+
+-- AUTO_INCREMENT de tabela `AGR_CHAT`
+
+ALTER TABLE AGR_CHAT
+  MODIFY ID int(80) NOT NULL AUTO_INCREMENT;
+COMMIT;
+
 -- Estrutura da tabela `FINALIZAR COMPRA`
 --
 

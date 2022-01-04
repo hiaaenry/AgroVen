@@ -36,6 +36,9 @@ require 'verifica.php';
             <p>E-mail cadastrado: <?php echo ($_SESSION["CLI_EMAIL"]); ?> </p>
             <p>ID: <?php echo ($_SESSION["CLI_ID"]); ?> </p>
 
+            <a href="indexChat.php">
+                <p>Caixa de Mensagens</p>
+            </a>
             <a href="sair.php">
                 <p>sair</p>
             </a>
