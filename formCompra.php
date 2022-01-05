@@ -5,6 +5,9 @@ require 'verifica.php';
 include_once 'conexao.php';
 $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 $idCliente = ($_SESSION["CLI_ID"]);
+if(sizeof($_SESSION['carrinho'])<1){
+    echo "<script>window.location='listarProdutosLogado.php';alert('seu carrinho esta vazio');</script>";
+};
 
 ?>
 
@@ -38,60 +41,51 @@ $idCliente = ($_SESSION["CLI_ID"]);
 
         <div class="listagem">
             <?php
-
-            $busca = "SELECT * FROM AGR_COMPRA WHERE COM_CLI_ID = '$idCliente'";
-
-            $stmt = $conectar->query($busca);
-
-            $result = $stmt->fetch();
-            if ($result == true) {
-
-                $exibir_banco = "SELECT PRO_NOME, PRO_PRECO, PRO_ID
-                 FROM AGR_COMPRA
-                 INNER JOIN AGR_PRODUTO
-                 ON AGR_COMPRA.COM_PRO_ID = AGR_PRODUTO.PRO_ID
-                 ORDER BY PRO_ID ASC";
-                $exibir = $conectar->prepare($exibir_banco);
+            // $_SESSION['carrinho'] = [];
+            // var_dump($_SESSION['carrinho']);
+            
+            for ($i=0; $i < sizeof($_SESSION['carrinho']); $i++) { 
+                $id = intval($_SESSION['carrinho'][$i]['id']);
+                $busca = "SELECT * FROM AGR_PRODUTO WHERE PRO_ID = $id LIMIT 1";
+                $exibir = $conectar->prepare($busca);
                 $exibir->execute();
-                while ($row = $exibir->fetch(PDO::FETCH_ASSOC)) {
+                $result = $exibir->fetch(PDO::FETCH_ASSOC);
             ?>
-                    <div class="produto">
+                <div class="produto">
                         <div class="coluna">
-                            <img src="imagens/<?= $row['PRO_ID'] ?>/<?= $row['PRO_IMAGEM'] ?>" class="img">
+                            <img src="imagens/<?= $result['PRO_ID'] ?>/<?= $result['PRO_IMAGEM'] ?>" class="img">
                         </div>
                         <div class="coluna">
                             <?php
-                            echo "Nome: " . $row['PRO_NOME'] . "<br>";
+                            echo "Nome: " . $result['PRO_NOME'] . "<br>";
 
-                            echo "Preço: " . $row['PRO_PRECO'] . "<br>";
+                            echo "Preço: " . $result['PRO_PRECO'] . "<br>";
+                            echo "Quantidade: " . $_SESSION['carrinho'][$i]['qtd'] . "<br>";
                             ?>
-                            <form action="quantidade.php" method="POST">
-                                <input type="number" min="1" placeholder="Quantidade" name="quantidade">
-                                <select>
-                                    <option value="Kg">Kg</option>
-                                    <option value="gramas">gramas</option>
-                                    <option value="Unidade">Unidade</option>
-                                    <option value="animal">Animal</option>
-                                </select>
-
-                                <?php
-                                echo "<a href='quantidade.php?idProduto=" . $row['PRO_ID'] . "'><button>Compra</button></a>";
-                                ?>
+                            <form action="alterarQuantidade.php" method="POST">
+                                <input type="number" min="1" placeholder="Alterar Quantidade" name="quantidade">
                                 </input>
+                                <input type="hidden" name="id" value='<?=$result["PRO_ID"]?>'></input>
+                                <input type="submit" name="Alterar"></input>
                             </form>
+                                <?php
+                                echo "<a href='RetirarDoCarrinho.php?idProduto=" . $result['PRO_ID'] . "'><button>Retirar do carrinho</button></a>";
+                                ?>
                         </div>
-                    <?php
-                }
-                    ?>
+            <?php 
+                };
+             ?>
 
-                    </div>
-                <?php
-            }
-                ?>
+
         </div>
+
+        <a href="compra.php">
+            <button type="submit">Finalizar Compra</button>
+        </a>
 
 
     </div>
+
 
 
 </body>

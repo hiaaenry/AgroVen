@@ -4,6 +4,7 @@ include_once "conexao.php";
 $email = $_POST['email'];
 $senha = $_POST['senha'];
 
+
 $login = "SELECT * FROM AGR_VENDEDORES WHERE VEN_EMAIL = '$email' AND VEN_SENHA = '$senha'";
 
 $stmt = $conectar->query($login);
@@ -26,6 +27,7 @@ if ($result == false) {
 	$_SESSION['CLI_ID'] = $result['CLI_ID'];
 	$_SESSION['CLI_NOME'] = $result['CLI_NOME'];
 	$_SESSION['CLI_EMAIL'] = $result['CLI_EMAIL'];
+	$_SESSION['carrinho'] = [];
 
 	echo "<script>window.location='indexCliente.php';alert('Olá, Seja Bem Vindo!');</script>";
 }

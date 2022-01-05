@@ -59,7 +59,7 @@ require 'verifica.php';
                     echo "<p>Nome: " . $row['PRO_NOME'] . "</p>";
                     echo "<p>Descrição: " . $row['PRO_DESCRICAO'] . "</p>";
                     echo "<p>Preço: R$ " . $row['PRO_PRECO'] . "</p>";
-                    echo "<a href='compra.php?idProduto=" . $row['PRO_ID'] . "'><button>Comprar</button></a><br>";
+                    echo "<a href='adicionarNoCarrinho.php?idProduto=" . $row['PRO_ID'] . "'><button>Adicionar no Carrinho</button></a><br>";
                     ?>
                 </div>
             <?php
