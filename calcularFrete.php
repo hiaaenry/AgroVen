@@ -35,5 +35,3 @@
     $frete =  $xml->cServico;
 
     echo "<h1>Valor PAC: R$ ".$frete->Valor."<br />Prazo: ".$frete->PrazoEntrega." dias</h1>";
-
- ?>

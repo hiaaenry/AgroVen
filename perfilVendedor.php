@@ -21,30 +21,30 @@ $login = ($_SESSION["VEN_ID"]);
 
     </div>
 
-        <div class="tudo">
-            <h1>Olá,
-                <?php
-                echo ($_SESSION["VEN_NOME"]);
-                ?>
-            </h1>
+    <div class="tudo">
+        <h1>Olá,
+            <?php
+            echo ($_SESSION["VEN_NOME"]);
+            ?>
+        </h1>
 
-            <p>E-mail cadastrado: <?php echo ($_SESSION["VEN_EMAIL"]); ?> </p>
-            <p>ID: <?php echo ($_SESSION["VEN_ID"]); ?> </p>
-            <a href="meusProdutos.php">
-                <p>Meus Produtos</p>
-            </a>
-            <a href="indexChat.php">
-                <p> Caixa de Mensagens </p>
-            </a>
-            <a href="sair.php">
-                <p>sair</p>
-            </a>
-        </div>
+        <p>E-mail cadastrado: <?php echo ($_SESSION["VEN_EMAIL"]); ?> </p>
+        <p>ID: <?php echo ($_SESSION["VEN_ID"]); ?> </p>
+        <a href="meusProdutos.php">
+            <p>Meus Produtos</p>
+        </a>
+        <a href="indexChat.php">
+            <p> Caixa de Mensagens </p>
+        </a>
+        <a href="sair.php">
+            <p>sair</p>
+        </a>
+    </div>
 
-        <footer>
-            <a href="https://github.com/Rayaninha/AgroVen.git" class="fa fa-github"></a>
-            <a href="" class="fa fa-instagram"></a>
-        </footer>
+    <footer>
+        <a href="https://github.com/Rayaninha/AgroVen.git" class="fa fa-github"></a>
+        <a href="" class="fa fa-instagram"></a>
+    </footer>
 
 </body>
 

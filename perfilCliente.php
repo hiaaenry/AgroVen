@@ -26,23 +26,23 @@ require 'verifica.php';
 
     </div>
 
-        <div class="tudo">
-            <h1>Olá,
-                <?php
-                echo ($_SESSION["CLI_NOME"]);
-                ?>
-            </h1>
+    <div class="tudo">
+        <h1>Olá,
+            <?php
+            echo ($_SESSION["CLI_NOME"]);
+            ?>
+        </h1>
 
-            <p>E-mail cadastrado: <?php echo ($_SESSION["CLI_EMAIL"]); ?> </p>
-            <p>ID: <?php echo ($_SESSION["CLI_ID"]); ?> </p>
+        <p>E-mail cadastrado: <?php echo ($_SESSION["CLI_EMAIL"]); ?> </p>
+        <p>ID: <?php echo ($_SESSION["CLI_ID"]); ?> </p>
 
-            <a href="indexChat.php">
-                <p>Caixa de Mensagens</p>
-            </a>
-            <a href="sair.php">
-                <p>sair</p>
-            </a>
-        </div>
+        <a href="indexChat.php">
+            <p>Caixa de Mensagens</p>
+        </a>
+        <a href="sair.php">
+            <p>sair</p>
+        </a>
+    </div>
 
     <footer>
         <a href="https://github.com/Rayaninha/AgroVen.git" class="fa fa-github"></a>

@@ -2,6 +2,7 @@
 session_start();
 require 'verifica.php';
 ?>
+
 <head>
     <script src="https://use.fontawesome.com/c1a45d17ac.js"></script>
     <link href="geral.css" rel="stylesheet">
@@ -71,18 +72,18 @@ require 'verifica.php';
     }
 
     button {
-		border: 2px solid white;
-		border-radius: 5px;
-		background-color: white;
-		padding: 14px 28px;
-		font-size: 16px;
-		float: left;
-		width: 30%;
-		margin: 2% 10% 1% 10%;
-		box-shadow: 5px 5px 15px #000;
-		color: #662113;
-		cursor: pointer;
-	}
+        border: 2px solid white;
+        border-radius: 5px;
+        background-color: white;
+        padding: 14px 28px;
+        font-size: 16px;
+        float: left;
+        width: 30%;
+        margin: 2% 10% 1% 10%;
+        box-shadow: 5px 5px 15px #000;
+        color: #662113;
+        cursor: pointer;
+    }
 
     button:hover {
         opacity: 0.8;
@@ -103,5 +104,4 @@ require 'verifica.php';
     footer {
         position: absolute;
     }
-
 </style>

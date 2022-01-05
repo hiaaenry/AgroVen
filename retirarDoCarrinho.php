@@ -9,5 +9,3 @@ for ($i=0; $i < sizeof($_SESSION['carrinho']); $i++) {
 }
 
 echo "<script>window.location='formCompra.php';alert('o produto foi removido do carrinho');</script>";
-
- ?>

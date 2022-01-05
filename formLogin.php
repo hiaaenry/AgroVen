@@ -31,14 +31,13 @@
     </form>
 
     <footer>
-		<a href="https://github.com/Rayaninha/AgroVen.git" class="fa fa-github"></a>
-		<a href="" class="fa fa-instagram"></a>
-	</footer>
+        <a href="https://github.com/Rayaninha/AgroVen.git" class="fa fa-github"></a>
+        <a href="" class="fa fa-instagram"></a>
+    </footer>
 
 </body>
 
 <style>
-
     .container {
         margin: 10% 30% 0% 30%;
     }
@@ -71,7 +70,6 @@
     }
 
     footer {
-		position: absolute;
-	}
-
+        position: absolute;
+    }
 </style>

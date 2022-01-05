@@ -46,7 +46,6 @@
 </body>
 
 <style>
-
 	body {
 		background-image: url(imagem/fundo.png);
 		background-position: center;
@@ -89,5 +88,4 @@
 	footer {
 		position: absolute;
 	}
-
 </style>

@@ -5,7 +5,7 @@ require 'verifica.php';
 include_once 'conexao.php';
 $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 $idCliente = ($_SESSION["CLI_ID"]);
-if(sizeof($_SESSION['carrinho'])<1){
+if (sizeof($_SESSION['carrinho']) < 1) {
     echo "<script>window.location='listarProdutosLogado.php';alert('seu carrinho esta vazio');</script>";
 };
 
@@ -41,10 +41,8 @@ if(sizeof($_SESSION['carrinho'])<1){
 
         <div class="listagem">
             <?php
-            // $_SESSION['carrinho'] = [];
-            // var_dump($_SESSION['carrinho']);
-            
-            for ($i=0; $i < sizeof($_SESSION['carrinho']); $i++) { 
+
+            for ($i = 0; $i < sizeof($_SESSION['carrinho']); $i++) {
                 $id = intval($_SESSION['carrinho'][$i]['id']);
                 $busca = "SELECT * FROM AGR_PRODUTO WHERE PRO_ID = $id LIMIT 1";
                 $exibir = $conectar->prepare($busca);
@@ -52,42 +50,33 @@ if(sizeof($_SESSION['carrinho'])<1){
                 $result = $exibir->fetch(PDO::FETCH_ASSOC);
             ?>
                 <div class="produto">
-                        <div class="coluna">
-                            <img src="imagens/<?= $result['PRO_ID'] ?>/<?= $result['PRO_IMAGEM'] ?>" class="img">
-                        </div>
-                        <div class="coluna">
-                            <?php
-                            echo "Nome: " . $result['PRO_NOME'] . "<br>";
+                    <div class="coluna">
+                        <img src="imagens/<?= $result['PRO_ID'] ?>/<?= $result['PRO_IMAGEM'] ?>" class="img">
+                    </div>
+                    <div class="coluna">
+                        <?php
+                        echo "Nome: " . $result['PRO_NOME'] . "<br>";
 
-                            echo "Preço: " . $result['PRO_PRECO'] . "<br>";
-                            echo "Quantidade: " . $_SESSION['carrinho'][$i]['qtd'] . "<br>";
-                            ?>
-                            <form action="alterarQuantidade.php" method="POST">
-                                <input type="number" min="1" placeholder="Alterar Quantidade" name="quantidade">
-                                </input>
-                                <input type="hidden" name="id" value='<?=$result["PRO_ID"]?>'></input>
-                                <input type="submit" name="Alterar"></input>
-                            </form>
-                                <?php
-                                echo "<a href='RetirarDoCarrinho.php?idProduto=" . $result['PRO_ID'] . "'><button>Retirar do carrinho</button></a>";
-                                ?>
-                        </div>
-            <?php 
-                };
-             ?>
-
-
+                        echo "Preço: " . $result['PRO_PRECO'] . "<br>";
+                        echo "Quantidade: " . $_SESSION['carrinho'][$i]['qtd'] . "<br>";
+                        ?>
+                        <form action="alterarQuantidade.php" method="POST">
+                            <input type="number" min="1" placeholder="Alterar Quantidade" name="quantidade"></input>
+                            <input type="hidden" name="id" value='<?= $result["PRO_ID"] ?>'></input>
+                            <input type="submit" name="Alterar"></input>
+                        </form>
+                        <?php
+                        echo "<a href='retirarDoCarrinho.php?idProduto=" . $result['PRO_ID'] . "'><button>Remover</button></a>";
+                        ?>
+                    </div>
+                <?php
+            };
+                ?>
+                </div>
+                <a href="compra.php">
+                    <button type="submit">Finalizar Compra</button>
+                </a>
         </div>
-
-        <a href="compra.php">
-            <button type="submit">Finalizar Compra</button>
-        </a>
-
-
-    </div>
-
-
-
 </body>
 
 <style>
@@ -100,26 +89,14 @@ if(sizeof($_SESSION['carrinho'])<1){
         margin-right: 20%;
     }
 
-    input[type="text"],
-    [type="number"] {
+    input[type="number"] {
         width: 96%;
         padding: 2%;
-        margin: 1% 2% 0% 2%;
+        margin: 1% 0% 1% 0%;
         display: inline-block;
         border: 1px solid #ccc;
         box-sizing: border-box;
         border-radius: 5px;
-    }
-
-    select {
-        width: 96%;
-        padding: 2%;
-        margin: 1% 2% 0% 2%;
-        display: inline-block;
-        border: 1px solid #ccc;
-        box-sizing: border-box;
-        border-radius: 5px;
-        background-color: white;
     }
 
     .listagem {

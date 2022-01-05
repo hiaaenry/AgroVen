@@ -16,9 +16,5 @@ for ($i=0; $i < 1; $i++) {
 }; 
 
 array_push($_SESSION["carrinho"], $produto);
-// $_SESSION['carrinho'] = [];
-// var_dump($_SESSION["carrinho"]);
 
 echo "<script>window.location='listarProdutosLogado.php';alert('o produto foi adicionado ao carrinho');</script>";
-
- ?>

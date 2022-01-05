@@ -8,5 +8,3 @@ for ($i=0; $i < sizeof($_SESSION['carrinho']); $i++) {
 }
 
 echo "<script>window.location='formCompra.php';alert('a quantidade foi alterada');</script>";
-
- ?>

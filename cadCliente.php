@@ -11,7 +11,6 @@ $stmt = $conectar->query($inserir);
 if ($stmt->fetch() !== false) {
 
 	echo "<script>window.location='formCliente.php';alert('Cadastro já existe!');</script>";
-	
 } else {
 	$inserir = "INSERT INTO AGR_CLIENTES (CLI_NOME, CLI_EMAIL, CLI_SENHA) VALUES('$CLI_NOME', '$CLI_EMAIL', '$CLI_SENHA')";
 

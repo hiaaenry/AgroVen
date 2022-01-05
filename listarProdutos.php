@@ -11,15 +11,15 @@ include_once 'conexao.php';
 <body>
     <div class="topnav">
 
-    <div class="logo">
+        <div class="logo">
             <a href="index.php">
                 <img src="imagem/logo.png" alt="AgroVen" width="100px">
             </a>
         </div>
 
         <a href="formLogin.php">
-			<p class="fa fa-user"> Login</p>
-		</a>
+            <p class="fa fa-user"> Login</p>
+        </a>
 
     </div>
 

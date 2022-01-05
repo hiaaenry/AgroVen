@@ -1,6 +1,7 @@
 <head>
     <link href="cadEstilo.css" rel="stylesheet">
 </head>
+
 <body>
     <div class="tabela">
         <div class="coluna">

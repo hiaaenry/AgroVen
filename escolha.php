@@ -33,13 +33,12 @@
     </div>
 
     <footer>
-		<a href="https://github.com/Rayaninha/AgroVen.git" class="fa fa-github"></a>
-		<a href="" class="fa fa-instagram"></a>
-	</footer>
+        <a href="https://github.com/Rayaninha/AgroVen.git" class="fa fa-github"></a>
+        <a href="" class="fa fa-instagram"></a>
+    </footer>
 </body>
 
 <style>
-
     body {
         background-image: url(imagem/fundo.png);
         background-position: center;
@@ -69,11 +68,10 @@
     }
 
     button:hover {
-		opacity: 0.8;
-	}
+        opacity: 0.8;
+    }
 
     footer {
         position: absolute;
     }
-
 </style>

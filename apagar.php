@@ -33,5 +33,3 @@ if (($delete_produto) and ($delete_produto->rowCount() != 0)) {
 } else {
 	echo "<script>window.location='meusProdutos.php';alert('Produto Não encontrado!.');</script>";
 }
-
-?>

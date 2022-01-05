@@ -1,7 +1,7 @@
 <?php
 session_start();
 include_once 'conexao.php';
-// require 'verifica.php';
+require 'verifica.php';
 $idCliente = $_SESSION['CLI_ID'];
 
 $sql = "INSERT INTO AGR_COMPRA (COM_CLI_ID) VALUES ($idCliente)";
@@ -36,5 +36,3 @@ $query->execute();
 $_SESSION['carrinho'] = [];
 
 echo "<script>window.location='formFrete.php';alert('Compra arquivada, segue ao');</script>";
-
-?>

@@ -11,7 +11,6 @@ $stmt = $conectar->query($inserir);
 if ($stmt->fetch() !== false) {
 
 	echo "<script>window.location='formVendedor.php';alert('Cadastro já existe!');</script>";
-	
 } else {
 	$inserir = "INSERT INTO AGR_VENDEDORES (VEN_NOME, VEN_EMAIL, VEN_SENHA) VALUES('$VEN_NOME', '$VEN_EMAIL', '$VEN_SENHA')";
 
