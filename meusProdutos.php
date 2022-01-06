@@ -39,49 +39,35 @@ $idVendedor = ($_SESSION["VEN_ID"]);
         <div class="listagem">
             <?php
 
-            $busca = "SELECT * FROM AGR_PRODUTO WHERE PRO_VEN_ID = '$idVendedor'";
+            $exibir_banco = "SELECT * FROM AGR_PRODUTO WHERE PRO_VEN_ID = '$idVendedor' ORDER BY PRO_ID ASC";
 
-            $stmt = $conectar->query($busca);
+            $exibir = $conectar->prepare($exibir_banco);
+            $exibir->execute();
 
-            $result = $stmt->fetch();
-            if ($result == true) {
-
-                $exibir_banco = "SELECT * FROM AGR_PRODUTO ORDER BY PRO_ID ASC";
-
-                $exibir = $conectar->prepare($exibir_banco);
-                $exibir->execute();
-
-                while ($row = $exibir->fetch(PDO::FETCH_ASSOC)) {
+            while ($row = $exibir->fetch(PDO::FETCH_ASSOC)) {
             ?>
 
-                    <div class="produto">
-                        <div class="coluna1">
-                            <img src="imagens/<?= $row['PRO_ID'] ?>/<?= $row['PRO_IMAGEM'] ?>" class="img">
-                        </div>
-                        <div class="coluna2">
+                <div class="produto">
+                    <div class="coluna1">
+                        <img src="imagens/<?= $row['PRO_ID'] ?>/<?= $row['PRO_IMAGEM'] ?>" class="img">
+                    </div>
+                    <div class="coluna2">
 
-                            <?php
-                            echo "<p>Nome: " . $row['PRO_NOME'] . "</p>";
-                            echo "<p>Descrição: " . $row['PRO_DESCRICAO'] . "</p>";
-                            echo "<p>Preço: R$ " . $row['PRO_PRECO'] . "</p>";
-                            echo "<a href='formEditar.php?id=" . $row['PRO_ID'] . "'><button>Editar</button></a>";
-                            echo "<a href='apagar.php?id=" . $row['PRO_ID'] . "'><button>Apagar</button></a>";
-                            ?>
-                        </div>
-                    <?php
-                }
-                    ?>
-
+                        <?php
+                        echo "<p>Nome: " . $row['PRO_NOME'] . "</p>";
+                        echo "<p>Descrição: " . $row['PRO_DESCRICAO'] . "</p>";
+                        echo "<p>Preço: R$ " . $row['PRO_PRECO'] . "</p>";
+                        echo "<a href='formEditar.php?id=" . $row['PRO_ID'] . "'><button>Editar</button></a>";
+                        echo "<a href='apagar.php?id=" . $row['PRO_ID'] . "'><button>Apagar</button></a>";
+                        ?>
                     </div>
                 <?php
             }
                 ?>
+
+                </div>
         </div>
-
-
     </div>
-
-
 </body>
 
 <style>

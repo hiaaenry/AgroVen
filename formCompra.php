@@ -4,7 +4,6 @@ session_start();
 require 'verifica.php';
 include_once 'conexao.php';
 $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
-$idCliente = ($_SESSION["CLI_ID"]);
 if (sizeof($_SESSION['carrinho']) < 1) {
     echo "<script>window.location='listarProdutosLogado.php';alert('seu carrinho esta vazio');</script>";
 };
