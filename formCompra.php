@@ -72,6 +72,9 @@ if (sizeof($_SESSION['carrinho']) < 1) {
             };
                 ?>
                 </div>
+                <a href='listarProdutosLogado.php'>
+                    <button>Continuar Comprando</button>
+                </a>
                 <a href="compra.php">
                     <button type="submit">Finalizar Compra</button>
                 </a>
