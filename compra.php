@@ -35,4 +35,4 @@ $query->execute();
 
 $_SESSION['carrinho'] = [];
 
-echo "<script>window.location='formFrete.php';alert('Compra arquivada, segue ao');</script>";
+echo "<script>window.location='comprovante.php';alert('Compra arquivada, segue ao');</script>";
