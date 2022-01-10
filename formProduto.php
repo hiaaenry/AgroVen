@@ -49,7 +49,7 @@ $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
                 <input type="radio" value="derivados" id="derivados" name="produto" />
 				<label for="derivados">Derivados</label><br /> -->
 
-                <h3>R$:</h3><input type="number" name="preco" placeholder="Preço do Produto R$:"required><br><br>
+                <h3>R$:</h3><input type="number" name="preco" placeholder="Preço do Produto R$:" required><br><br>
             </div>
             <div class="coluna">
                 <h3>Imagem</h3>

@@ -3,7 +3,7 @@ include_once 'conexao.php';
 
 $id = filter_input(INPUT_GET, "id", FILTER_SANITIZE_NUMBER_INT);
 
-$busca = "SELECT * FROM AGR_COMPRA WHERE COM_PRO_ID = '$id'";
+$busca = "SELECT * FROM AGR_COMPRA_PRODUTO WHERE CPP_PRO_ID = '$id'";
 
 $stmt = $conectar->query($busca);
 

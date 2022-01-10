@@ -27,9 +27,8 @@ $idCliente = ($_SESSION['CLI_ID']);
 		INNER JOIN AGR_COMPRA 
 		ON AGR_COMPRA.COM_ID = AGR_COMPRA_PRODUTO.CPP_COM_ID
 		INNER JOIN AGR_CLIENTES
-		ON AGR_CLIENTES.CLI_ID = AGR_COMPRA.COM_CLI_ID");
-
-
+		ON AGR_CLIENTES.CLI_ID = AGR_COMPRA.COM_CLI_ID
+		WHERE COM_CLI_ID = $idCliente");
 
 	$result = $conectar->prepare($sql);
 	$result->execute();

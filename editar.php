@@ -12,7 +12,7 @@ if ($editar) {
     $imagem = filter_input(INPUT_POST, 'imagem', FILTER_SANITIZE_STRING);
 
 
-    $update_banco = "UPDATE AGR_PRODUTO SET PRO_NOME=:nome, PRO_DESCRICAO=:descricao, PRO_PRECO=:preco, PRO_IMAGEM=:imagem WHERE PRO_ID=$id";
+    $update_banco = ("UPDATE AGR_PRODUTO SET PRO_NOME=:nome, PRO_DESCRICAO=:descricao, PRO_PRECO=:preco, PRO_IMAGEM=:imagem WHERE PRO_ID='$id'");
 
     $updateCad = $conectar->prepare($update_banco);
     $updateCad->bindParam(':nome', $nome);
@@ -22,12 +22,12 @@ if ($editar) {
 
     if ($updateCad->execute()) {
         $_SESSION['msg'] = "<p style='color:green;'> Produto editado com sucesso</p>";
-        header("Location: index.php");
+        header("Location: meusProdutos.php");
     } else {
         $_SESSION['msg'] = "<p style='color:red;'>Produto não foi editado, tente novamente!</p>";
-        header("Location: index.php");
+        header("Location: meusProdutos.php");
     }
 } else {
     $_SESSION['msg'] = "<p style='color:red;'>Produto não foi editado, tente novamente!</p>";
-    header("Location: index.php");
+    header("Location: meusProdutos.php");
 }
