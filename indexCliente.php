@@ -16,6 +16,10 @@ require 'verifica.php';
             <img src="imagem/logo.png" alt="AgroVen" width="100px">
         </div>
 
+        <a href="index.php">
+			<p class="active"> Página Inicial</p>
+		</a>
+
         <a href="perfilCliente.php">
             <p class="fa fa-user">
                 <?php
@@ -32,76 +36,92 @@ require 'verifica.php';
 
     </div>
 
-    <a href="listarProdutosLogado.php">
-        <button>Busque por produtos</button>
-    </a>
+    <h1>BEM VINDO!</h1>
 
-    <script>
-        document.getElementById("botao").disabled = true;
-    </script>
+	<h2>QUE BOM QUE NOS ACHOU!</h2>
+	<p>Do que você precisa? Comprar produtos de boa qualidade, com segurança,<br>
+		de forma prática e rapida? Ou vender seu produto para todo o estado para<br>
+		contribuir com o crecimento do agronegócio e valorizar microempresas?<br>
+		Junte-se a nós efetuando seu cadastro em nosso site, com intuito melhorar a<br>
+		prática da agricultura e da pecuária.</p>
 
-    <a href="anuncio.php">
-        <button id="botao">Anuncie seus produtos</button>
-    </a>
 
-    <div class="tabela">
+	<h1>JUNTE-SE A NÓS!</h1>
 
-        <div class="coluna">
-            <img src="imagem/cliente.png" alt="AgroVen" width="100%" />
-        </div>
+	<a href="listarProdutos.php">
+		<button>Busque por produtos</button>
+	</a>
 
-        <div class="coluna">
-            <img src="imagem/agricultor.png" alt="AgroVen" width="100%" />
-        </div>
+	<a href="formProduto.php">
+		<button>Anuncie seus produtos</button>
+	</a>
 
-    </div>
+	<div class="tabela">
 
-    <footer>
-        <a href="https://github.com/Rayaninha/AgroVen.git" class="fa fa-github"></a>
-        <a href="" class="fa fa-instagram"></a>
-    </footer>
+		<div class="coluna">
+			<img src="imagem/cliente.png" alt="AgroVen" width="100%" />
+		</div>
 
+		<div class="coluna">
+			<img src="imagem/agricultor.png" alt="AgroVen" width="100%" />
+		</div>
+
+	</div>
+
+
+	<div class="footer">
+		<footer>
+			<hr>
+			<div class="ajuda">Ajuda e Contato</div>
+			<div class="dica">Dicas de Segurança</div>
+			<a href="https://github.com/Rayaninha/AgroVen.git" class="fa fa-github"></a>
+			<a href="" class="fa fa-instagram"></a>
+			<p><a href="">Sobre o Agroven</a>, <a href="">Termos de uso, Política de privacidade</a> e <a href="">Proteção à Propriedade Intelectual</a><br>
+				© Bom Negócio Atividades de Internet Ltda. Avenida Duarte Coelho, 1654, Campina de Feira - 53605-030 - Igarassu, PE</p>
+		</footer>
+	</div>
 </body>
 
 <style>
-    body {
-        background-image: url(imagem/fundo.png);
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
+	body {
+		background-image: url(imagem/fundo.png);
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: contain;
+	}
 
-    button {
-        border: 2px solid white;
-        border-radius: 5px;
-        background-color: white;
-        padding: 14px 28px;
-        font-size: 16px;
-        float: left;
-        width: 30%;
-        margin: 2% 10% 1% 10%;
-        box-shadow: 5px 5px 15px #000;
-        color: #662113;
-        cursor: pointer;
-    }
+	button {
+		border: 2px solid white;
+		border-radius: 5px;
+		background-color: white;
+		padding: 14px 28px;
+		font-size: 16px;
+		float: left;
+		width: 30%;
+		margin: 1% 10% 1% 10%;
+		box-shadow: 5px 5px 15px #000;
+		color: #662113;
+		cursor: pointer;
+	}
 
-    button:hover {
-        opacity: 0.8;
-    }
+	button:hover {
+		opacity: 0.8;
+	}
 
-    .coluna {
-        float: left;
-        width: 40%;
-        margin: 0px 5% 50px 5%;
-    }
+	.coluna {
+		float: left;
+		width: 36%;
+		margin: 1% 7% 20% 7%;
+	}
 
-    .tabela:after {
-        content: "";
-        display: table;
-        clear: both;
-    }
+	.coluna img {
+		border-radius: 5px;
+		box-shadow: 5px 5px 15px #000;
+	}
 
-    footer {
-        position: absolute;
-    }
+	.tabela:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
 </style>

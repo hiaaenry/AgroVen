@@ -1,7 +1,7 @@
 <head>
     <script src="https://use.fontawesome.com/c1a45d17ac.js"></script>
     <link href="geral.css" rel="stylesheet">
-    <title>Ecolha</title>
+    <title>Agroven</title>
 </head>
 
 <body>
@@ -32,25 +32,31 @@
 
     </div>
 
-    <footer>
-        <a href="https://github.com/Rayaninha/AgroVen.git" class="fa fa-github"></a>
-        <a href="" class="fa fa-instagram"></a>
-    </footer>
+    <div class="footer">
+        <footer>
+            <hr>
+            <div class="ajuda">Ajuda e Contato</div>
+            <div class="dica">Dicas de Segurança</div>
+            <a href="https://github.com/Rayaninha/AgroVen.git" class="fa fa-github"></a>
+            <a href="" class="fa fa-instagram"></a>
+            <p><a href="">Sobre o Agroven</a>, <a href="">Termos de uso, Política de privacidade</a> e <a href="">Proteção à Propriedade Intelectual</a><br>
+                © Bom Negócio Atividades de Internet Ltda. Avenida Duarte Coelho, 1654, Campina de Feira - 53605-030 - Igarassu, PE</p>
+        </footer>
+    </div>
 </body>
 
 <style>
     body {
-        background-image: url(imagem/fundo.png);
-        background-position: center;
+        background-image: url(imagem/escolha.png);
+        background-position: right;
         background-repeat: no-repeat;
-        background-size: cover;
-        height: 50%;
+        background-size: auto;
     }
 
     .container {
-        background-color: white;
         align-items: center;
-        margin: 5% 30% 10% 30%;
+        height: 50%;
+        margin: 5% 30% 0% 30%;
     }
 
     button {
@@ -69,9 +75,5 @@
 
     button:hover {
         opacity: 0.8;
-    }
-
-    footer {
-        position: absolute;
     }
 </style>

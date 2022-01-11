@@ -7,6 +7,12 @@ body {
     margin: 0px;
 }
 
+body h1,
+h2,
+p {
+    margin: 2% 0% 2% 7%;
+}
+
 .topnav {
     background-color: #5c913b;
     overflow: hidden;
@@ -17,9 +23,10 @@ body {
 }
 
 .topnav p {
+    float: left;
     color: white;
     font-size: 17px;
-    margin: 0% 0% 1% 0%;
+    margin: 2% 0% 2% 2%;
 }
 
 .topnav p:hover {
@@ -27,29 +34,64 @@ body {
     border-radius: 25px;
 }
 
+.topnav p.active {
+    text-decoration: underline;
+}
+
 .logo {
-    margin-top: 1%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 1%;
+    float: left;
+    margin: 1% 0% 1% 2%;
     width: 6em;
 }
 
-footer {
+.footer {
+    bottom: 0;
+    left: 0;
     width: 100%;
-    background-color: #662113;
-    font-size: 17px;
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
-    text-align: center;
+}
+
+footer {
+    background-image: url(imagem/footer.png);
+    background-color: white;
+    background-repeat: repeat-x;
+    background-position: bottom;
+    text-align: justify;
+    height: 30%;
 }
 
 footer a {
-    padding: 30px 0px 30px 0px;
+    text-decoration: underline;
+    color: black;
+}
+
+footer p {
+    margin: 1% 0% 5% 5%;
+}
+
+.ajuda {
+    font-size: 25;
+    float: left;
+    margin: 1% 0% 1% 5%;
+    text-decoration: underline;
+}
+
+.dica {
+    font-size: 25;
+    float: left;
+    margin: 1% 0% 1% 5%;
+    text-decoration: underline;
+}
+
+.fa-github {
+    font-size: 40;
+    margin: 1% 0% 1% 50%;
     text-decoration: none;
-    color: white;
-    margin: 0px 10px 0px 10px;
+}
+
+.fa-instagram {
+    font-size: 40;
+    margin: 1% 0% 1% 2%;
+    text-decoration: none;
 }
 
 footer a:hover {

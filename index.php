@@ -7,9 +7,15 @@
 <body>
 	<div class="topnav">
 
-		<div class="logo">
-			<img src="imagem/logo.png" alt="AgroVen" width="100px">
-		</div>
+		<a>
+			<div class="logo">
+				<img src="imagem/logo.png" alt="AgroVen" width="100px">
+			</div>
+		</a>
+
+		<a href="index.php">
+			<p class="active"> Página Inicial</p>
+		</a>
 
 		<a href="formLogin.php">
 			<p class="fa fa-user"> Login</p>
@@ -17,6 +23,17 @@
 
 	</div>
 
+	<h1>BEM VINDO!</h1>
+
+	<h2>QUE BOM QUE NOS ACHOU!</h2>
+	<p>Do que você precisa? Comprar produtos de boa qualidade, com segurança,<br>
+		de forma prática e rapida? Ou vender seu produto para todo o estado para<br>
+		contribuir com o crecimento do agronegócio e valorizar microempresas?<br>
+		Junte-se a nós efetuando seu cadastro em nosso site, com intuito melhorar a<br>
+		prática da agricultura e da pecuária.</p>
+
+
+	<h1>JUNTE-SE A NÓS!</h1>
 
 	<a href="listarProdutos.php">
 		<button>Busque por produtos</button>
@@ -38,11 +55,18 @@
 
 	</div>
 
-	<footer>
-		<a href="https://github.com/Rayaninha/AgroVen.git" class="fa fa-github"></a>
-		<a href="" class="fa fa-instagram"></a>
-	</footer>
 
+	<div class="footer">
+		<footer>
+			<hr>
+			<div class="ajuda">Ajuda e Contato</div>
+			<div class="dica">Dicas de Segurança</div>
+			<a href="https://github.com/Rayaninha/AgroVen.git" class="fa fa-github"></a>
+			<a href="" class="fa fa-instagram"></a>
+			<p><a href="">Sobre o Agroven</a>, <a href="">Termos de uso, Política de privacidade</a> e <a href="">Proteção à Propriedade Intelectual</a><br>
+				© Bom Negócio Atividades de Internet Ltda. Avenida Duarte Coelho, 1654, Campina de Feira - 53605-030 - Igarassu, PE</p>
+		</footer>
+	</div>
 </body>
 
 <style>
@@ -50,9 +74,7 @@
 		background-image: url(imagem/fundo.png);
 		background-position: center;
 		background-repeat: no-repeat;
-		background-size: cover;
-		margin: 0px;
-		padding: 0px;
+		background-size: contain;
 	}
 
 	button {
@@ -63,7 +85,7 @@
 		font-size: 16px;
 		float: left;
 		width: 30%;
-		margin: 2% 10% 1% 10%;
+		margin: 1% 10% 1% 10%;
 		box-shadow: 5px 5px 15px #000;
 		color: #662113;
 		cursor: pointer;
@@ -75,17 +97,18 @@
 
 	.coluna {
 		float: left;
-		width: 40%;
-		margin: 0px 5% 50px 5%;
+		width: 36%;
+		margin: 1% 7% 20% 7%;
+	}
+
+	.coluna img {
+		border-radius: 5px;
+		box-shadow: 5px 5px 15px #000;
 	}
 
 	.tabela:after {
 		content: "";
 		display: table;
 		clear: both;
-	}
-
-	footer {
-		position: absolute;
 	}
 </style>
