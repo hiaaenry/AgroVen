@@ -1,4 +1,4 @@
-<?php
+ <?php
 session_start();
 include_once 'conexao.php';
 
@@ -9,16 +9,16 @@ if ($editar) {
     $nome = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_STRING);
     $descricao = filter_input(INPUT_POST, 'descricao', FILTER_SANITIZE_STRING);
     $preco = filter_input(INPUT_POST, 'preco', FILTER_SANITIZE_STRING);
-    $imagem = filter_input(INPUT_POST, 'imagem', FILTER_SANITIZE_STRING);
+   
 
 
-    $update_banco = ("UPDATE AGR_PRODUTO SET PRO_NOME=:nome, PRO_DESCRICAO=:descricao, PRO_PRECO=:preco, PRO_IMAGEM=:imagem WHERE PRO_ID='$id'");
+    $update_banco = ("UPDATE AGR_PRODUTO SET PRO_NOME=:nome, PRO_DESCRICAO=:descricao, PRO_PRECO=:preco WHERE PRO_ID='$id'");
 
     $updateCad = $conectar->prepare($update_banco);
     $updateCad->bindParam(':nome', $nome);
     $updateCad->bindParam(':descricao', $descricao);
     $updateCad->bindParam(':preco', $preco);
-    $updateCad->bindParam(':imagem', $imagem);
+  
 
     if ($updateCad->execute()) {
         $_SESSION['msg'] = "<p style='color:green;'> Produto editado com sucesso</p>";

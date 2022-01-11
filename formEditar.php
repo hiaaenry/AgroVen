@@ -27,30 +27,26 @@ $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
     $row = $editar->fetch(PDO::FETCH_ASSOC);
 
     ?>
-    <form method="POST" action="editar.php">
-        <input type="hidden" name="id" value="<?php if (isset($row['id'])) {
-                                                    echo $row['id'];
-                                                } ?>">
+    <form enctype="multipart/form-data"method="POST" action="editar.php">
+        <input type="hidden" name="id" value="<?php if (isset($row['PRO_ID'])) {
+            echo $row['PRO_ID'];
+        } ?>">
 
         <label>Nome: </label>
-        <input type="text" name="nome" placeholder="Nome do Produto" value="<?php if (isset($row['nome'])) {
-                                                                                echo $row['nome'];
-                                                                            } ?>"><br><br>
+        <input type="text" name="nome" placeholder="Nome do Produto" value="<?php if (isset($row['PRO_NOME'])) {
+            echo $row['PRO_NOME'];
+        } ?>"><br><br>
 
         <label>Descrição: </label>
-        <input type="text" name="descricao" placeholder="Descrição do Produto" value="<?php if (isset($row['descricao'])) {
-                                                                                            echo $row['descricao'];
-                                                                                        } ?>"><br><br>
+        <input type="text" name="descricao" placeholder="Descrição do Produto" value="<?php if (isset($row['PRO_DESCRICAO'])) {
+            echo $row['PRO_DESCRICAO'];
+        } ?>"><br><br>
 
         <label>Preço: </label>
-        <input type="text" name="preco" placeholder="Preço do Produto" value="<?php if (isset($row['preco'])) {
-                                                                                    echo $row['preco'];
-                                                                                } ?>"><br><br>
+        <input type="textarea" name="preco" placeholder="Preço do Produto" value="<?php if (isset($row['PRO_PRECO'])) {
+            echo $row['PRO_PRECO'];
+        } ?>"><br><br>
 
-        <label>Imagem: </label>
-        <input type="file" name="imagem" value="<?php if (isset($row['imagem'])) {
-                                                    echo $row['imagem'];
-                                                } ?>"><br><br>
 
 
         <input name="editar" type="submit" value="Editar">
