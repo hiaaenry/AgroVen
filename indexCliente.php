@@ -4,39 +4,41 @@ require 'verifica.php';
 ?>
 
 <head>
-    <script src="https://use.fontawesome.com/c1a45d17ac.js"></script>
-    <link href="geral.css" rel="stylesheet">
-    <title>AgroVen</title>
+	<script src="https://use.fontawesome.com/c1a45d17ac.js"></script>
+	<link href="geral.css" rel="stylesheet">
+	<title>AgroVen</title>
 </head>
 
 <body>
-    <div class="topnav">
+	<div class="topnav">
 
-        <div class="logo">
-            <img src="imagem/logo.png" alt="AgroVen" width="100px">
-        </div>
-
-        <a href="index.php">
-			<p class="active"> Página Inicial</p>
+		<a>
+			<div class="logo">
+				<img src="imagem/logo.png" alt="AgroVen" width="100px">
+			</div>
 		</a>
 
-        <a href="perfilCliente.php">
-            <p class="fa fa-user">
-                <?php
-                echo ($_SESSION["CLI_NOME"]);
-                ?>
-            </p>
-        </a>
+		<a href="index.php">
+			<div class="active"> Página Inicial</div>
+		</a>
 
-        <a href="formCompra.php">
-            <p class="fa fa-shopping-cart">
-                Carrinho
-            </p>
-        </a>
+		<a href="perfilCliente.php">
+			<p class="inicio">
+				<?php
+				echo ($_SESSION["CLI_NOME"]);
+				?>
+			</p>
+		</a>
 
-    </div>
+		<a href="formCompra.php">
+			<p class="inicio">
+				Carrinho
+			</p>
+		</a>
 
-    <h1>BEM VINDO!</h1>
+	</div>
+
+	<h1>BEM VINDO!</h1>
 
 	<h2>QUE BOM QUE NOS ACHOU!</h2>
 	<p>Do que você precisa? Comprar produtos de boa qualidade, com segurança,<br>
@@ -90,9 +92,15 @@ require 'verifica.php';
 		background-size: contain;
 	}
 
+	body h1,
+	h2,
+	p {
+		margin: 2% 0% 2% 7%;
+	}
+
 	button {
 		border: 2px solid white;
-		border-radius: 5px;
+		border-radius: 100px;
 		background-color: white;
 		padding: 14px 28px;
 		font-size: 16px;
@@ -102,6 +110,28 @@ require 'verifica.php';
 		box-shadow: 5px 5px 15px #000;
 		color: #662113;
 		cursor: pointer;
+	}
+
+	.topnav div.active {
+		background-color: white;
+		color: #5c913b;
+	}
+
+	.active,
+	.entrar,
+	.inicio {
+		float: left;
+		color: white;
+		font-size: 17px;
+		padding: 2% 2% 2% 2%;
+	}
+
+	.active:hover,
+	.entrar:hover,
+	.inicio:hover {
+		background-color: white;
+		color: #5c913b;
+		opacity: 0.8;
 	}
 
 	button:hover {
@@ -115,7 +145,6 @@ require 'verifica.php';
 	}
 
 	.coluna img {
-		border-radius: 5px;
 		box-shadow: 5px 5px 15px #000;
 	}
 

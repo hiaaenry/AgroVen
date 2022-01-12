@@ -14,9 +14,19 @@
             </a>
         </div>
 
+        <a href="index.php">
+            <div class="inicio"> Página Inicial</div>
+        </a>
+
+        <a href="formLogin.php">
+            <div class="active"> Escolha</div>
+        </a>
+
     </div>
 
     <div class="container">
+
+    <h1>COMO DESEJAR SE CADASTRAR?</h1>
 
         <a href="formCliente.php">
             <button>
@@ -48,15 +58,37 @@
 <style>
     body {
         background-image: url(imagem/escolha.png);
-        background-position: right;
+        background-position: center;
         background-repeat: no-repeat;
-        background-size: auto;
+        background-size: 30em;
+    }
+
+    .topnav div.active {
+        background-color: white;
+        color: #5c913b;
+    }
+
+    .active,
+    .entrar,
+    .inicio {
+        float: left;
+        color: white;
+        font-size: 17px;
+        padding: 2% 2% 2% 2%;
+    }
+
+    .active:hover,
+    .entrar:hover,
+    .inicio:hover {
+        background-color: white;
+        color: #5c913b;
+        opacity: 0.8;
     }
 
     .container {
         align-items: center;
         height: 50%;
-        margin: 5% 30% 0% 30%;
+        margin: 5% 30% 10% 30%;
     }
 
     button {

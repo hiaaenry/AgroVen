@@ -3,14 +3,12 @@ a {
 }
 
 body {
-    padding: 0px;
-    margin: 0px;
+    font-family: Courier, monospace;
 }
 
-body h1,
-h2,
-p {
-    margin: 2% 0% 2% 7%;
+body {
+    padding: 0px;
+    margin: 0px;
 }
 
 .topnav {
@@ -22,26 +20,16 @@ p {
     text-align: center;
 }
 
-.topnav p {
-    float: left;
-    color: white;
-    font-size: 17px;
-    margin: 2% 0% 2% 2%;
-}
-
-.topnav p:hover {
-    opacity: 0.8;
-    border-radius: 25px;
-}
-
-.topnav p.active {
-    text-decoration: underline;
-}
-
 .logo {
     float: left;
-    margin: 1% 0% 1% 2%;
+    margin: 1% 2% 1% 2%;
     width: 6em;
+}
+
+hr {
+    background-color: #000;
+    height: 1%;
+    border: none;
 }
 
 .footer {
@@ -84,7 +72,7 @@ footer p {
 
 .fa-github {
     font-size: 40;
-    margin: 1% 0% 1% 50%;
+    margin: 1% 0% 1% 40%;
     text-decoration: none;
 }
 

@@ -14,14 +14,18 @@ require 'verifica.php';
 <body>
     <div class="topnav">
 
-        <div class="logo">
-            <a href="indexCliente.php">
+        <a>
+            <div class="logo">
                 <img src="imagem/logo.png" alt="AgroVen" width="100px">
-            </a>
-        </div>
+            </div>
+        </a>
+
+        <a href="index.php">
+            <div class="active"> Página Inicial</div>
+        </a>
 
         <a href="perfilCliente.php">
-            <p class="fa fa-user">
+            <p class="inicio">
                 <?php
                 echo ($_SESSION["CLI_NOME"]);
                 ?>
@@ -29,7 +33,7 @@ require 'verifica.php';
         </a>
 
         <a href="formCompra.php">
-            <p class="fa fa-shopping-cart">
+            <p class="inicio">
                 Carrinho
             </p>
         </a>
@@ -37,7 +41,7 @@ require 'verifica.php';
     </div>
 
     <div class="tudo">
-
+        <img src="imagem/busca.png" alt="imagem" style="width: 20em; margin-left: 60%">
         <div class="listagem">
             <?php
 
@@ -68,11 +72,44 @@ require 'verifica.php';
 
         </div>
     </div>
+    <div class="footer">
+        <footer>
+            <hr>
+            <div class="ajuda">Ajuda e Contato</div>
+            <div class="dica">Dicas de Segurança</div>
+            <a href="https://github.com/Rayaninha/AgroVen.git" class="fa fa-github"></a>
+            <a href="" class="fa fa-instagram"></a>
+            <p><a href="">Sobre o Agroven</a>, <a href="">Termos de uso, Política de privacidade</a> e <a href="">Proteção à Propriedade Intelectual</a><br>
+                © Bom Negócio Atividades de Internet Ltda. Avenida Duarte Coelho, 1654, Campina de Feira - 53605-030 - Igarassu, PE</p>
+        </footer>
+    </div>
 </body>
 
 <style>
     body {
         background-color: white;
+    }
+
+    .topnav div.active {
+        background-color: white;
+        color: #5c913b;
+    }
+
+    .active,
+    .entrar,
+    .inicio {
+        float: left;
+        color: white;
+        font-size: 17px;
+        padding: 2% 2% 2% 2%;
+    }
+
+    .active:hover,
+    .entrar:hover,
+    .inicio:hover {
+        background-color: white;
+        color: #5c913b;
+        opacity: 0.8;
     }
 
     input[type="text"] {

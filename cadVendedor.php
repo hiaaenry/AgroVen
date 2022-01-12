@@ -19,8 +19,8 @@ if ($stmt->fetch() !== false) {
 	echo "<script>window.location='formVendedor.php';alert('Cadastro já existe!');</script>";
 } else {
 	$inserir = "INSERT INTO 
-	AGR_VENDEDORES (VEN_NOME, VEN_EMAIL, VEN_SENHA, VEN_END_RUA, VEN_END_NUMERO, VEN_END_COMPLEMENTO, VEN_END_CIDADE, VEN_END_REF, VEN_END_CEP)
-	VALUES('$nome', '$email', '$senha', '$rua', '$numero', '$complemento', '$cidade', '$referencia', '$cep')";
+	AGR_VENDEDORES (VEN_NOME, VEN_EMAIL, VEN_SENHA, VEN_END_RUA, VEN_END_NUMERO, VEN_END_CIDADE, VEN_END_CEP)
+	VALUES('$nome', '$email', '$senha', '$rua', '$numero', '$cidade', '$cep')";
 
 	$conectar->exec($inserir);
 

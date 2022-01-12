@@ -12,20 +12,22 @@ require 'verifica.php';
 <body>
 	<div class="topnav">
 
-		<div class="logo">
-			<img src="imagem/logo.png" alt="AgroVen" width="100px">
-		</div>
+		<a>
+			<div class="logo">
+				<img src="imagem/logo.png" alt="AgroVen" width="100px">
+			</div>
+		</a>
 
 		<a href="index.php">
-			<p class="active"> Página Inicial</p>
+			<div class="active"> Página Inicial</div>
 		</a>
 
 		<a href="perfilVendedor.php">
-			<p class="fa fa-user">
+			<div class="inicio">
 				<?php
 				echo ($_SESSION["VEN_NOME"]);
 				?>
-			</p>
+			</div>
 		</a>
 
 	</div>
@@ -84,9 +86,15 @@ require 'verifica.php';
 		background-size: contain;
 	}
 
+	body h1,
+	h2,
+	p {
+		margin: 2% 0% 2% 7%;
+	}
+
 	button {
 		border: 2px solid white;
-		border-radius: 5px;
+		border-radius: 100px;
 		background-color: white;
 		padding: 14px 28px;
 		font-size: 16px;
@@ -96,6 +104,28 @@ require 'verifica.php';
 		box-shadow: 5px 5px 15px #000;
 		color: #662113;
 		cursor: pointer;
+	}
+
+	.topnav div.active {
+		background-color: white;
+		color: #5c913b;
+	}
+
+	.active,
+	.entrar,
+	.inicio {
+		float: left;
+		color: white;
+		font-size: 17px;
+		padding: 2% 2% 2% 2%;
+	}
+
+	.active:hover,
+	.entrar:hover,
+	.inicio:hover {
+		background-color: white;
+		color: #5c913b;
+		opacity: 0.8;
 	}
 
 	button:hover {
@@ -109,7 +139,6 @@ require 'verifica.php';
 	}
 
 	.coluna img {
-		border-radius: 5px;
 		box-shadow: 5px 5px 15px #000;
 	}
 

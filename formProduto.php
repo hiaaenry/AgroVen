@@ -14,71 +14,81 @@ $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 
     <div class="topnav">
 
-        <div class="logo">
-            <img src="imagem/logo.png" alt="AgroVen" width="100px">
-        </div>
+        <a>
+            <div class="logo">
+                <img src="imagem/logo.png" alt="AgroVen" width="100px">
+            </div>
+        </a>
+
+        <a href="indexVendedor.php">
+            <div class="inicio"> Página Inicial</div>
+        </a>
 
         <a href="perfilVendedor.php">
-            <p class="fa fa-user">
+            <div class="active">
                 <?php
                 echo ($_SESSION["VEN_NOME"]);
                 ?>
-            </p>
+            </div>
         </a>
 
     </div>
 
     <h1 style="text-align: center;">Qual a boa?</h1>
 
-    <div class="tabela">
+    <div class="tudo">
         <form method="POST" action="produto.php" enctype="multipart/form-data">
-            <div class="coluna">
-                <h3>Informações do Produto:</h3>
-                <input type="text" name="nome" placeholder="Nome do Produto" required><br><br>
-                <input type="text" name="descricao" placeholder="Descrição do Produto" required style="padding-bottom: 20%;"><br><br>
+            <h3>Informações do Produto</h3>
+            <input type="text" name="nome" placeholder="Nome do Produto" required><br><br>
+            <input type="text" name="descricao" placeholder="Descrição do Produto" required style="padding-bottom: 20%;"><br><br>
+            <input type="number" name="preco" placeholder="Preço do Produto R$:" required><br><br>
+            <h3>Imagem:</h3>
+            <input type="file" name="imagem" required>
 
-                <!-- <h3>Tipo do Produto</h3>
-				<input type="radio" value="frutas" id="frutas" name="produto" />
-				<label for="frutas">Frutas</label><br />
-				<input type="radio" value="verduras" id="verduras" name="produto" />
-				<label for="verduras">Verduras</label><br />
-				<input type="radio" value="legumes" id="legumes" name="produto" />
-				<label for="legumes">Legumes</label><br />
-				<input type="radio" value="animais" id="animais" name="produto" />
-				<label for="animais">Animais</label><br />
-                <input type="radio" value="derivados" id="derivados" name="produto" />
-				<label for="derivados">Derivados</label><br /> -->
+            <input type="submit" name="cadastrar" class="publicar" value="Anunciar Produto">
 
-                <h3>R$:</h3><input type="number" name="preco" placeholder="Preço do Produto R$:" required><br><br>
-            </div>
-            <div class="coluna">
-                <h3>Imagem</h3>
-                <input type="file" name="imagem" required>
-
-                <!-- <h3>Informações Opcionais</h3>
-
-				<input type="checkbox" name="obs" id="numberp" />
-				<label for="number">Ativar número de contato pessoal.</label><br />
-				<input type="checkbox" name="obs" id="numberc" />
-				<label for="number">Ativar número de contato coorporativo.</label><br />
-				<input type="checkbox" name="obs" id="local" />
-				<label for="number">Aceitar recebimento da retirada do produto no local!</label><br />
-				<input type="checkbox" name="obs" id="localc" />
-				<label for="number">Compartilhar localização</label><br />
-				<br />
-				<br /> -->
-                <input type="submit" name="cadastrar" class="publicar" value="Anunciar Produto">
-            </div>
         </form>
     </div>
 </body>
-<footer>
-    <a class="fa fa-github"></a>
-    <a class="fa fa-instagram"></a>
-</footer>
+<div class="footer">
+    <footer>
+        <hr>
+        <div class="ajuda">Ajuda e Contato</div>
+        <div class="dica">Dicas de Segurança</div>
+        <a href="https://github.com/Rayaninha/AgroVen.git" class="fa fa-github"></a>
+        <a href="" class="fa fa-instagram"></a>
+        <p><a href="">Sobre o Agroven</a>, <a href="">Termos de uso, Política de privacidade</a> e <a href="">Proteção à Propriedade Intelectual</a><br>
+            © Bom Negócio Atividades de Internet Ltda. Avenida Duarte Coelho, 1654, Campina de Feira - 53605-030 - Igarassu, PE</p>
+    </footer>
+</div>
 <style>
     body {
+        background-image: url(imagem/produto.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+
+    .topnav div.active {
         background-color: white;
+        color: #5c913b;
+    }
+
+    .active,
+    .entrar,
+    .inicio {
+        float: left;
+        color: white;
+        font-size: 17px;
+        padding: 2% 2% 2% 2%;
+    }
+
+    .active:hover,
+    .entrar:hover,
+    .inicio:hover {
+        background-color: white;
+        color: #5c913b;
+        opacity: 0.8;
     }
 
     input[type="text"],
@@ -87,16 +97,16 @@ $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
         padding: 15px 20px;
         margin: 1% 0%;
         display: inline-block;
-        border: 1px solid #ccc;
+        border: none;
         box-sizing: border-box;
         border-radius: 5px;
-        background-color: whitesmoke;
+        background-color: white;
     }
 
-    .coluna {
-        float: left;
-        width: 46%;
-        margin: 0% 2% 1% 2%;
+    .tudo {
+        width: 50%;
+        margin: 0% 25% 10% 25%;
+        height: 100%;
     }
 
     .tabela:after {
@@ -106,29 +116,29 @@ $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
     }
 
     input[type="file"] {
+        width: 100%;
         float: left;
-        padding: 10% 10% 10% 10%;
-        margin: 1%;
-        border: 1px solid #ccc;
+        padding: 10% 0% 10% 25%;
+        margin: 1% 0%;
+        border: none;
         box-sizing: border-box;
         border-radius: 5px;
-        background-color: whitesmoke;
+        background-color: white;
     }
 
     .publicar {
-        border: 2px solid white;
+        border: none;
         border-radius: 5px;
         background-color: #f5900c;
         padding: 14px 28px;
-        margin: 1% 1%;
+        margin: 1% 35% 0% 35%;
         font-size: 16px;
         cursor: pointer;
-        float: left;
         width: 30%;
         color: white;
     }
 
     .publicar:hover {
-        border: 2px solid #f5900c;
+        opacity: 0.8;
     }
 </style>
