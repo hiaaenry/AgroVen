@@ -3,12 +3,12 @@ a {
 }
 
 body {
-    font-family: Courier, monospace;
-}
-
-body {
     padding: 0px;
     margin: 0px;
+}
+
+hr {
+    background-color: grey;
 }
 
 .topnav {
@@ -26,10 +26,36 @@ body {
     width: 6em;
 }
 
-hr {
-    background-color: #000;
-    height: 1%;
+.topnav div.active {
+    background-color: white;
+    color: #5c913b;
+}
+
+.active,
+.link {
+    float: left;
+    color: white;
+    font-size: 17px;
+    padding: 2% 2% 2% 2%;
+}
+
+.active:hover,
+.link:hover {
+    background-color: white;
+    color: #5c913b;
+    opacity: 0.8;
+}
+
+button {
     border: none;
+    border-radius: 5px;
+    background-color: #FFBD59;
+    cursor: pointer;
+    color: white;
+}
+
+button:hover {
+    opacity: 0.8;
 }
 
 .footer {
@@ -40,11 +66,13 @@ hr {
 
 footer {
     background-image: url(imagem/footer.png);
-    background-color: white;
     background-repeat: repeat-x;
     background-position: bottom;
+    background-size: 30em;
+    background-color: white;
     text-align: justify;
-    height: 30%;
+    height: 25%;
+    opacity: 0.8;
 }
 
 footer a {
@@ -53,35 +81,58 @@ footer a {
 }
 
 footer p {
-    margin: 1% 0% 5% 5%;
+    margin: 0% 0% 5% 5%;
 }
 
 .ajuda {
     font-size: 25;
     float: left;
-    margin: 1% 0% 1% 5%;
+    margin: 0% 0% 1% 5%;
     text-decoration: underline;
 }
 
 .dica {
     font-size: 25;
     float: left;
-    margin: 1% 0% 1% 5%;
+    margin: 0% 0% 1% 5%;
     text-decoration: underline;
 }
 
 .fa-github {
     font-size: 40;
-    margin: 1% 0% 1% 40%;
+    margin: 0% 0% 1% 40%;
     text-decoration: none;
 }
 
 .fa-instagram {
     font-size: 40;
-    margin: 1% 0% 1% 2%;
+    margin: 0% 0% 1% 2%;
     text-decoration: none;
+}
+
+.fa-shopping-cart {
+    position: absolute;
+    right: 5%;
+    float: left;
+    color: white;
+    font-size: 20px;
+    padding: 2% 2% 2% 2%;
+}
+
+.fa-shopping-cart:hover {
+    background-color: white;
+    color: #5c913b;
+    opacity: 0.8;
 }
 
 footer a:hover {
     opacity: 0.8;
+}
+
+
+/* erro login */
+
+.fa-exclamation-triangle {
+    color: red;
+    font-size: 20;
 }

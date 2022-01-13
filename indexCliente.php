@@ -23,18 +23,18 @@ require 'verifica.php';
 		</a>
 
 		<a href="perfilCliente.php">
-			<p class="inicio">
+			<div class="link">
 				<?php
 				echo ($_SESSION["CLI_NOME"]);
 				?>
-			</p>
+			</div>
 		</a>
 
-		<a href="formCompra.php">
-			<p class="inicio">
-				Carrinho
-			</p>
+		<a href="formCarrinho.php">
+				<div class="fa fa-shopping-cart"> </div>
 		</a>
+
+	</div>
 
 	</div>
 
@@ -99,8 +99,6 @@ require 'verifica.php';
 	}
 
 	button {
-		border: 2px solid white;
-		border-radius: 100px;
 		background-color: white;
 		padding: 14px 28px;
 		font-size: 16px;
@@ -110,32 +108,6 @@ require 'verifica.php';
 		box-shadow: 5px 5px 15px #000;
 		color: #662113;
 		cursor: pointer;
-	}
-
-	.topnav div.active {
-		background-color: white;
-		color: #5c913b;
-	}
-
-	.active,
-	.entrar,
-	.inicio {
-		float: left;
-		color: white;
-		font-size: 17px;
-		padding: 2% 2% 2% 2%;
-	}
-
-	.active:hover,
-	.entrar:hover,
-	.inicio:hover {
-		background-color: white;
-		color: #5c913b;
-		opacity: 0.8;
-	}
-
-	button:hover {
-		opacity: 0.8;
 	}
 
 	.coluna {

@@ -13,14 +13,14 @@ $login = ($_SESSION["VEN_ID"]);
 <body>
     <div class="topnav">
 
-        <a>
+        <a href="indexVendedor.php">
             <div class="logo">
                 <img src="imagem/logo.png" alt="AgroVen" width="100px">
             </div>
         </a>
 
         <a href="indexVendedor.php">
-            <div class="inicio"> Página Inicial</div>
+            <div class="link"> Página Inicial</div>
         </a>
 
         <a href="perfilVendedor.php">
@@ -29,6 +29,10 @@ $login = ($_SESSION["VEN_ID"]);
                 echo ($_SESSION["VEN_NOME"]);
                 ?>
             </div>
+        </a>
+
+        <a href="meusProdutos.php">
+            <div class="link"> Meus Produtos</div>
         </a>
 
     </div>
@@ -43,14 +47,14 @@ $login = ($_SESSION["VEN_ID"]);
         <p>E-mail: <?php echo ($_SESSION["VEN_EMAIL"]); ?> </p>
         <p>ID: <?php echo ($_SESSION["VEN_ID"]); ?> </p>
         <p>CEP: <?php echo ($_SESSION["VEN_END_CEP"]); ?> Rua: <?php echo ($_SESSION["VEN_END_RUA"]); ?> Cidade: <?php echo ($_SESSION["VEN_END_CIDADE"]); ?></p>
-        <a href="meusProdutos.php">
-            <p>Meus Produtos</p>
-        </a>
         <!--         <a href="indexChat.php">
             <p> Caixa de Mensagens </p>
         </a> -->
         <a href="sair.php">
-            <p>sair</p>
+            <button>Sair</button>
+        </a>
+        <a href="formProduto.php">
+            <button>Editar</button>
         </a>
     </div>
 
@@ -69,26 +73,11 @@ $login = ($_SESSION["VEN_ID"]);
 </body>
 
 <style>
-    .topnav div.active {
-        background-color: white;
-        color: #5c913b;
-    }
-
-    .active,
-    .entrar,
-    .inicio {
-        float: left;
-        color: white;
-        font-size: 17px;
-        padding: 2% 2% 2% 2%;
-    }
-
-    .active:hover,
-    .entrar:hover,
-    .inicio:hover {
-        background-color: white;
-        color: #5c913b;
-        opacity: 0.8;
+    body {
+        background-image: url(imagem/perfilVendedor.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 50em;
     }
 
     .tudo {
@@ -98,6 +87,14 @@ $login = ($_SESSION["VEN_ID"]);
         padding: 2%;
         height: 40%;
         background-color: white;
-        box-shadow: 5px 5px 15px #000;
+        border: 1px solid grey;
+        border-radius: 5px;
+    }
+
+    button {
+        margin: 1% 0% 0% 0%;
+        padding: 1% 1%;
+        font-size: 16px;
+        width: 50%;
     }
 </style>

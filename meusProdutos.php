@@ -18,28 +18,35 @@ $idVendedor = ($_SESSION["VEN_ID"]);
 
     <div class="topnav">
 
-        <a>
+        <a href="indexVendedor.php">
             <div class="logo">
                 <img src="imagem/logo.png" alt="AgroVen" width="100px">
             </div>
         </a>
 
         <a href="indexVendedor.php">
-            <div class="inicio"> Página Inicial</div>
+            <div class="link"> Página Inicial</div>
         </a>
 
         <a href="perfilVendedor.php">
-            <div class="active">
+            <div class="link">
                 <?php
                 echo ($_SESSION["VEN_NOME"]);
                 ?>
             </div>
         </a>
 
+        <a href="meusProdutos.php">
+            <div class="active"> Meus Produtos</div>
+        </a>
+
     </div>
 
+    <a href="formProduto.php">
+        <button class="anuncie">Anuncie mais!</button>
+    </a>
+
     <div class="tudo">
-        <img src="imagem/busca.png" alt="imagem" style="width: 20em; margin-left: 60%">
         <div class="listagem">
             <?php
 
@@ -62,16 +69,24 @@ $idVendedor = ($_SESSION["VEN_ID"]);
                         echo "<p>Preço: R$ " . $row['PRO_PRECO'] . "</p>";
                         echo "<a href='formEditar.php?id=" . $row['PRO_ID'] . "'><button>Editar</button></a>";
                         echo "<a href='apagar.php?id=" . $row['PRO_ID'] . "'><button>Apagar</button></a>";
+
+                        $busca = "SELECT * FROM AGR_COMPRA_PRODUTO WHERE CPP_PRO_ID = '$id'";
+
+                        $stmt = $conectar->query($busca);
+
+                        $result = $stmt->fetch();
+
+                        if ($result == true) {
+                            echo "<p class='fa fa-exclamation'> Produto Vendido<p/>";
+                        }
                         ?>
                     </div>
-                <?php
-            }
-                ?>
-
                 </div>
+            <?php
+            }
+            ?>
         </div>
     </div>
-
     <div class="footer">
         <footer>
             <hr>
@@ -88,41 +103,21 @@ $idVendedor = ($_SESSION["VEN_ID"]);
 <style>
     body {
         background-color: white;
-    }
-
-    .topnav div.active {
-        background-color: white;
-        color: #5c913b;
-    }
-
-    .active,
-    .entrar,
-    .inicio {
-        float: left;
-        color: white;
-        font-size: 17px;
-        padding: 2% 2% 2% 2%;
-    }
-
-    .active:hover,
-    .entrar:hover,
-    .inicio:hover {
-        background-color: white;
-        color: #5c913b;
-        opacity: 0.8;
+        max-height: fit-content;
     }
 
     .tudo {
-        margin: 0% 10% 10% 10%;
+        margin: 5% 10% 10% 10%;
     }
 
     .listagem {
-        margin-top: 2%;
+        background-color: white;
+        border: 1px solid grey;
+        border-radius: 5px;
     }
 
     .coluna1 {
         float: left;
-        background-color: #89A252;
         padding: 30px;
     }
 
@@ -132,23 +127,27 @@ $idVendedor = ($_SESSION["VEN_ID"]);
     }
 
     .coluna2 {
-        background-color: #89A252;
         padding: 30px;
     }
 
     button {
-        border: none;
         margin-right: 2%;
-        border-radius: 5px;
-        background-color: #f5900c;
         padding: 1% 1%;
         font-size: 16px;
-        cursor: pointer;
         width: 30%;
         color: white;
     }
 
     button:hover {
         opacity: 0.8;
+    }
+
+    .anuncie {
+        position: fixed;
+        ;
+        background-color: #662113;
+        width: 10%;
+        bottom: 5%;
+        right: 5%;
     }
 </style>

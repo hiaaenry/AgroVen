@@ -3,8 +3,6 @@ session_start();
 include_once 'conexao.php';
 $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 ?>
-<!DOCTYPE html>
-<html lang="pt-br">
 
 <head>
     <script src="https://use.fontawesome.com/c1a45d17ac.js"></script>
@@ -15,22 +13,26 @@ $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 <body>
     <div class="topnav">
 
-        <a>
+        <a href="indexVendedor.php">
             <div class="logo">
                 <img src="imagem/logo.png" alt="AgroVen" width="100px">
             </div>
         </a>
 
         <a href="indexVendedor.php">
-            <div class="inicio"> Página Inicial</div>
+            <div class="link"> Página Inicial</div>
         </a>
 
         <a href="perfilVendedor.php">
-            <div class="active">
+            <div class="link">
                 <?php
                 echo ($_SESSION["VEN_NOME"]);
                 ?>
             </div>
+        </a>
+
+        <a>
+            <div class="active"> Editar</div>
         </a>
 
     </div>
@@ -54,19 +56,20 @@ $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
             <input type="hidden" name="id" value="<?php if (isset($row['PRO_ID'])) {
                                                         echo $row['PRO_ID'];
                                                     } ?>">
-            <label>Nome: </label>
+            <label>Nome: </label><br>
             <input type="text" name="nome" placeholder="Nome do Produto" value="<?php if (isset($row['PRO_NOME'])) {
                                                                                     echo $row['PRO_NOME'];
                                                                                 } ?>"><br><br>
-            <label>Descrição: </label>
-            <input type="text" name="descricao" placeholder="Descrição do Produto" value="<?php if (isset($row['PRO_DESCRICAO'])) {
+            <label>Descrição: </label><br>
+            <input type="text" name="descricao" placeholder="Descrição do Produto" style="padding-bottom: 20%;" value="<?php if (isset($row['PRO_DESCRICAO'])) {
                                                                                                 echo $row['PRO_DESCRICAO'];
                                                                                             } ?>"><br><br>
-            <label>Preço: </label>
-            <input type="textarea" name="preco" placeholder="Preço do Produto" value="<?php if (isset($row['PRO_PRECO'])) {
+            <label>Preço: </label><br>
+            <input type="text" name="preco" placeholder="Preço do Produto" value="<?php if (isset($row['PRO_PRECO'])) {
                                                                                             echo $row['PRO_PRECO'];
                                                                                         } ?>"><br><br>
             <input name="editar" type="submit" value="Editar">
+            
         </form>
     </div>
     <div class="footer">
@@ -82,37 +85,40 @@ $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
     </div>
 </body>
 
-</html>
 <style>
-    .topnav div.active {
-        background-color: white;
-        color: #5c913b;
-    }
-
-    .active,
-    .entrar,
-    .inicio {
-        float: left;
-        color: white;
-        font-size: 17px;
-        padding: 2% 2% 2% 2%;
-    }
-
-    .active:hover,
-    .entrar:hover,
-    .inicio:hover {
-        background-color: white;
-        color: #5c913b;
-        opacity: 0.8;
-    }
-
     .tudo {
         width: 40%;
         margin: 5% 30% 5% 30%;
         text-align: justify;
         padding: 2%;
-        height: 40%;
         background-color: white;
-        box-shadow: 5px 5px 15px #000;
+        border: 1px solid grey;
+        border-radius: 5px;
+    }
+
+    input[type='text'] {
+        width: 100%;
+        padding: 15px 20px;
+        display: inline-block;
+        border: 2px solid whitesmoke;
+        box-sizing: border-box;
+        border-radius: 5px;
+        background-color: whitesmoke;
+    }
+
+    input[type='submit'] {
+        border: none;
+        border-radius: 5px;
+        background-color: #FFBD59;
+        cursor: pointer;
+        color: white;
+        margin: 2% 35% 0% 35%;
+        padding: 1% 1%;
+        font-size: 16px;
+        width: 30%;
+    }
+
+    input[type='submit']:hover {
+        opacity: 0.8;
     }
 </style>

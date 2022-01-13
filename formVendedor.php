@@ -1,5 +1,7 @@
 <head>
+    <script src="https://use.fontawesome.com/c1a45d17ac.js"></script>
     <link href="geral.css" rel="stylesheet">
+    <title>AgroVen</title>
 </head>
 
 <body>
@@ -81,49 +83,49 @@
 </body>
 
 
-<<style>
+<style>
     body {
-    background-image: url(imagem/figura.png);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 50em;
-    background-color: #FFBD59;
-    color: black;
+        background-image: url(imagem/figura.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 50em;
+        background-color: #FFBD59;
+        color: black;
     }
 
     .topnav div.active {
-    background-color: #FFBD59;
-    color: black;
+        background-color: #FFBD59;
+        color: black;
     }
 
     .active,
     .entrar,
     .inicio {
-    float: left;
-    color: white;
-    font-size: 17px;
-    padding: 2% 2% 2% 2%;
+        float: left;
+        color: white;
+        font-size: 17px;
+        padding: 2% 2% 2% 2%;
     }
 
     .active:hover,
     .entrar:hover,
     .inicio:hover {
-    background-color: #FFBD59;
-    color: black;
-    opacity: 0.8;
+        background-color: #FFBD59;
+        color: black;
+        opacity: 0.8;
     }
 
     button {
-    border: none;
-    border-radius: 100px;
-    background-color: #5c913b;
-    padding: 14px 28px;
-    margin: 20px 35%;
-    font-size: 16px;
-    cursor: pointer;
-    float: left;
-    width: 30%;
-    color: white;
+        border: none;
+        border-radius: 100px;
+        background-color: #5c913b;
+        padding: 14px 28px;
+        margin: 20px 35%;
+        font-size: 16px;
+        cursor: pointer;
+        float: left;
+        width: 30%;
+        color: white;
     }
 
     button:hover {
@@ -131,98 +133,98 @@
     }
 
     .tabela:after {
-    content: "";
-    display: table;
-    clear: both;
+        content: "";
+        display: table;
+        clear: both;
     }
 
     .coluna1 {
-    float: left;
-    width: 46%;
-    height: 100%;
-    margin: 0% 2% 5% 2%;
-    padding-top: 5%;
-    text-align: center;
+        float: left;
+        width: 46%;
+        height: 100%;
+        margin: 0% 2% 5% 2%;
+        padding-top: 5%;
+        text-align: center;
     }
 
     .coluna1 a {
-    margin: 8px 15%;
-    color: black;
+        margin: 8px 15%;
+        color: black;
     }
 
     .coluna2 {
-    float: left;
-    width: 46%;
-    height: 100%;
-    margin: 5% 2% 5% 2%;
-    padding-top: 5%;
-    text-align: center;
+        float: left;
+        width: 46%;
+        height: 100%;
+        margin: 5% 2% 5% 2%;
+        padding-top: 5%;
+        text-align: center;
     }
 
     .coluna2 a {
-    margin: 8px 15%;
-    color: black;
+        margin: 8px 15%;
+        color: black;
     }
 
     .linha1 img {
-    float: left;
-    width: 20%;
-    margin-left: 15%;
-    margin-right: 5%;
-    margin-bottom: 20px;
-    border-radius: 50%;
+        float: left;
+        width: 20%;
+        margin-left: 15%;
+        margin-right: 5%;
+        margin-bottom: 20px;
+        border-radius: 50%;
     }
 
     .linha1 h3 {
-    width: 70%;
-    padding: 9%;
-    text-align: center;
+        width: 70%;
+        padding: 9%;
+        text-align: center;
     }
 
     .linha2 img {
-    float: left;
-    width: 20%;
-    margin-left: 15%;
-    margin-right: 5%;
-    margin-bottom: 20px;
-    border-radius: 50%;
+        float: left;
+        width: 20%;
+        margin-left: 15%;
+        margin-right: 5%;
+        margin-bottom: 20px;
+        border-radius: 50%;
     }
 
     .linha2 h3 {
-    width: 70%;
-    padding: 9%;
-    text-align: center;
+        width: 70%;
+        padding: 9%;
+        text-align: center;
     }
 
     .linha3 img {
-    float: left;
-    width: 20%;
-    margin-left: 15%;
-    margin-right: 5%;
-    margin-bottom: 20px;
-    border-radius: 50%;
+        float: left;
+        width: 20%;
+        margin-left: 15%;
+        margin-right: 5%;
+        margin-bottom: 20px;
+        border-radius: 50%;
     }
 
     .linha3 h3 {
-    width: 70%;
-    padding: 5%;
-    text-align: center;
+        width: 70%;
+        padding: 5%;
+        text-align: center;
     }
 
     input[type="text"],
     input[type="email"],
     input[type="password"],
     input[type="number"] {
-    width: 70%;
-    padding: 15px 20px;
-    margin: 8px 15%;
-    display: inline-block;
-    border: 2px solid white;
-    box-sizing: border-box;
-    border-radius: 100px;
+        width: 70%;
+        padding: 15px 20px;
+        margin: 8px 15%;
+        display: inline-block;
+        border: 2px solid white;
+        box-sizing: border-box;
+        border-radius: 100px;
     }
 
     footer {
-    background-color: #FFBD59;
+        background-color: #FFBD59;
     }
-    </style>
+</style>

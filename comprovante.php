@@ -15,39 +15,52 @@ $idCliente = ($_SESSION['CLI_ID']);
 <body>
 	<div class="topnav">
 
-		<a>
+		<a href="indexCliente.php">
 			<div class="logo">
 				<img src="imagem/logo.png" alt="AgroVen" width="100px">
 			</div>
 		</a>
 
-		<a href="index.php">
-			<div class="active"> Página Inicial</div>
+		<a href="indexCliente.php">
+			<div class="link"> Página Inicial</div>
 		</a>
 
 		<a href="perfilCliente.php">
-			<p class="inicio">
+			<div class="link">
 				<?php
 				echo ($_SESSION["CLI_NOME"]);
 				?>
-			</p>
+			</div>
 		</a>
 
-		<a href="formCompra.php">
-			<p class="inicio">
-				Carrinho
-			</p>
+		<a href="listarProdutosLogado.php">
+			<div class="link"> Buscar Produtos</div>
+		</a>
+
+		<a href="comprovante.php">
+			<div class="active"> Comprovante</div>
+		</a>
+
+		<a href="formCarrinho.php">
+			<div class="fa fa-shopping-cart"> </div>
 		</a>
 
 	</div>
 	<h1>Comprovante de Venda</h1>
 
+	<div class="tudo">
 
+		<table class="tabela">
+			<tr>
+				<th>PRODUTO</th>
+				<th>PREÇO</th>
+				<th>QUANTIDADE</th>
+				<th>SOMA</th>
+			</tr>
+			<tr>
+				<?php
 
-	<?php
-
-
-	$sql = ("SELECT PRO_NOME, PRO_PRECO, PRO_ID, CPP_QTD_PRO, CPP_PRECO_PRO_QTD, CLI_NOME 
+				$sql = ("SELECT PRO_NOME, PRO_PRECO, PRO_ID, CPP_QTD_PRO, CPP_PRECO_PRO_QTD, CLI_NOME 
 		FROM AGR_PRODUTO 
 		INNER JOIN AGR_COMPRA_PRODUTO
 		ON AGR_PRODUTO.PRO_ID = AGR_COMPRA_PRODUTO.CPP_PRO_ID
@@ -57,26 +70,39 @@ $idCliente = ($_SESSION['CLI_ID']);
 		ON AGR_CLIENTES.CLI_ID = AGR_COMPRA.COM_CLI_ID
 		WHERE COM_CLI_ID = $idCliente");
 
-	$result = $conectar->prepare($sql);
-	$result->execute();
-	$count = 0;
-	$cliente;
+				$result = $conectar->prepare($sql);
+				$result->execute();
+				$count = 0;
+				$cliente;
 
-	while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-		$cliente = $row['CLI_NOME'];
-		echo "Produto: " .  $row['PRO_NOME'] . "<br>";
-		echo "Preço: " .  $row['PRO_PRECO'] . "<br>";
-		echo "Quantidade: " . $row['CPP_QTD_PRO'] . "<hr>";
+				while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
 
 
-		$count = $count + $row['CPP_PRECO_PRO_QTD'];
+					$cliente = $row['CLI_NOME'];
+					echo "<td>" .  $row['PRO_NOME'] . "</td>";
+					echo "<td>R$: " .  $row['PRO_PRECO'] . "</td>";
+					echo "<td>" . $row['CPP_QTD_PRO'] . "</td>";
 
-		//echo "Vendedor:" . $row['VEN_NOME'] . "<br>";
-	}
+					$soma = $row['PRO_PRECO'] * $row['CPP_QTD_PRO'];
 
-	echo "Total da Compra: " . $count . "<br>";
-	echo "Cliente: " . $cliente;
-	?>
+					echo "<td>R$: " . $soma . "</td>";
+
+					$count = $count + $row['CPP_PRECO_PRO_QTD'];
+
+					//echo "Vendedor:" . $row['VEN_NOME'] . "<br>";
+				?>
+			</tr>
+		<?php
+				}
+		?>
+		<div class="geral">
+			<?php
+			echo "Total da Compra: " . $count . "<br>";
+			echo "Cliente: " . $cliente;
+			?>
+		</div>
+		</table>
+	</div>
 	<div class="footer">
 		<footer>
 			<hr>
@@ -94,7 +120,14 @@ $idCliente = ($_SESSION['CLI_ID']);
 </html>
 <style>
 	body {
-		background-color: white;
+        background-image: url(imagem/comprovante.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+
+	body h1 {
+		margin: 1% 0% 1% 10%;
 	}
 
 	.topnav div.active {
@@ -120,6 +153,29 @@ $idCliente = ($_SESSION['CLI_ID']);
 	}
 
 	.tudo {
-		margin-left: 20%;
-		margin-right: 20%;
+		margin: 0% 10% 5% 10%;
+	}
+
+	.tabela {
+		width: 100%;
+		text-align: center;
+		font-size: 18;
+
+	}
+
+	.tabela td {
+		background-color: whitesmoke;
+		padding: 1%;
+		border: 1px solid whitesmoke;
+		border-radius: 5px;
+	}
+
+	.geral {
+		background-color: #FFBD59;
+		width: 20%;
+		padding: 1%;
+		border: 1px solid #FFBD59;
+		border-radius: 5px;
+		margin: 1% 0% 2% 0%;
+		font-size: 20;
 	}

@@ -18,7 +18,7 @@
 		</a>
 
 		<a href="formLogin.php">
-			<div class="entrar"> Entrar</div>
+			<div class="link"> Entrar</div>
 		</a>
 
 	</div>
@@ -72,7 +72,7 @@
 <style>
 	body {
 		background-image: url(imagem/fundo.png);
-		background-position: center;
+		background-position: right;
 		background-repeat: no-repeat;
 		background-size: contain;
 	}
@@ -84,8 +84,6 @@
 	}
 
 	button {
-		border: 2px solid white;
-		border-radius: 100px;
 		background-color: white;
 		padding: 14px 28px;
 		font-size: 16px;
@@ -95,32 +93,6 @@
 		box-shadow: 5px 5px 15px #000;
 		color: #662113;
 		cursor: pointer;
-	}
-
-	.topnav div.active {
-		background-color: white;
-		color: #5c913b;
-	}
-
-	.active,
-	.entrar,
-	.inicio {
-		float: left;
-		color: white;
-		font-size: 17px;
-		padding: 2% 2% 2% 2%;
-	}
-
-	.active:hover,
-	.entrar:hover,
-	.inicio:hover {
-		background-color: white;
-		color: #5c913b;
-		opacity: 0.8;
-	}
-
-	button:hover {
-		opacity: 0.8;
 	}
 
 	.coluna {

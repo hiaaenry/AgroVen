@@ -20,28 +20,35 @@ if (sizeof($_SESSION['carrinho']) < 1) {
 
     <div class="topnav">
 
-        <a>
+        <a href="indexCliente.php">
             <div class="logo">
                 <img src="imagem/logo.png" alt="AgroVen" width="100px">
             </div>
         </a>
 
-        <a href="index.php">
-            <div class="active"> Página Inicial</div>
+        <a href="indexCliente.php">
+            <div class="link"> Página Inicial</div>
         </a>
 
         <a href="perfilCliente.php">
-            <p class="inicio">
+            <div class="link">
                 <?php
                 echo ($_SESSION["CLI_NOME"]);
                 ?>
-            </p>
+            </div>
+        </a>
+
+        <a href="listarProdutosLogado.php">
+            <div class="link"> Buscar Produtos</div>
+        </a>
+
+        <a href="formCarrinho.php">
+            <div class="fa fa-shopping-cart"> </div>
         </a>
 
     </div>
 
     <div class="tudo">
-
         <div class="listagem">
             <?php
 
@@ -63,94 +70,90 @@ if (sizeof($_SESSION['carrinho']) < 1) {
                         echo "Preço: " . $result['PRO_PRECO'] . "<br>";
                         echo "Quantidade: " . $_SESSION['carrinho'][$i]['qtd'] . "<br>";
                         ?>
-                        <form action="alterarQuantidade.php" method="POST">
-                            <input type="number" min="1" placeholder="Alterar Quantidade" name="quantidade"></input>
+                        <form action="alterarQuantidade.php" method="POST" id="form">
+                            <input type="number" min="1" placeholder="Alterar Quantidade" id="quantidade" name="quantidade"></input>
                             <input type="hidden" name="id" value='<?= $result["PRO_ID"] ?>'></input>
-                            <input type="submit" name="Alterar"></input>
                         </form>
                         <?php
                         echo "<a href='retirarDoCarrinho.php?idProduto=" . $result['PRO_ID'] . "'><button>Remover</button></a>";
                         ?>
                     </div>
-                <?php
-            };
-                ?>
                 </div>
-                <a href='listarProdutosLogado.php'>
-                    <button>Continuar Comprando</button>
-                </a>
-                <a href="compra.php">
-                    <button type="submit">Finalizar Compra</button>
-                </a>
+            <?php
+            };
+            ?>
         </div>
     </div>
-        <div class="footer">
-            <footer>
-                <hr>
-                <div class="ajuda">Ajuda e Contato</div>
-                <div class="dica">Dicas de Segurança</div>
-                <a href="https://github.com/Rayaninha/AgroVen.git" class="fa fa-github"></a>
-                <a href="" class="fa fa-instagram"></a>
-                <p><a href="">Sobre o Agroven</a>, <a href="">Termos de uso, Política de privacidade</a> e <a href="">Proteção à Propriedade Intelectual</a><br>
-                    © Bom Negócio Atividades de Internet Ltda. Avenida Duarte Coelho, 1654, Campina de Feira - 53605-030 - Igarassu, PE</p>
-            </footer>
-        </div>
+    <a href='listarProdutosLogado.php'>
+        <button>Continuar Comprando</button>
+    </a>
+    <a href="compra.php">
+        <button type="submit">Finalizar Compra</button>
+    </a>
+    <div class="footer">
+        <footer>
+            <hr>
+            <div class="ajuda">Ajuda e Contato</div>
+            <div class="dica">Dicas de Segurança</div>
+            <a href="https://github.com/Rayaninha/AgroVen.git" class="fa fa-github"></a>
+            <a href="" class="fa fa-instagram"></a>
+            <p><a href="">Sobre o Agroven</a>, <a href="">Termos de uso, Política de privacidade</a> e <a href="">Proteção à Propriedade Intelectual</a><br>
+                © Bom Negócio Atividades de Internet Ltda. Avenida Duarte Coelho, 1654, Campina de Feira - 53605-030 - Igarassu, PE</p>
+        </footer>
+    </div>
 </body>
+
+<script>
+    function checksInput() {
+        const input = document.getElementById("quantidade");
+        const form = document.getElementById("form");
+
+        if (input.value.length > 1) {
+            form.submit();
+        }
+    }
+
+    document.getElementById("quantidade").oninput = checksInput;
+</script>
 
 <style>
     body {
-        background-color: white;
+        background-image: url(imagem/busca.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 60em;
     }
 
-    .topnav div.active {
-        background-color: white;
-        color: #5c913b;
-    }
-
-    .active,
-    .entrar,
-    .inicio {
-        float: left;
-        color: white;
-        font-size: 17px;
-        padding: 2% 2% 2% 2%;
-    }
-
-    .active:hover,
-    .entrar:hover,
-    .inicio:hover {
+    .topnav div.fa-shopping-cart {
         background-color: white;
         color: #5c913b;
-        opacity: 0.8;
     }
 
     .tudo {
-        margin-left: 20%;
-        margin-right: 20%;
+        margin: 10% 20% 2% 20%;
     }
 
     input[type="number"] {
-        width: 96%;
+        width: 100%;
         padding: 2%;
         margin: 1% 0% 1% 0%;
         display: inline-block;
-        border: 1px solid #ccc;
+        border: 1px solid grey;
         box-sizing: border-box;
         border-radius: 5px;
     }
 
     .listagem {
         width: 100%;
-        margin: 2% 0% 2% 0%;
-        padding: 1%;
-        border-radius: 5px;
-        min-height: 100%;
+        padding: 1% 0% 0% 0%;
     }
 
     .produto {
-        background-color: whitesmoke;
+        border-radius: 5px;
         width: 100%;
         float: left;
+        border: 1px solid grey;
+        background-color: white;
     }
 
     .coluna {
@@ -164,18 +167,10 @@ if (sizeof($_SESSION['carrinho']) < 1) {
     }
 
     button {
-        border: 2px solid white;
-        border-radius: 5px;
-        background-color: #f5900c;
         padding: 14px 28px;
         font-size: 16px;
-        cursor: pointer;
+        ;
         width: 50%;
-        color: white;
-        margin: 2% 25% 0% 25%;
-    }
-
-    button:hover {
-        border: 2px solid #f5900c;
+        margin: 1% 25% 0% 25%;
     }
 </style>

@@ -1,5 +1,7 @@
 <head>
+    <script src="https://use.fontawesome.com/c1a45d17ac.js"></script>
     <link href="geral.css" rel="stylesheet">
+    <title>AgroVen</title>
 </head>
 
 <body>

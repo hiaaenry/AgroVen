@@ -6,9 +6,7 @@ $email = $_POST['CLI_EMAIL'];
 $senha = $_POST['CLI_SENHA'];
 $rua = $_POST['CLI_END_RUA'];
 $numero = $_POST['CLI_END_NUMERO'];
-$complemento = $_POST['CLI_END_COMPLEMENTO'];
 $cidade = $_POST['CLI_END_CIDADE'];
-$referencia = $_POST['CLI_END_REF'];
 $cep = $_POST['CLI_END_CEP'];
 
 $inserir = "SELECT * FROM AGR_CLIENTES WHERE CLI_EMAIL = '$email'";

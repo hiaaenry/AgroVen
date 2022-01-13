@@ -1,4 +1,9 @@
+<head>
+	<link href="geral.css" rel="stylesheet">
+</head>
+
 <?php
+session_start();
 include_once "conexao.php";
 
 $email = $_POST['email'];
@@ -10,6 +15,7 @@ $login = "SELECT * FROM AGR_VENDEDORES WHERE VEN_EMAIL = '$email' AND VEN_SENHA 
 $stmt = $conectar->query($login);
 
 $result = $stmt->fetch();
+
 if ($result == false) {
 
 	$login = "SELECT * FROM AGR_CLIENTES WHERE CLI_EMAIL = '$email' AND CLI_SENHA = '$senha'";
@@ -19,7 +25,7 @@ if ($result == false) {
 	$result = $stmt->fetch();
 
 	if ($result == false) {
-		echo "<script>window.location='formLogin.php';alert('Email ou Senha Incorreto!');</script>";
+		$_SESSION['erro'] = "<p class='fa fa-exclamation-triangle'> Usuário não encontrado<p/>";
 		exit();
 	}
 	session_start();
@@ -29,7 +35,7 @@ if ($result == false) {
 	$_SESSION['CLI_EMAIL'] = $result['CLI_EMAIL'];
 	$_SESSION['carrinho'] = [];
 
-	echo "<script>window.location='indexCliente.php';alert('Olá, Seja Bem Vindo!');</script>";
+	header('location: indexCliente.php');
 }
 
 session_start();
@@ -38,4 +44,4 @@ $_SESSION['VEN_ID'] = $result['VEN_ID'];
 $_SESSION['VEN_NOME'] = $result['VEN_NOME'];
 $_SESSION['VEN_EMAIL'] = $result['VEN_EMAIL'];
 
-echo "<script>window.location='indexVendedor.php';alert('Olá, Seja Bem Vindo!');</script>";
+header('location: indexVendedor.php');

@@ -34,5 +34,4 @@ $query = $conectar->prepare($sql3);
 $query->execute();
 
 $_SESSION['carrinho'] = [];
-
-echo "<script>window.location='comprovante.php';alert('Compra arquivada, segue ao');</script>";
+header('location: comprovante.php');

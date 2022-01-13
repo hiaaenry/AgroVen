@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <head>
     <script src="https://use.fontawesome.com/c1a45d17ac.js"></script>
     <link href="geral.css" rel="stylesheet">
@@ -14,7 +16,7 @@
         </div>
 
         <a href="index.php">
-            <div class="inicio"> Página Inicial</div>
+            <div class="link"> Página Inicial</div>
         </a>
 
         <a href="formLogin.php">
@@ -26,11 +28,18 @@
     <form action="login.php" method="POST">
 
         <div class="container">
+
             <h1>ENTRAR</h1>
             <input type="email" placeholder="Digite seu e-mail" name="email" required>
             <input type="password" placeholder="Digite sua senha" name="senha" required>
             <b><a href="escolha.php" style="color: black;">Não tem uma conta?</a></b>
             <button name="cadastrar" type="submit">Entrar</button>
+
+            <?php if (isset($_SESSION['erro'])) {
+                echo $_SESSION['erro'];
+                unset($_SESSION['erro']);
+            }
+            ?>
 
         </div>
 
@@ -53,33 +62,11 @@
         background-image: url(imagem/figura.png);
         background-position: center;
         background-repeat: no-repeat;
-        background-size: 50em;
-        background-color: #FFBD59;
-    }
-
-    .topnav div.active {
-        background-color: #FFBD59;
-        color: black;
-    }
-
-    .active,
-    .entrar,
-    .inicio {
-        float: left;
-        color: white;
-        font-size: 17px;
-        padding: 2% 2% 2% 2%;
-    }
-
-    .active:hover,
-    .entrar:hover,
-    .inicio:hover {
-        background-color: #FFBD59;
-        color: black;
-        opacity: 0.8;
+        background-size: 45em;
     }
 
     .container {
+        height: 40%;
         margin: 5% 30% 10% 30%;
         text-align: center;
     }
@@ -87,10 +74,10 @@
     input[type="email"],
     input[type="password"] {
         width: 100%;
-        padding: 15px 20px;
-        margin: 8px 0px;
+        padding: 2% 2%;
+        margin: 1% 1%;
         display: inline-block;
-        border: 1px solid #ccc;
+        border: none;
         border-radius: 100px;
         box-sizing: border-box;
     }
@@ -103,15 +90,10 @@
         border: none;
         cursor: pointer;
         width: 50%;
-        border-radius: 100px;
     }
 
     button:hover {
         opacity: 0.8;
         cursor: pointer;
-    }
-
-    footer {
-        background-color: #FFBD59;
     }
 </style>

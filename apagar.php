@@ -26,7 +26,7 @@ if (($delete_produto) and ($delete_produto->rowCount() != 0)) {
 	$apagar = $conectar->prepare($excluir);
 
 	if ($apagar->execute()) {
-		echo "<script>window.location='meusProdutos.php';alert('Produto apagado com sucesso!');</script>";
+		header("Location: meusProdutos.php");
 	} else {
 		echo "<script>window.location='meusProdutos.php';alert('Produto Não apagado!.');</script>";
 	}

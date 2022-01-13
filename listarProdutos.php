@@ -47,7 +47,9 @@ include_once 'conexao.php';
                         echo "<p>Nome: " . $row['PRO_NOME'] . "</p>";
                         echo "<p>Descrição: " . $row['PRO_DESCRICAO'] . "</p>";
                         echo "<p>Preço: R$ " . $row['PRO_PRECO'] . "</p>";
-                        echo "<a href='compra.php?idProduto=" . $row['PRO_ID'] . "'>Comprar</a><br>";                      ?>
+                        echo "<a href='compra.php?idProduto=" . $row['PRO_ID'] . "'>Comprar</a><br>";
+                        ?>
+                        
                     </div>
                 <?php
             }

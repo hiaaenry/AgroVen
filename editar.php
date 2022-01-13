@@ -21,7 +21,6 @@ if ($editar) {
   
 
     if ($updateCad->execute()) {
-        $_SESSION['msg'] = "<p style='color:green;'> Produto editado com sucesso</p>";
         header("Location: meusProdutos.php");
     } else {
         $_SESSION['msg'] = "<p style='color:red;'>Produto não foi editado, tente novamente!</p>";

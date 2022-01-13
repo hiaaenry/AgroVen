@@ -14,22 +14,26 @@ $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 
     <div class="topnav">
 
-        <a>
+        <a href="indexVendedor.php">
             <div class="logo">
                 <img src="imagem/logo.png" alt="AgroVen" width="100px">
             </div>
         </a>
 
         <a href="indexVendedor.php">
-            <div class="inicio"> Página Inicial</div>
+            <div class="link"> Página Inicial</div>
         </a>
 
         <a href="perfilVendedor.php">
-            <div class="active">
+            <div class="link">
                 <?php
                 echo ($_SESSION["VEN_NOME"]);
                 ?>
             </div>
+        </a>
+
+        <a href="meusProdutos.php">
+            <div class="link"> Meus Produtos</div>
         </a>
 
     </div>
