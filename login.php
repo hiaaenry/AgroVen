@@ -26,6 +26,8 @@ if ($result == false) {
 
 	if ($result == false) {
 		$_SESSION['erro'] = "<p class='fa fa-exclamation-triangle'> Usuário não encontrado<p/>";
+		$_SESSION['erroEmail'] = $email;
+		header('location: formLogin.php');
 		exit();
 	}
 	session_start();
@@ -36,6 +38,7 @@ if ($result == false) {
 	$_SESSION['carrinho'] = [];
 
 	header('location: indexCliente.php');
+	exit();
 }
 
 session_start();

@@ -1,4 +1,9 @@
+<head>
+	<link href="geral.css" rel="stylesheet">
+</head>
+
 <?php
+session_start();
 include_once "conexao.php";
 
 $nome = $_POST['CLI_NOME'];
@@ -13,8 +18,10 @@ $inserir = "SELECT * FROM AGR_CLIENTES WHERE CLI_EMAIL = '$email'";
 $stmt = $conectar->query($inserir);
 
 if ($stmt->fetch() !== false) {
-
-	echo "<script>window.location='formCliente.php';alert('Cadastro já existe!');</script>";
+	$_SESSION['erro'] = "<p class='fa fa-exclamation-triangle'> Usuário já cadastrado<p/>";
+	$_SESSION['erroEmail'] = $email;
+	header('location: formCliente.php');
+	exit();
 } else {
 	$inserir = "INSERT INTO 
 	AGR_CLIENTES (CLI_NOME, CLI_EMAIL, CLI_SENHA, CLI_END_RUA, CLI_END_NUMERO, CLI_END_CIDADE, CLI_END_CEP)
@@ -22,5 +29,5 @@ if ($stmt->fetch() !== false) {
 
 	$conectar->exec($inserir);
 
-	echo "<script>window.location='formLogin.php';alert('Cadastro realizado com sucesso!');</script>";
+	header('location: formLogin.php');
 }

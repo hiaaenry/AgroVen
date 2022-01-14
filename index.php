@@ -13,10 +13,6 @@
 			</div>
 		</a>
 
-		<a href="index.php">
-			<div class="active"> Página Inicial</div>
-		</a>
-
 		<a href="formLogin.php">
 			<div class="link"> Entrar</div>
 		</a>

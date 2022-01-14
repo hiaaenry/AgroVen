@@ -18,10 +18,6 @@ require 'verifica.php';
             </div>
         </a>
 
-        <a href="indexCliente.php">
-            <div class="link"> Página Inicial</div>
-        </a>
-
         <a href="perfilCliente.php">
             <div class="active">
                 <?php
@@ -38,6 +34,10 @@ require 'verifica.php';
             <div class="fa fa-shopping-cart"> </div>
         </a>
 
+        <a href="sair.php">
+            <div class="fa fa-sign-out"> </div>
+        </a>
+
     </div>
 
 
@@ -51,15 +51,9 @@ require 'verifica.php';
         <p>E-mail cadastrado: <?php echo ($_SESSION["CLI_EMAIL"]); ?> </p>
         <p>ID: <?php echo ($_SESSION["CLI_ID"]); ?> </p>
         <p>CEP: <?php echo ($_SESSION["CLI_END_CEP"]); ?> Rua: <?php echo ($_SESSION["CLI_END_RUA"]); ?> Cidade: <?php echo ($_SESSION["CLI_END_CIDADE"]); ?></p>
-        <a href="sair.php">
-            <button>Sair</button>
-        </a>
         <a href="">
             <button>Editar</button>
         </a>
-        <!-- <a href="indexChat.php">
-                <p>Caixa de Mensagens</p>
-            </a> -->
     </div>
 
     <div class="footer">
@@ -82,6 +76,11 @@ require 'verifica.php';
         background-position: center;
         background-repeat: no-repeat;
         background-size: 50em;
+    }
+
+    .fa-sign-out {
+        position: absolute;
+        right: 5%;
     }
 
     .tudo {

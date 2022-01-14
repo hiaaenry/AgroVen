@@ -18,10 +18,6 @@ require 'verifica.php';
 			</div>
 		</a>
 
-		<a href="index.php">
-			<div class="active"> Página Inicial</div>
-		</a>
-
 		<a href="perfilCliente.php">
 			<div class="link">
 				<?php
@@ -33,6 +29,10 @@ require 'verifica.php';
 		<a href="formCarrinho.php">
 				<div class="fa fa-shopping-cart"> </div>
 		</a>
+
+		<a href="sair.php">
+            <div class="fa fa-sign-out"> </div>
+        </a>
 
 	</div>
 
@@ -97,6 +97,11 @@ require 'verifica.php';
 	p {
 		margin: 2% 0% 2% 7%;
 	}
+
+	.fa-sign-out {
+        position: absolute;
+        right: 5%;
+    }
 
 	button {
 		background-color: white;

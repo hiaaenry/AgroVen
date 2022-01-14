@@ -19,10 +19,6 @@ $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
             </div>
         </a>
 
-        <a href="indexVendedor.php">
-            <div class="link"> Página Inicial</div>
-        </a>
-
         <a href="perfilVendedor.php">
             <div class="link">
                 <?php
@@ -33,6 +29,10 @@ $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 
         <a>
             <div class="active"> Editar</div>
+        </a>
+
+        <a href="sair.php">
+            <div class="fa fa-sign-out"> </div>
         </a>
 
     </div>
@@ -62,14 +62,14 @@ $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
                                                                                 } ?>"><br><br>
             <label>Descrição: </label><br>
             <input type="text" name="descricao" placeholder="Descrição do Produto" style="padding-bottom: 20%;" value="<?php if (isset($row['PRO_DESCRICAO'])) {
-                                                                                                echo $row['PRO_DESCRICAO'];
-                                                                                            } ?>"><br><br>
+                                                                                                                            echo $row['PRO_DESCRICAO'];
+                                                                                                                        } ?>"><br><br>
             <label>Preço: </label><br>
             <input type="text" name="preco" placeholder="Preço do Produto" value="<?php if (isset($row['PRO_PRECO'])) {
-                                                                                            echo $row['PRO_PRECO'];
-                                                                                        } ?>"><br><br>
+                                                                                        echo $row['PRO_PRECO'];
+                                                                                    } ?>"><br><br>
             <input name="editar" type="submit" value="Editar">
-            
+
         </form>
     </div>
     <div class="footer">
@@ -86,6 +86,11 @@ $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 </body>
 
 <style>
+    .fa-sign-out {
+        position: absolute;
+        right: 5%;
+    }
+
     .tudo {
         width: 40%;
         margin: 5% 30% 5% 30%;

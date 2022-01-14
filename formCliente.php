@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <head>
     <script src="https://use.fontawesome.com/c1a45d17ac.js"></script>
     <link href="geral.css" rel="stylesheet">
@@ -13,10 +15,6 @@
                 <img src="imagem/logo.png" alt="AgroVen" width="100px">
             </a>
         </div>
-
-        <a href="index.php">
-            <div class="inicio"> Página Inicial</div>
-        </a>
 
         <a href="escolha.php">
             <div class="inicio"> Escolher</div>
@@ -36,7 +34,7 @@
             <form action="cadCliente.php" method="POST">
                 <!-- Dados Pessoais -->
                 <input type="text" placeholder="Seu nome" name="CLI_NOME" required />
-                <input type="email" placeholder="Seu e-mail" name="CLI_EMAIL" required />
+                <input type="email" placeholder="Seu e-mail" name="CLI_EMAIL" required value="<?= $_SESSION['erroEmail'] ?? '' ?>" />
                 <input type="password" placeholder="Sua senha" name="CLI_SENHA" required />
                 <!-- Endereço -->
                 <input type="text" placeholder="Nome da rua" name="CLI_END_RUA" required />
@@ -47,6 +45,13 @@
                 <b><a href="formLogin.php">Já possui uma conta? Entre aqui!</a></b>
 
                 <button class="cadastrar" type="submit">Cadastrar-se</button>
+
+                <?php if (isset($_SESSION['erro'])) {
+                    echo $_SESSION['erro'];
+                    unset($_SESSION['erro']);
+                    unset($_SESSION['erroEmail']);
+                }
+                ?>
 
             </form>
 
@@ -92,26 +97,9 @@
         color: black;
     }
 
-    .topnav div.active {
-        background-color: #FFBD59;
-        color: black;
-    }
-
-    .active,
-    .entrar,
-    .inicio {
-        float: left;
-        color: white;
-        font-size: 17px;
-        padding: 2% 2% 2% 2%;
-    }
-
-    .active:hover,
-    .entrar:hover,
-    .inicio:hover {
-        background-color: #FFBD59;
-        color: black;
-        opacity: 0.8;
+    .fa-sign-out {
+        position: absolute;
+        right: 5%;
     }
 
     button {

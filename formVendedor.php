@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <head>
     <script src="https://use.fontawesome.com/c1a45d17ac.js"></script>
     <link href="geral.css" rel="stylesheet">
@@ -14,10 +16,6 @@
             </a>
         </div>
 
-        <a href="index.php">
-            <div class="inicio"> Página Inicial</div>
-        </a>
-
         <a href="escolha.php">
             <div class="inicio"> Escolher</div>
         </a>
@@ -33,10 +31,17 @@
 
             <h1>CRIAR CONTA</h1>
 
+            <?php if (isset($_SESSION['erro'])) {
+                echo $_SESSION['erro'];
+                unset($_SESSION['erro']);
+                unset($_SESSION['erroEmail']);
+            }
+            ?>
+
             <form action="cadVendedor.php" method="POST">
                 <!-- Dados Pessoais -->
                 <input type="text" placeholder="Seu nome" name="VEN_NOME" required />
-                <input type="email" placeholder="Seu e-mail" name="VEN_EMAIL" required />
+                <input type="email" placeholder="Seu e-mail" name="VEN_EMAIL" required value="<?= $_SESSION['erroEmail'] ?? ''?>"/>
                 <input type="password" placeholder="Sua senha" name="VEN_SENHA" required />
                 <!-- Endereço -->
                 <input type="text" placeholder="Nome da rua" name="VEN_END_RUA" required />

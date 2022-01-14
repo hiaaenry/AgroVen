@@ -24,10 +24,6 @@ $idVendedor = ($_SESSION["VEN_ID"]);
             </div>
         </a>
 
-        <a href="indexVendedor.php">
-            <div class="link"> Página Inicial</div>
-        </a>
-
         <a href="perfilVendedor.php">
             <div class="link">
                 <?php
@@ -38,6 +34,10 @@ $idVendedor = ($_SESSION["VEN_ID"]);
 
         <a href="meusProdutos.php">
             <div class="active"> Meus Produtos</div>
+        </a>
+
+        <a href="sair.php">
+            <div class="fa fa-sign-out"> </div>
         </a>
 
     </div>
@@ -103,11 +103,17 @@ $idVendedor = ($_SESSION["VEN_ID"]);
 <style>
     body {
         background-color: white;
-        max-height: fit-content;
+        min-height: fit-content;
+    }
+
+    .fa-sign-out {
+        position: absolute;
+        right: 5%;
     }
 
     .tudo {
         margin: 5% 10% 10% 10%;
+        min-height: 50%;
     }
 
     .listagem {
@@ -143,11 +149,10 @@ $idVendedor = ($_SESSION["VEN_ID"]);
     }
 
     .anuncie {
-        position: fixed;
-        ;
+        position: absolute;
         background-color: #662113;
         width: 10%;
-        bottom: 5%;
-        right: 5%;
+        top: 15%;
+        right: 8%;
     }
 </style>

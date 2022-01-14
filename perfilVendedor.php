@@ -19,10 +19,6 @@ $login = ($_SESSION["VEN_ID"]);
             </div>
         </a>
 
-        <a href="indexVendedor.php">
-            <div class="link"> Página Inicial</div>
-        </a>
-
         <a href="perfilVendedor.php">
             <div class="active">
                 <?php
@@ -33,6 +29,10 @@ $login = ($_SESSION["VEN_ID"]);
 
         <a href="meusProdutos.php">
             <div class="link"> Meus Produtos</div>
+        </a>
+
+        <a href="sair.php">
+            <div class="fa fa-sign-out"> </div>
         </a>
 
     </div>
@@ -47,13 +47,7 @@ $login = ($_SESSION["VEN_ID"]);
         <p>E-mail: <?php echo ($_SESSION["VEN_EMAIL"]); ?> </p>
         <p>ID: <?php echo ($_SESSION["VEN_ID"]); ?> </p>
         <p>CEP: <?php echo ($_SESSION["VEN_END_CEP"]); ?> Rua: <?php echo ($_SESSION["VEN_END_RUA"]); ?> Cidade: <?php echo ($_SESSION["VEN_END_CIDADE"]); ?></p>
-        <!--         <a href="indexChat.php">
-            <p> Caixa de Mensagens </p>
-        </a> -->
-        <a href="sair.php">
-            <button>Sair</button>
-        </a>
-        <a href="formProduto.php">
+        <a href="editarVendedor.php">
             <button>Editar</button>
         </a>
     </div>
@@ -78,6 +72,11 @@ $login = ($_SESSION["VEN_ID"]);
         background-position: center;
         background-repeat: no-repeat;
         background-size: 50em;
+    }
+
+    .fa-sign-out {
+        position: absolute;
+        right: 5%;
     }
 
     .tudo {

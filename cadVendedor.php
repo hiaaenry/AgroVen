@@ -1,4 +1,9 @@
+<head>
+	<link href="geral.css" rel="stylesheet">
+</head>
+
 <?php
+session_start();
 include_once "conexao.php";
 
 $nome = $_POST['VEN_NOME'];
@@ -15,8 +20,10 @@ $inserir = "SELECT * FROM AGR_VENDEDORES WHERE VEN_EMAIL = '$email'";
 $stmt = $conectar->query($inserir);
 
 if ($stmt->fetch() !== false) {
-
-	echo "<script>window.location='formVendedor.php';alert('Cadastro já existe!');</script>";
+	$_SESSION['erro'] = "<p class='fa fa-exclamation-triangle'> Usuário já cadastrado<p/>";
+	$_SESSION['erroEmail'] = $email;
+	header('location: formVendedor.php');
+	exit();
 } else {
 	$inserir = "INSERT INTO 
 	AGR_VENDEDORES (VEN_NOME, VEN_EMAIL, VEN_SENHA, VEN_END_RUA, VEN_END_NUMERO, VEN_END_CIDADE, VEN_END_CEP)
@@ -24,5 +31,5 @@ if ($stmt->fetch() !== false) {
 
 	$conectar->exec($inserir);
 
-	echo "<script>window.location='formLogin.php';alert('Cadastro realizado com sucesso!');</script>";
+	header('location: formLogin.php');
 }

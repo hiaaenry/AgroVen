@@ -14,10 +14,6 @@
             </a>
         </div>
 
-        <a href="index.php">
-            <div class="inicio"> Página Inicial</div>
-        </a>
-
         <a href="formLogin.php">
             <div class="active"> Escolha</div>
         </a>

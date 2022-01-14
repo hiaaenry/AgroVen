@@ -20,10 +20,6 @@ $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
             </div>
         </a>
 
-        <a href="indexVendedor.php">
-            <div class="link"> Página Inicial</div>
-        </a>
-
         <a href="perfilVendedor.php">
             <div class="link">
                 <?php
@@ -34,6 +30,10 @@ $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 
         <a href="meusProdutos.php">
             <div class="link"> Meus Produtos</div>
+        </a>
+
+        <a href="sair.php">
+            <div class="fa fa-sign-out"> </div>
         </a>
 
     </div>
@@ -67,32 +67,15 @@ $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 </div>
 <style>
     body {
-        background-image: url(imagem/produto.png);
+        background-image: url(imagem/figura.png);
         background-position: center;
         background-repeat: no-repeat;
-        background-size: contain;
+        background-size: 70em;
     }
 
-    .topnav div.active {
-        background-color: white;
-        color: #5c913b;
-    }
-
-    .active,
-    .entrar,
-    .inicio {
-        float: left;
-        color: white;
-        font-size: 17px;
-        padding: 2% 2% 2% 2%;
-    }
-
-    .active:hover,
-    .entrar:hover,
-    .inicio:hover {
-        background-color: white;
-        color: #5c913b;
-        opacity: 0.8;
+    .fa-sign-out {
+        position: absolute;
+        right: 5%;
     }
 
     input[type="text"],
@@ -100,8 +83,7 @@ $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
         width: 100%;
         padding: 15px 20px;
         margin: 1% 0%;
-        display: inline-block;
-        border: none;
+        border: 1px solid grey;
         box-sizing: border-box;
         border-radius: 5px;
         background-color: white;
@@ -124,7 +106,7 @@ $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
         float: left;
         padding: 10% 0% 10% 25%;
         margin: 1% 0%;
-        border: none;
+        border: 1px solid grey;
         box-sizing: border-box;
         border-radius: 5px;
         background-color: white;

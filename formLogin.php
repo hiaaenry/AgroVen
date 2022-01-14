@@ -15,10 +15,6 @@
             </a>
         </div>
 
-        <a href="index.php">
-            <div class="link"> Página Inicial</div>
-        </a>
-
         <a href="formLogin.php">
             <div class="active"> Entrar</div>
         </a>
@@ -30,7 +26,7 @@
         <div class="container">
 
             <h1>ENTRAR</h1>
-            <input type="email" placeholder="Digite seu e-mail" name="email" required>
+            <input type="email" placeholder="Digite seu e-mail" name="email" required value="<?= $_SESSION['erroEmail'] ?? ''?>">
             <input type="password" placeholder="Digite sua senha" name="senha" required>
             <b><a href="escolha.php" style="color: black;">Não tem uma conta?</a></b>
             <button name="cadastrar" type="submit">Entrar</button>
@@ -38,6 +34,7 @@
             <?php if (isset($_SESSION['erro'])) {
                 echo $_SESSION['erro'];
                 unset($_SESSION['erro']);
+                unset($_SESSION['erroEmail']);
             }
             ?>
 

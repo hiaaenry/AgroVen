@@ -26,10 +26,6 @@ if (sizeof($_SESSION['carrinho']) < 1) {
             </div>
         </a>
 
-        <a href="indexCliente.php">
-            <div class="link"> Página Inicial</div>
-        </a>
-
         <a href="perfilCliente.php">
             <div class="link">
                 <?php
@@ -44,6 +40,10 @@ if (sizeof($_SESSION['carrinho']) < 1) {
 
         <a href="formCarrinho.php">
             <div class="fa fa-shopping-cart"> </div>
+        </a>
+
+        <a href="sair.php">
+            <div class="fa fa-sign-out"> </div>
         </a>
 
     </div>
@@ -104,7 +104,7 @@ if (sizeof($_SESSION['carrinho']) < 1) {
 </body>
 
 <script>
-    function checksInput() {
+    function envio() {
         const input = document.getElementById("quantidade");
         const form = document.getElementById("form");
 
@@ -113,7 +113,7 @@ if (sizeof($_SESSION['carrinho']) < 1) {
         }
     }
 
-    document.getElementById("quantidade").oninput = checksInput;
+    document.getElementById("quantidade").oninput = envio;
 </script>
 
 <style>
@@ -129,16 +129,22 @@ if (sizeof($_SESSION['carrinho']) < 1) {
         color: #5c913b;
     }
 
+    .fa-sign-out {
+        position: absolute;
+        right: 5%;
+    }
+
     .tudo {
         margin: 10% 20% 2% 20%;
     }
 
     input[type="number"] {
+        background-color: whitesmoke;
         width: 100%;
         padding: 2%;
         margin: 1% 0% 1% 0%;
         display: inline-block;
-        border: 1px solid grey;
+        border: 1px solid whitesmoke;
         box-sizing: border-box;
         border-radius: 5px;
     }
@@ -152,7 +158,7 @@ if (sizeof($_SESSION['carrinho']) < 1) {
         border-radius: 5px;
         width: 100%;
         float: left;
-        border: 1px solid grey;
+        border: 1px solid white;
         background-color: white;
     }
 

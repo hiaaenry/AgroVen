@@ -112,7 +112,7 @@ footer p {
 
 .fa-shopping-cart {
     position: absolute;
-    right: 5%;
+    right: 10%;
     float: left;
     color: white;
     font-size: 20px;
@@ -120,6 +120,20 @@ footer p {
 }
 
 .fa-shopping-cart:hover {
+    background-color: white;
+    color: #5c913b;
+    opacity: 0.8;
+}
+
+.fa-sign-out {
+    position: absolute;
+    float: left;
+    color: white;
+    font-size: 20px;
+    padding: 2% 2% 2% 2%;
+}
+
+.fa-sign-out:hover {
     background-color: white;
     color: #5c913b;
     opacity: 0.8;

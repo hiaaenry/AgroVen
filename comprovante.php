@@ -3,7 +3,6 @@ session_start();
 include 'conexao.php';
 require 'verifica.php';
 $idCliente = ($_SESSION['CLI_ID']);
-
 ?>
 
 <head>
@@ -19,10 +18,6 @@ $idCliente = ($_SESSION['CLI_ID']);
 			<div class="logo">
 				<img src="imagem/logo.png" alt="AgroVen" width="100px">
 			</div>
-		</a>
-
-		<a href="indexCliente.php">
-			<div class="link"> Página Inicial</div>
 		</a>
 
 		<a href="perfilCliente.php">
@@ -45,6 +40,10 @@ $idCliente = ($_SESSION['CLI_ID']);
 			<div class="fa fa-shopping-cart"> </div>
 		</a>
 
+		<a href="sair.php">
+			<div class="fa fa-sign-out"> </div>
+		</a>
+
 	</div>
 	<h1>Comprovante de Venda</h1>
 
@@ -55,7 +54,9 @@ $idCliente = ($_SESSION['CLI_ID']);
 				<th>PRODUTO</th>
 				<th>PREÇO</th>
 				<th>QUANTIDADE</th>
-				<th>SOMA</th>
+				<th>SUBTOTAL</th>
+				<th>FRETE</th>
+				<th>TOTAL</th>
 			</tr>
 			<tr>
 				<?php
@@ -80,16 +81,26 @@ $idCliente = ($_SESSION['CLI_ID']);
 
 					$cliente = $row['CLI_NOME'];
 					echo "<td>" .  $row['PRO_NOME'] . "</td>";
-					echo "<td>R$: " .  $row['PRO_PRECO'] . "</td>";
+					echo "<td>R$" .  $row['PRO_PRECO'] . "</td>";
 					echo "<td>" . $row['CPP_QTD_PRO'] . "</td>";
 
-					$soma = $row['PRO_PRECO'] * $row['CPP_QTD_PRO'];
+					$subtotal = $row['PRO_PRECO'] * $row['CPP_QTD_PRO'];
 
-					echo "<td>R$: " . $soma . "</td>";
+					echo "<td>R$" . $subtotal . "</td>";
 
 					$count = $count + $row['CPP_PRECO_PRO_QTD'];
 
-					//echo "Vendedor:" . $row['VEN_NOME'] . "<br>";
+					$frete = 10;
+					if ($subtotal > 100) {
+						$frete = 0;
+					}
+
+					echo "<td>R$" . $frete . "</td>";
+
+					$total = $subtotal + $frete;
+
+					echo "<td>R$" . $total . "</td>";
+
 				?>
 			</tr>
 		<?php
@@ -97,8 +108,8 @@ $idCliente = ($_SESSION['CLI_ID']);
 		?>
 		<div class="geral">
 			<?php
-			echo "Total da Compra: " . $count . "<br>";
-			echo "Cliente: " . $cliente;
+			echo "Total da Compra: R$" . $count . "<br>";
+			echo "Cliente: " . $cliente . "<br>";
 			?>
 		</div>
 		</table>
@@ -120,47 +131,30 @@ $idCliente = ($_SESSION['CLI_ID']);
 </html>
 <style>
 	body {
-        background-image: url(imagem/comprovante.png);
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: contain;
-    }
+		background-image: url(imagem/comprovante.png);
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: contain;
+	}
 
 	body h1 {
 		margin: 1% 0% 1% 10%;
 	}
 
-	.topnav div.active {
-		background-color: white;
-		color: #5c913b;
-	}
-
-	.active,
-	.entrar,
-	.inicio {
-		float: left;
-		color: white;
-		font-size: 17px;
-		padding: 2% 2% 2% 2%;
-	}
-
-	.active:hover,
-	.entrar:hover,
-	.inicio:hover {
-		background-color: white;
-		color: #5c913b;
-		opacity: 0.8;
+	.fa-sign-out {
+		position: absolute;
+		right: 5%;
 	}
 
 	.tudo {
 		margin: 0% 10% 5% 10%;
+		min-height: 50%;
 	}
 
 	.tabela {
 		width: 100%;
 		text-align: center;
 		font-size: 18;
-
 	}
 
 	.tabela td {
