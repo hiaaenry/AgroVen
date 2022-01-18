@@ -1,4 +1,5 @@
 <?php
+include_once 'conexao.php';
 session_start();
 require 'verifica.php';
 $login = ($_SESSION["VEN_ID"]);
@@ -44,9 +45,21 @@ $login = ($_SESSION["VEN_ID"]);
             ?>
         </h1>
 
-        <p>E-mail: <?php echo ($_SESSION["VEN_EMAIL"]); ?> </p>
-        <p>ID: <?php echo ($_SESSION["VEN_ID"]); ?> </p>
-        <p>CEP: <?php echo ($_SESSION["VEN_END_CEP"]); ?> Rua: <?php echo ($_SESSION["VEN_END_RUA"]); ?> Cidade: <?php echo ($_SESSION["VEN_END_CIDADE"]); ?></p>
+        <?php
+        $exibir = $conectar->query("SELECT VEN_EMAIL, VEN_END_CIDADE, VEN_END_RUA, VEN_END_NUMERO, VEN_END_CEP FROM AGR_VENDEDORES;");
+
+
+        while ($result = $exibir->fetch(PDO::FETCH_ASSOC)) {
+            echo "Email: {$result['VEN_EMAIL']} <br />";
+            echo "Cidade: {$result['VEN_END_CIDADE']} <br />";
+            echo "Rua: {$result['VEN_END_RUA']} <br />";
+            echo "Numero: {$result['VEN_END_NUMERO']} <br />";
+            echo "CEP: {$result['VEN_END_CEP']} <br />";
+        }
+        ?>
+
+
+
         <a href="editarVendedor.php">
             <button>Editar</button>
         </a>

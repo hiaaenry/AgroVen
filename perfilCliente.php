@@ -51,13 +51,22 @@ $idCliente = ($_SESSION["CLI_ID"]);
             ?>
         </h1>
 
-        <p>E-mail cadastrado: <?php echo ($_SESSION["CLI_EMAIL"]); ?> </p>
-        <p>ID: <?php echo ($_SESSION["CLI_ID"]); ?> </p>
-        <p>CEP: <?php echo ($_SESSION["CLI_END_CEP"]); ?> Rua: <?php echo ($_SESSION["CLI_END_RUA"]); ?> Cidade: <?php echo ($_SESSION["CLI_END_CIDADE"]); ?></p>
-
         <?php
-        echo "<a href='formEditarCliente.php?id=" . $row['CLI_ID'] . "'><button>Editar</button></a>";
+        $exibir = $conectar->query("SELECT CLI_EMAIL, CLI_END_CIDADE, CLI_END_RUA, CLI_END_NUMERO, CLI_END_CEP FROM AGR_CLIENTES;");
+
+
+        while ($result = $exibir->fetch(PDO::FETCH_ASSOC)) {
+            echo "Email: {$result['CLI_EMAIL']} <br />";
+            echo "Cidade: {$result['CLI_END_CIDADE']} <br />";
+            echo "Rua: {$result['CLI_END_RUA']} <br />";
+            echo "Numero: {$result['CLI_END_NUMERO']} <br />";
+            echo "CEP: {$result['CLI_END_CEP']} <br />";
+
+        }
         ?>
+
+        <a href="formEditarCliente.php"><button>Editar</button></a>
+
 
     </div>
 
@@ -69,7 +78,7 @@ $idCliente = ($_SESSION["CLI_ID"]);
             <a href="https://github.com/Rayaninha/AgroVen.git" class="fa fa-github"></a>
             <a href="" class="fa fa-instagram"></a>
             <p><a href="">Sobre o Agroven</a>, <a href="">Termos de uso, Política de privacidade</a> e <a href="">Proteção à Propriedade Intelectual</a><br>
-                © Bom Negócio Atividades de Internet Ltda. Avenida Duarte Coelho, 1654, Campina de Feira - 53605-030 - Igarassu, PE</p>
+            © Bom Negócio Atividades de Internet Ltda. Avenida Duarte Coelho, 1654, Campina de Feira - 53605-030 - Igarassu, PE</p>
         </footer>
     </div>
 

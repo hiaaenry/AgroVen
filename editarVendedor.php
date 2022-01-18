@@ -31,10 +31,10 @@ if ($editar) {
     if ($updateCad->execute()) {
         header("Location: perfilVendedor.php");
     } else {
-        $_SESSION['msg'] = "<p style='color:red;'>Produto não foi editado, tente novamente!</p>";
+        $_SESSION['msg'] = "<p style='color:red;'>Perfil do vendedor não editado, tente novamente!</p>";
         header("Location: perfilVendedor.php");
     }
 } else {
-    $_SESSION['msg'] = "<p style='color:red;'>Produto não foi editado, tente novamente!</p>";
+    $_SESSION['msg'] = "<p style='color:red;'>Perfil do vendedor não editado, tente novamente!</p>";
     header("Location: perfilVendedor.php");
 }

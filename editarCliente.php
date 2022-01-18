@@ -2,7 +2,7 @@
 session_start();
 include_once 'conexao.php';
 
-$editar = filter_input(INPUT_POST, 'editar', FILTER_SANITIZE_STRING);
+$editar = filter_input(INPUT_POST, 'cadastrar', FILTER_SANITIZE_STRING);
 if ($editar) {
 
     $id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
@@ -16,11 +16,11 @@ if ($editar) {
    
 
 
-    $update_banco = ("UPDATE AGR_CLIENTES SET CLI_NOME=:nome, CLI_EMAIL=:email, CLI_SENHA=:senha, CLI_END_RUA=:rua, CLI_END_NUMERO=:numero, CLI_END_CIDADE=:cidade, CLI_END_CEP=:CEP, WHERE CLI_ID='$id'");
+    $update_banco = ("UPDATE AGR_CLIENTES SET CLI_NOME=:nome, CLI_EMAIL=:email, CLI_SENHA=:senha, CLI_END_RUA=:rua, CLI_END_NUMERO=:numero, CLI_END_CIDADE=:cidade, CLI_END_CEP=:CEP WHERE CLI_ID='$id'");
 
     $updateCad = $conectar->prepare($update_banco);
     $updateCad->bindParam(':nome', $nome);
-    $updateCad->bindParam(':emial', $email);
+    $updateCad->bindParam(':email', $email);
     $updateCad->bindParam(':senha', $senha);
     $updateCad->bindParam(':rua', $rua);
     $updateCad->bindParam(':numero', $numero);
@@ -31,10 +31,10 @@ if ($editar) {
     if ($updateCad->execute()) {
         header("Location: perfilCliente.php");
     } else {
-        $_SESSION['msg'] = "<p style='color:red;'>Produto não foi editado, tente novamente!</p>";
+        $_SESSION['msg'] = "<p style='color:red;'>Perfil do cliente não editado, tente novamente!</p>";
         header("Location: perfilCliente.php");
     }
 } else {
-    $_SESSION['msg'] = "<p style='color:red;'>Produto não foi editado, tente novamente!</p>";
+    $_SESSION['msg'] = "<p style='color:red;'>Perfil do cliente não editado, tente novamente!</p>";
     header("Location: perfilCliente.php");
 }

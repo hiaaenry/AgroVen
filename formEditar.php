@@ -54,20 +54,20 @@ $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
         ?>
         <form enctype="multipart/form-data" method="POST" action="editar.php">
             <input type="hidden" name="id" value="<?php if (isset($row['PRO_ID'])) {
-                                                        echo $row['PRO_ID'];
-                                                    } ?>">
+                echo $row['PRO_ID'];
+            } ?>">
             <label>Nome: </label><br>
             <input type="text" name="nome" placeholder="Nome do Produto" value="<?php if (isset($row['PRO_NOME'])) {
-                                                                                    echo $row['PRO_NOME'];
-                                                                                } ?>"><br><br>
+                echo $row['PRO_NOME'];
+            } ?>"><br><br>
             <label>Descrição: </label><br>
             <input type="text" name="descricao" placeholder="Descrição do Produto" style="padding-bottom: 20%;" value="<?php if (isset($row['PRO_DESCRICAO'])) {
-                                                                                                                            echo $row['PRO_DESCRICAO'];
-                                                                                                                        } ?>"><br><br>
+                echo $row['PRO_DESCRICAO'];
+            } ?>"><br><br>
             <label>Preço: </label><br>
             <input type="text" name="preco" placeholder="Preço do Produto" value="<?php if (isset($row['PRO_PRECO'])) {
-                                                                                        echo $row['PRO_PRECO'];
-                                                                                    } ?>"><br><br>
+                echo $row['PRO_PRECO'];
+            } ?>"><br><br>
             <input name="editar" type="submit" value="Editar">
 
         </form>
@@ -80,7 +80,7 @@ $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
             <a href="https://github.com/Rayaninha/AgroVen.git" class="fa fa-github"></a>
             <a href="" class="fa fa-instagram"></a>
             <p><a href="">Sobre o Agroven</a>, <a href="">Termos de uso, Política de privacidade</a> e <a href="">Proteção à Propriedade Intelectual</a><br>
-                © Bom Negócio Atividades de Internet Ltda. Avenida Duarte Coelho, 1654, Campina de Feira - 53605-030 - Igarassu, PE</p>
+            © Bom Negócio Atividades de Internet Ltda. Avenida Duarte Coelho, 1654, Campina de Feira - 53605-030 - Igarassu, PE</p>
         </footer>
     </div>
 </body>

@@ -41,33 +41,37 @@ $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
     <div class="tudo">
         <h1>EDITAR CONTA</h1>
 
+
+        
+
         <form enctype="multipart/form-data" method="POST" action="editarVendedor.php">
             <input type="hidden" name="id" value="<?php if (isset($row['VEN_ID'])) {
-                                                        echo $row['VEN_ID'];
-                                                    } ?>">
+                echo $row['VEN_ID'];
+            } ?>">
             <!-- Dados Pessoais -->
-        <input type="text" name="nome" placeholder="Novo nome" value="<?php if (isset($row['VEN_NOME'])) {
-                                                                                echo $row['VEN_NOME'];
-                                                                            } ?>"><br><br>
+            <input type="text" name="nome" placeholder="Novo nome" value="<?php if (isset($row['VEN_NOME'])) {
+                echo $row['VEN_NOME'];
+            } ?>"><br><br>
             <input type="email" name="email" placeholder="Novo email" value="<?php if (isset($row['VEN_EMAIL'])) {
-                                                                                    echo $row['VEN_EMAIL'];
-                                                                                } ?>"><br><br>
+                echo $row['VEN_EMAIL'];
+            } ?>"><br><br>
             <input type="password" name="senha" placeholder="Nova senha" value="<?php if (isset($row['VEN_SENHA'])) {
-                                                                                    echo $row['VEN_SENHA'];
-                                                                                } ?>"><br><br>
+                echo $row['VEN_SENHA'];
+            } ?>"><br><br>
             <!-- Endereço -->
             <input type="text" name="rua" placeholder="Nova rua" value="<?php if (isset($row['VEN_END_RUA'])) {
-                                                                            echo $row['VEN_END_RUA'];
-                                                                        } ?>"><br><br>
+                echo $row['VEN_END_RUA'];
+            } ?>"><br><br>
             <input type="number" name="numero" placeholder="Novo numero" value="<?php if (isset($row['VEN_END_NUMERO'])) {
-                                                                                    echo $row['VEN_END_NUMERO'];
-                                                                                } ?>"><br><br>
+                echo $row['VEN_END_NUMERO'];
+            } ?>"><br><br>
             <input type="text" name="cidade" placeholder="Nova cidade" value="<?php if (isset($row['VEN_END_CIDADE'])) {
-                                                                                    echo $row['VEN_END_CIDADE'];
-                                                                                } ?>"><br><br>
+                echo $row['VEN_END_CIDADE'];
+            } ?>"><br><br>
             <input type="number" name="CEP" placeholder="Novo CEP" value="<?php if (isset($row['VEN_END_CEP'])) {
-                                                                                echo $row['VEN_END_CEP'];
-                                                                            } ?>"><br><br>
+                echo $row['VEN_END_CEP'];
+            } ?>"><br><br>
+
             <button class="cadastrar" type="submit">Editar</button>
 
             <?php if (isset($_SESSION['erro'])) {
@@ -87,7 +91,7 @@ $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
         <a href="https://github.com/Rayaninha/AgroVen.git" class="fa fa-github"></a>
         <a href="" class="fa fa-instagram"></a>
         <p><a href="">Sobre o Agroven</a>, <a href="">Termos de uso, Política de privacidade</a> e <a href="">Proteção à Propriedade Intelectual</a><br>
-            © Bom Negócio Atividades de Internet Ltda. Avenida Duarte Coelho, 1654, Campina de Feira - 53605-030 - Igarassu, PE</p>
+        © Bom Negócio Atividades de Internet Ltda. Avenida Duarte Coelho, 1654, Campina de Feira - 53605-030 - Igarassu, PE</p>
     </footer>
 </body>
 
