@@ -16,7 +16,7 @@ if ($editar) {
    
 
 
-    $update_banco = ("UPDATE AGR_CLIENTES SET CLI_NOME=:nome, CLI_EMAIL=:email, CLI_SENHA=:senha, CLI_END_RUA=:rua, CLI_END_NUMERO=:numero, CLI_END_CIDADE=:cidade, CLI_END_CEP=:CEP, WHERE CLI_ID='$id'");
+    $update_banco = ("UPDATE AGR_VENDEDORES SET VEN_NOME=:nome, VEN_EMAIL=:email, VEN_SENHA=:senha, VEN_END_RUA=:rua, VEN_END_NUMERO=:numero, VEN_END_CIDADE=:cidade, VEN_END_CEP=:CEP, WHERE VEN_ID='$id'");
 
     $updateCad = $conectar->prepare($update_banco);
     $updateCad->bindParam(':nome', $nome);
@@ -29,12 +29,12 @@ if ($editar) {
   
 
     if ($updateCad->execute()) {
-        header("Location: perfilCliente.php");
+        header("Location: perfilVendedor.php");
     } else {
         $_SESSION['msg'] = "<p style='color:red;'>Produto não foi editado, tente novamente!</p>";
-        header("Location: perfilCliente.php");
+        header("Location: perfilVendedor.php");
     }
 } else {
     $_SESSION['msg'] = "<p style='color:red;'>Produto não foi editado, tente novamente!</p>";
-    header("Location: perfilCliente.php");
+    header("Location: perfilVendedor.php");
 }

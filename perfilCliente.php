@@ -1,6 +1,9 @@
 <?php
 session_start();
 require 'verifica.php';
+include_once 'conexao.php';
+$id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
+$idCliente = ($_SESSION["CLI_ID"]);
 ?>
 
 <head>
@@ -51,9 +54,11 @@ require 'verifica.php';
         <p>E-mail cadastrado: <?php echo ($_SESSION["CLI_EMAIL"]); ?> </p>
         <p>ID: <?php echo ($_SESSION["CLI_ID"]); ?> </p>
         <p>CEP: <?php echo ($_SESSION["CLI_END_CEP"]); ?> Rua: <?php echo ($_SESSION["CLI_END_RUA"]); ?> Cidade: <?php echo ($_SESSION["CLI_END_CIDADE"]); ?></p>
-        <a href="">
-            <button>Editar</button>
-        </a>
+
+        <?php
+        echo "<a href='formEditarCliente.php?id=" . $row['CLI_ID'] . "'><button>Editar</button></a>";
+        ?>
+
     </div>
 
     <div class="footer">

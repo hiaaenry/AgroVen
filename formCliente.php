@@ -17,7 +17,7 @@
         </div>
 
         <a href="escolha.php">
-            <div class="inicio"> Escolher</div>
+            <div class="link"> Escolher</div>
         </a>
 
         <a href="formLogin.php">
@@ -95,11 +95,6 @@
         background-size: 50em;
         background-color: #FFBD59;
         color: black;
-    }
-
-    .fa-sign-out {
-        position: absolute;
-        right: 5%;
     }
 
     button {

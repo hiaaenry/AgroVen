@@ -17,7 +17,7 @@
         </div>
 
         <a href="escolha.php">
-            <div class="inicio"> Escolher</div>
+            <div class="link"> Escolher</div>
         </a>
 
         <a href="formLogin.php">
@@ -96,28 +96,6 @@
         background-size: 50em;
         background-color: #FFBD59;
         color: black;
-    }
-
-    .topnav div.active {
-        background-color: #FFBD59;
-        color: black;
-    }
-
-    .active,
-    .entrar,
-    .inicio {
-        float: left;
-        color: white;
-        font-size: 17px;
-        padding: 2% 2% 2% 2%;
-    }
-
-    .active:hover,
-    .entrar:hover,
-    .inicio:hover {
-        background-color: #FFBD59;
-        color: black;
-        opacity: 0.8;
     }
 
     button {

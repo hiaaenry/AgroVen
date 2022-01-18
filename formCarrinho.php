@@ -158,7 +158,7 @@ if (sizeof($_SESSION['carrinho']) < 1) {
         border-radius: 5px;
         width: 100%;
         float: left;
-        border: 1px solid white;
+        border: 1px solid grey;
         background-color: white;
     }
 
