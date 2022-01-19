@@ -113,7 +113,7 @@ if (sizeof($_SESSION['carrinho']) < 1) {
         }
     }
 
-    document.getElementById("quantidade").oninput = envio;
+    document.getElementById("quantidade").input = envio;
 </script>
 
 <style>

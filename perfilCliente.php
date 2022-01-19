@@ -52,7 +52,7 @@ $idCliente = ($_SESSION["CLI_ID"]);
         </h1>
 
         <?php
-        $exibir = $conectar->query("SELECT CLI_EMAIL, CLI_END_CIDADE, CLI_END_RUA, CLI_END_NUMERO, CLI_END_CEP FROM AGR_CLIENTES;");
+        $exibir = $conectar->query("SELECT CLI_EMAIL, CLI_END_CIDADE, CLI_END_RUA, CLI_END_NUMERO, CLI_END_CEP FROM AGR_CLIENTES WHERE CLI_ID = $idCliente;");
 
 
         while ($result = $exibir->fetch(PDO::FETCH_ASSOC)) {
@@ -64,9 +64,6 @@ $idCliente = ($_SESSION["CLI_ID"]);
 
         }
         ?>
-
-        <a href="formEditarCliente.php"><button>Editar</button></a>
-
 
     </div>
 

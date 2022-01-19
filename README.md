@@ -19,4 +19,5 @@ Um sistema desenvolvido para estabelecer a venda online dos produtos de trabalha
 <ul>
 	  <li> Apagar todos os dados de teste do banco, antes de subir </li>
       <li> Verificar o arquivo "conexao.php" </li>
+      <li> Verificar se a pasta "imagens" importou</li>
 </ul>

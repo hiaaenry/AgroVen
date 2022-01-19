@@ -2,7 +2,8 @@
 include_once 'conexao.php';
 session_start();
 require 'verifica.php';
-$login = ($_SESSION["VEN_ID"]);
+$id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
+$idVendedor = ($_SESSION["VEN_ID"]);
 ?>
 
 <head>
@@ -46,7 +47,7 @@ $login = ($_SESSION["VEN_ID"]);
         </h1>
 
         <?php
-        $exibir = $conectar->query("SELECT VEN_EMAIL, VEN_END_CIDADE, VEN_END_RUA, VEN_END_NUMERO, VEN_END_CEP FROM AGR_VENDEDORES;");
+        $exibir = $conectar->query("SELECT VEN_EMAIL, VEN_END_CIDADE, VEN_END_RUA, VEN_END_NUMERO, VEN_END_CEP FROM AGR_VENDEDORES WHERE VEN_ID = $idVendedor;");
 
 
         while ($result = $exibir->fetch(PDO::FETCH_ASSOC)) {
@@ -57,12 +58,7 @@ $login = ($_SESSION["VEN_ID"]);
             echo "CEP: {$result['VEN_END_CEP']} <br />";
         }
         ?>
-
-
-
-        <a href="editarVendedor.php">
-            <button>Editar</button>
-        </a>
+        
     </div>
 
     <div class="footer">
